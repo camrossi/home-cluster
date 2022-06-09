@@ -9,8 +9,8 @@ metadata:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: pihole-config
-    namespace: pihole
+  name: pihole-config
+  namespace: pihole
 data:
-    TZ: 'Australia/Sydney'
-    DNS1: 8.8.8.8
+  TZ: 'Australia/Sydney'
+  DNS1: 8.8.8.8
