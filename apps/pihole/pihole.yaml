@@ -14,3 +14,29 @@ metadata:
 data:
   TZ: 'Australia/Sydney'
   DNS1: 8.8.8.8
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pihole-pvc
+  namespace: pihole
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 1Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: dnsmasq-pvc
+  namespace: pihole
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 100Mi
