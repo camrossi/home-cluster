@@ -12,7 +12,7 @@ spec:
       app: pihole
   template:
     metadata:
-      abels:
+      labels:
         app: pihole
     spec:
       containers:
