@@ -24,7 +24,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: pihole-config
-                   key: TZ
+                  key: TZ
             - name: DNS1
               valueFrom:
                 configMapKeyRef:
