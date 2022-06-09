@@ -36,10 +36,10 @@ spec:
             - name: dnsmasq-pvc
               mountPath: "/etc/dnsmasq.d"
           restartPolicy: Always
-          volumes:
-            - name: pihole-pvc
-              persistentVolumeClaim:
-                claimName: pihole-pvc
-            - name: dnsmasq-pvc
-              persistentVolumeClaim:
-                claimName: dnsmasq-pvc
+      volumes:
+        - name: pihole-pvc
+          persistentVolumeClaim:
+            claimName: pihole-pvc
+        - name: dnsmasq-pvc
+          persistentVolumeClaim:
+            claimName: dnsmasq-pvc
