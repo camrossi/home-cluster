@@ -58,7 +58,7 @@ spec:
         app: pihole
     spec:
       containers:
-        - image: pihole/pihole:v5.0
+        - image: pihole/pihole:2022.05
           imagePullPolicy: IfNotPresent
           name: pihole
           env:
