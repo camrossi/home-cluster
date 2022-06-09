@@ -22,7 +22,7 @@ metadata:
   namespace: pihole
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   storageClassName: local-path
   resources:
     requests:
@@ -35,7 +35,7 @@ metadata:
   namespace: pihole
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   storageClassName: local-path
   resources:
     requests:
