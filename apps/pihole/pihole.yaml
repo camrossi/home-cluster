@@ -192,11 +192,11 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: 192.168.0.200
+  - host: pihole.192.168.0.200.nip.io
     http:
       paths:
       - pathType: Prefix 
-        path: "/pihole/admin"
+        path: "/admin"
         backend:
           service:
             name: pihole-ui-svc
