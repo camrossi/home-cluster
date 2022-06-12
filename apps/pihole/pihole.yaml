@@ -13,7 +13,8 @@ metadata:
   namespace: pihole
 data:
   TZ: 'Australia/Sydney'
-  DNS1: 8.8.8.8
+  DNS1: 192.168.0.1
+  DNS2: 8.8.8.8
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -111,8 +112,8 @@ metadata:
 spec:
   selector:
     app: pihole
-  clusterIP: 10.43.0.30
-  externalIPs: 192.168.0.200
+  externalIPs:
+    - 192.168.0.200
   ports:
     - name: 53-tcp
       port: 53
