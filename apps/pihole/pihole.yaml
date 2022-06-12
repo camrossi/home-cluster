@@ -182,3 +182,23 @@ status:
   loadBalancer:
     ingress:
     - ip: 192.168.0.200
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pihole-ingress
+  namespace: pihole
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: 192.168.0.200
+    http:
+      paths:
+      - pathType: Prefix 
+        path: "/pihole/admin"
+        backend:
+          service:
+            name: pihole-ui-svc
+            port:
+              number: 80
