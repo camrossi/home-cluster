@@ -63,7 +63,7 @@ spec:
         image: pihole/pihole:2022.05
         envFrom:
         - configMapRef:
-            name: pihole-configmap 
+            name: pihole-config
         - secretRef:
             name: pihole-secret
         ports:
