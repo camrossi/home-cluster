@@ -111,8 +111,8 @@ metadata:
 spec:
   selector:
     app: pihole
-  type: NodePort
   clusterIP: 10.43.0.30
+  externalIPs: 192.168.0.200
   ports:
     - name: 53-tcp
       port: 53
