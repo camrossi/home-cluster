@@ -74,24 +74,6 @@ spec:
         - name: svc-ui
           containerPort: 80
           protocol: TCP
-        livenessProbe:
-          httpGet:
-            port: svc-ui
-          initialDelaySeconds: 10
-          periodSeconds: 5
-        readinessProbe:
-          httpGet:
-            port: svc-ui
-          initialDelaySeconds: 10
-          periodSeconds: 10
-          failureThreshold: 10
-        resources:
-          limits:
-            memory: "300Mi"
-            cpu: "250m"
-          requests:
-            memory: "50Mi"
-            cpu: "100m"
           volumeMounts:
             - name: pihole-pvc
               mountPath: "/etc/pihole"
