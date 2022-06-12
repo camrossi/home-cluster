@@ -111,49 +111,19 @@ metadata:
 spec:
   selector:
     app: pihole
-  type: ClusterIP
+  type: NodePort
   clusterIP: 10.43.0.30
   ports:
     - name: 53-tcp
       port: 53
       targetPort: 53
       protocol: TCP
+      nodePort: 53
     - name: 53-udp
       port: 53
       targetPort: 53
       protocol: UDP
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: pihole-dns-udp
-  namespace: pihole
-spec:
-  selector:
-    app: pihole
-  ports:
-    - name: 53-udp
-      port: 53
       nodePort: 53
-      targetPort: 53
-      protocol: UDP
-      type: NodePort
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: pihole-dns-tcp
-  namespace: pihole
-spec:
-  selector:
-    app: pihole
-  ports:
-    - name: 53-tcp
-      nodePort: 53
-      port: 53
-      targetPort: 53
-      protocol: TCP
-  type: NodePort
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
