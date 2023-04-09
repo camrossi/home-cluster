@@ -12,6 +12,3 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  selector:
-    matchLabels:
-      volume: homeassistant-data
