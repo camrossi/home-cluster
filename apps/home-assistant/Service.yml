@@ -8,6 +8,6 @@ spec:
     app: homeassistant
   type: LoadBalancer
   ports:
-    - port: 443
+    - port: 80
       name: hassio-gui-api
       targetPort: 8123

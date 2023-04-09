@@ -11,7 +11,7 @@ spec:
       priority: 10
       services:
         - name: homeassistant-ui
-          port: 8123
-          scheme: https
+          port: 80
+          scheme: http
   tls:
     certResolver: default
