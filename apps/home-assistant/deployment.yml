@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homeassistant
+  labels:
+    app: homeassistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homeassistant
+  template:
+    metadata:
+      labels:
+        app: homeassistant
+        name: homeassistant
+    spec:
+      hostNetwork: true
+      containers:
+        - name: homeassistant
+          image: homeassistant/home-assistant:2023.4.2
+          imagePullPolicy: Always
+          env:
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  name: homeassistant-env
+                  key: TZ
+          volumeMounts:
+            - name: homeassistant-data-volume
+              mountPath: /config
+      volumes:
+        - name: homeassistant-data-volume
+          persistentVolumeClaim:
+            claimName: homeassistant-data

@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homeassistant-ui
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "true"
+spec:
+  selector:
+    app: homeassistant
+  type: LoadBalancer
+  ports:
+    - port: 443
+      name: hassio-gui-api
+      targetPort: 8123

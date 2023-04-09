@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: homeassistant-data
+  namespace: homeassistant
+spec:
+  storageClassName: "nfs-client"
+  volumeName: homeassistant-data
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  selector:
+    matchLabels:
+      volume: homeassistant-data
