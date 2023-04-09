@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: pihole
-        image: pihole/pihole:2023.03.1
+        image: pihole/pihole:2023.01.10
         imagePullPolicy: Always
         env:
         - name: TZ
@@ -39,10 +39,12 @@ spec:
         volumeMounts:
         - name: pihole-etc-volume
           mountPath: "/etc/pihole"
-        - name: pihole
+        - name: pihole-etc-volume-dnsmasq
           mountPath: "/etc/dnsmasq.d"
-          subPath: dnsmasq.d
       volumes:
       - name: pihole-etc-volume
         persistentVolumeClaim:
           claimName: pihole
+      - name: pihole-etc-volume-dnsmasq
+        persistentVolumeClaim:
+          claimName: pihole-dnsmasq

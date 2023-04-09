@@ -11,3 +11,17 @@ spec:
   resources:
     requests:
       storage: "500Mi"
+---
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pihole-dnsmasq
+  namespace: pihole
+spec:
+  storageClassName: "nfs-client"
+  accessModes:
+   - ReadWriteOnce
+  resources:
+    requests:
+      storage: "500Mi"
