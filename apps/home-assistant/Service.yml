@@ -3,8 +3,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: homeassistant-ui
-  annotations:
-    metallb.universe.tf/allow-shared-ip: "true"
 spec:
   selector:
     app: homeassistant
