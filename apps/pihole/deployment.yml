@@ -39,7 +39,7 @@ spec:
         volumeMounts:
         - name: pihole-etc-volume
           mountPath: "/etc/pihole"
-        - name: pihole-etc-volume-dnsmasq
+        - name: pihole
           mountPath: "/etc/dnsmasq.d"
           subPath: dnsmasq.d
       volumes:
