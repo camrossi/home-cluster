@@ -7,7 +7,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`argocd.sabby`)
+      match: Host(`homeassistant.sabby`)
       priority: 10
       services:
         - name: homeassistant-ui

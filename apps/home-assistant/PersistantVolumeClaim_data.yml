@@ -5,7 +5,7 @@ metadata:
   name: homeassistant-data
 spec:
   storageClassName: "nfs-client"
-  accessModes:
+\  accessModes:
     - ReadWriteOnce
   resources:
     requests:
