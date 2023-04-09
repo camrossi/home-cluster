@@ -4,7 +4,7 @@ metadata:
   name: homeassistant
 spec:
   entryPoints:
-    - websecure
+    - web
   routes:
     - kind: Rule
       match: Host(`homeassistant.sabby`)
