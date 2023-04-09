@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pihole
+  labels:
+    app: pihole
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pihole
+  template:
+    metadata:
+      labels:
+        app: pihole
+        name: pihole
+    spec:
+      containers:
+      - name: pihole
+        image: pihole/pihole:2023.03.1
+        imagePullPolicy: Always
+        env:
+        - name: TZ
+          valueFrom:
+            configMapKeyRef:
+              name: pihole-env
+              key: TZ
+        - name: DNS1
+          valueFrom:
+            configMapKeyRef:
+              name: pihole-env
+              key: DNS1
+        - name: DNS2
+          valueFrom:
+            configMapKeyRef:
+              name: pihole-env
+              key: DNS2
+        volumeMounts:
+        - name: pihole-etc-volume
+          mountPath: "/etc/pihole"
+        - name: pihole-etc-volume-dnsmasq
+          mountPath: "/etc/dnsmasq.d"
+          subPath: dnsmasq.d
+      volumes:
+      - name: pihole-etc-volume
+        persistentVolumeClaim:
+          claimName: pihole

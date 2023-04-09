@@ -1,0 +1,35 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pihole-udp
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "true"
+spec:
+  selector:
+    app: pihole
+  type: LoadBalancer
+  loadBalancerIP: 192.168.3.1
+  ports:
+    - name: dns-udp
+      port: 53
+      protocol: UDP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pihole-tcp
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "true"
+spec:
+  selector:
+    app: pihole
+  type: LoadBalancer
+  loadBalancerIP: 192.168.3.1
+  ports:
+    - port: 80
+      targetPort: 80
+      name: pihole-admin
+    - name: dns-tcp
+      port: 53
+      protocol: TCP
