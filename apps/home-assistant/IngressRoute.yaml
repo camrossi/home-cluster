@@ -13,5 +13,3 @@ spec:
         - name: homeassistant-ui
           port: 80
           scheme: http
-  tls:
-    certResolver: default
