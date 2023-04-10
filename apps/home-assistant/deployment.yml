@@ -17,6 +17,8 @@ spec:
         name: homeassistant
     spec:
       hostNetwork: true
+      #Allow access to Cluster DNS
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: homeassistant
           image: homeassistant/home-assistant:2023.4.2
