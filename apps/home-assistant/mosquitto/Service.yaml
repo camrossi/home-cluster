@@ -10,4 +10,3 @@ spec:
     - protocol: TCP
       port: 1883
       targetPort: 1883
-      nodePort: 30007  
