@@ -18,6 +18,8 @@ data:
       base_topic: zigbee2mqtt
       server: "mqtt://mosquitto-service.home-assistant.svc.cluster.local" # mqtt://<name_of_pod>.<name_of_namespace> (mosquitto)
     # Enable the Zigbee2MQTT frontend
+    serial:
+      port: /dev/ttyAMA0
     frontend:
       port: 8080
     # Let Zigbee2MQTT generate a new network key on first start

@@ -19,6 +19,8 @@ spec:
       labels:
         app: zigbee2mqtt
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: cube05
       containers:
         - name: zigbee2mqtt
           image: koenkk/zigbee2mqtt:1.30.3
