@@ -7,7 +7,7 @@ spec:
     - web
   routes:
     - kind: Rule
-      match: Host(`homeassistant.sabby`)
+      match: Host(`homeassistant.sabby.local`)
       priority: 10
       services:
         - name: homeassistant-ui
