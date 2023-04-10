@@ -30,6 +30,10 @@ spec:
               value: Australia/Sydney
             - name: "ZIGBEE2MQTT_DATA"
               value: "/data"
+            - name: zigbee2mqtt-udev
+              mountPath: /run/udev
+            - name: ttyacm
+              mountPath: /dev/ttyACM0
           securityContext:
             privileged: true
           ports:
@@ -70,3 +74,9 @@ spec:
         - name: zigbee2mqtt-config
           configMap:
             name: zigbee2mqtt-config
+        - name: zigbee2mqtt-udev
+          hostPath:
+            path: /run/udev
+        - name: ttyacm
+          hostPath:
+            path: /dev/ttyACM0
