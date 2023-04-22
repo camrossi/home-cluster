@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: wireguard
-        image: docker.io/linuxserver/wireguard:1.0.20210914
+        image: docker.io/linuxserver/wireguard:latest
         envFrom:
         - configMapRef:
             name: wireguard
