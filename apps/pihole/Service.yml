@@ -10,6 +10,7 @@ spec:
     app: pihole
   type: LoadBalancer
   loadBalancerIP: 192.168.0.235
+  externalTrafficPolicy: Local
   ports:
     - name: dns-udp
       port: 53
