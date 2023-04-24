@@ -46,9 +46,9 @@ spec:
               protocol: TCP
           volumeMounts:
             - name: zigbee2mqtt-data
-              mountPath: /app/data
+              mountPath: /data
             - name: zigbee2mqtt-config
-              mountPath: /app/data/configuration.yaml
+              mountPath: /data/configuration.yaml
               subPath: configuration.yaml
             - name: zigbee2mqtt-udev
               mountPath: /run/udev
