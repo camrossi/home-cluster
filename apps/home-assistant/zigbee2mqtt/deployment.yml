@@ -19,14 +19,14 @@ spec:
         app: zigbee2mqtt
     spec:
       affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: zigbee-controller
-              operator: In
-              values:
-              - true
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: zigbee-controller
+                operator: In
+                values:
+                - true
       containers:
         - name: zigbee2mqtt
           image: koenkk/zigbee2mqtt:1.30.3
