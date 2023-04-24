@@ -48,7 +48,7 @@ spec:
             - name: zigbee2mqtt-data
               mountPath: /data
             - name: zigbee2mqtt-config
-              mountPath: /data/configuration.yaml
+              mountPath: /app/configuration.yaml
               subPath: configuration.yaml
             - name: zigbee2mqtt-udev
               mountPath: /run/udev
