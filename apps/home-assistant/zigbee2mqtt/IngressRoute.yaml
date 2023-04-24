@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: homeassistant
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`zigbee2mqtt.sabby.local`)
+      priority: 10
+      services:
+        - name: zigbee2mqtt
+          port: 80
+          scheme: http
