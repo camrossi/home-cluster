@@ -16,7 +16,7 @@ data:
     # MQTT server URL
     mqtt:
       base_topic: zigbee2mqtt
-      server: "mqtt://mosquitto-service.home-assistant" # mqtt://<name_of_pod>.<name_of_namespace> (mosquitto)
+      server: "mqtt://zigbee2mqtt.home-assistant.svc.cluster.local" # mqtt://<name_of_pod>.<name_of_namespace> (mosquitto)
     # Zigbee Adapter path
     serial:
       port: /dev/ttyACM0
