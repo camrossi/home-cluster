@@ -36,8 +36,6 @@ spec:
               value: Australia/Sydney
             - name: "ZIGBEE2MQTT_DATA"
               value: "/data"
-            - name: ZIGBEE2MQTT_CONFIG_MQTT_SERVER # optional - can also be configured in the configuration.yaml in the configmap
-              value: "mqtt://mosquitto"
           securityContext:
             privileged: true
           ports:
