@@ -21,7 +21,7 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: homeassistant
-          image: homeassistant/home-assistant:2023.4.6
+          image: homeassistant/home-assistant:2023.5.2
           imagePullPolicy: Always
           env:
             - name: TZ
