@@ -31,7 +31,7 @@ data:
       log_output:
       - console
       - file
-
+      channel: 25
     ## Map devices to persistent /data directory
     devices: /data/devices.yaml
     groups: /data/groups.yaml
