@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: pihole
-        image: pihole/pihole:2023.03.1
+        image: pihole/pihole:2023.05.2
         imagePullPolicy: Always
         env:
         - name: TZ
