@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application+
+metadata:
+  name: 'immich'
+spec:
+  sources:
+  - repoURL: 'https://immich-app.github.io/immich-charts'
+    chart: immich
+    targetRevision: 0.3.1
+    helm:
+      valueFiles:
+      - $values/charts/immich/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster.git'
+    targetRevision: main
+    path: apps/immich
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: immich
+  project: default
