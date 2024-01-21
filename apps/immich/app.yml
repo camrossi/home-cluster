@@ -9,11 +9,16 @@ spec:
     targetRevision: 0.3.1
     helm:
       valueFiles:
-      - $values/charts/immich/values.yaml
-  - repoURL: 'https://github.com/camrossi/home-cluster.git'
+      - $values/apps/immich/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
-    path: apps/immich
     ref: values
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  - repoURL: https://github.com/camrossi/home-cluster
+    path: apps/immich/extra
+    targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: immich
