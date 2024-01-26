@@ -3,5 +3,3 @@ ingress:
   enabled: true
   ingressClassName: "traefik"
   host: "longhorn.sabby.local"
-helmPreUpgradeCheckerJob:
-  enabled: false
