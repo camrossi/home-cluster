@@ -1,0 +1,26 @@
+apiVersion: "openebs.io/v1beta1"
+kind: DiskPool
+metadata:
+  name: rk1-1
+  namespace: mayastor
+spec:
+  node: rk1-1
+  disks: /dev/nvme0n1
+---
+apiVersion: "openebs.io/v1beta1"
+kind: DiskPool
+metadata:
+  name: rk1-2
+  namespace: mayastor
+spec:
+  node: rk1-1
+  disks: /dev/nvme0n1
+---
+apiVersion: "openebs.io/v1beta1"
+kind: DiskPool
+metadata:
+  name: rk1-3
+  namespace: mayastor
+spec:
+  node: rk1-1
+  disks: /dev/nvme0n1

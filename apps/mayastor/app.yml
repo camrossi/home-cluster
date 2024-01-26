@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'mayastor'
+spec:
+  sources:
+  - repoURL: 'https://openebs.github.io/mayastor-extensions/'
+    chart: mayastor
+    targetRevision: 2.5.0
+  - repoURL: https://github.com/camrossi/home-cluster
+    path: apps/mayastor/extra
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: mayastor
+  project: default
