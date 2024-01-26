@@ -4,7 +4,7 @@ metadata:
   name: 'longhorn'
 spec:
   sources:
-  - repoURL: 'https://traefik.github.io/charts'
+  - repoURL: 'https://charts.longhorn.io'
     chart: longhorn
     targetRevision: 1.5.3
     helm:
