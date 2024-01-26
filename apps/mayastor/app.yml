@@ -7,6 +7,12 @@ spec:
   - repoURL: 'https://openebs.github.io/mayastor-extensions/'
     chart: mayastor
     targetRevision: 2.5.0
+    helm:
+      valueFiles:
+      - $values/apps/mayastor/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
   - repoURL: https://github.com/camrossi/home-cluster
     path: apps/mayastor/extra
     targetRevision: main
