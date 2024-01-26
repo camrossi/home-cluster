@@ -1,5 +1,5 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application+
+kind: Application
 metadata:
   name: 'immich'
 spec:
@@ -10,9 +10,6 @@ spec:
     helm:
       valueFiles:
       - $values/apps/immich/values.yaml
-  - repoURL: 'https://github.com/camrossi/home-cluster'
-    targetRevision: main
-    ref: values
   - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
     ref: values

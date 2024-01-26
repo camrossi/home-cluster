@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 'traefik'
+  name: 'longhorn'
 spec:
   sources:
   - repoURL: 'https://traefik.github.io/charts'
-    chart: traefik
-    targetRevision: 26.0.0
+    chart: longhorn
+    targetRevision: 1.5.3
     helm:
       valueFiles:
-      - $values/apps/traefik/values.yaml
+      - $values/apps/longhorn/values.yaml
   - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
     ref: values
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: kube-system
+    namespace: longhorn
   project: default
