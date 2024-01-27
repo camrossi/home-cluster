@@ -7,3 +7,4 @@ cephClusterSpec:
   dashboard:
     enabled: true
     ssl: false
+    port: 80
