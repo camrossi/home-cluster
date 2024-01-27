@@ -1,6 +1,0 @@
-nodeSelector: 
-   kubernetes.io/arch: null
-io_engine:
-  nodeSelector:
-      openebs.io/engine: mayastor
-      kubernetes.io/arch: null
