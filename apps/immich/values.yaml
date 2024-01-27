@@ -82,3 +82,4 @@ machine-learning:
       # Optional: Set this to pvc to avoid downloading the ML models every start.
       type: pvc
       accessMode: ReadWriteMany
+      storageClass: ceph-filesystem
