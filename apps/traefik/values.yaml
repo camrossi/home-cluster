@@ -6,4 +6,9 @@ service:
     io.cilium/lb-ipam-ips: 192.168.0.226
   labels: 
     type: l2
-    
+# This is needed to Argo dosen't get stuck on Sync ingress forever
+# https://github.com/argoproj/argo-cd/issues/968#issuecomment-451082913
+providers:
+  kubernetesIngress:
+    publishedService:
+      enabled: true
