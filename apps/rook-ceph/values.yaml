@@ -3,6 +3,7 @@ ingress:
     host:
       name: ceph.sabby.local
       path: "/"
+cephClusterSpec:
   dashboard:
     enabled: true
     ssl: false
