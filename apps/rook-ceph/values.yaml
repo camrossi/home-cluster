@@ -1,6 +1,5 @@
 ingress:
   dashboard:
-    hosts:
-      - host: ceph.sabby.local
-        paths:
-          - path: "/"
+    host:
+      name: ceph.sabby.local
+      path: "/"
