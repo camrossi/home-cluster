@@ -4,9 +4,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: library
 spec:
-  storageClassName: "nfs-client"
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
+      storage: 100Gi
