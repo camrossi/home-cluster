@@ -9,10 +9,10 @@ spec:
     targetRevision: v1.13.3
     helm:
       valueFiles:
-      - $values/apps/rook-ceph/operator-values.yaml
+      - $operator-values/apps/rook-ceph/operator-values.yaml
   - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
-    ref: values
+    ref: operator-values
   - repoURL: 'https://charts.rook.io/release'
     chart: rook-ceph-cluster
     targetRevision: v1.13.3
