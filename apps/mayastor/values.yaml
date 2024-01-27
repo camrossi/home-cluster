@@ -1,4 +1,0 @@
-nodeSelector: {}
-io_engine:
-  nodeSelector:
-      openebs.io/engine: mayastor
