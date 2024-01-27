@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 'rook'
+  name: 'rook-ceph'
 spec:
   sources:
   - repoURL: 'https://charts.rook.io/release'
-    chart: rook-release/rook-ceph
+    chart: rook-ceph-cluster
     targetRevision: v1.13.3
     helm:
       valueFiles:
-      - $values/apps/immich/values.yaml
+      - $values/apps/rook-ceph/values.yaml
   - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
     ref: values
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: rook
+    namespace: rook-ceph
   project: default
