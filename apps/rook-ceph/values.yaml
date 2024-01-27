@@ -8,3 +8,7 @@ cephClusterSpec:
     enabled: true
     ssl: false
     port: 80
+  mgr:
+    modules:
+      - name: rook # This enables the rook module.
+        enabled: true
