@@ -3,3 +3,6 @@ ingress:
     host:
       name: ceph.sabby.local
       path: "/"
+  dashboard:
+    enabled: true
+    ssl: false
