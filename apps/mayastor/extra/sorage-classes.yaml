@@ -2,8 +2,6 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: mayastor-1
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
 parameters:
   ioTimeout: "30"
   protocol: nvmf
@@ -14,8 +12,6 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: mayastor-2
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
 parameters:
   ioTimeout: "30"
   protocol: nvmf

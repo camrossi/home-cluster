@@ -4,6 +4,7 @@ metadata:
   name: rk1-1
   namespace: mayastor
   annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "1"
 spec:
   node: rk1-1
@@ -15,6 +16,7 @@ metadata:
   name: rk1-2
   namespace: mayastor
   annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "1"
 spec:
   node: rk1-1
@@ -26,6 +28,7 @@ metadata:
   name: rk1-3
   namespace: mayastor
   annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "1"
 spec:
   node: rk1-1
