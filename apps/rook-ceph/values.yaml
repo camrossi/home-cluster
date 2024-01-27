@@ -14,3 +14,4 @@ cephClusterSpec:
         enabled: true
       - name: rook # This enables the rook module.
         enabled: true
+cephObjectStores: null
