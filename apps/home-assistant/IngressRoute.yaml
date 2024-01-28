@@ -14,6 +14,6 @@ spec:
           service:
             name: homeassistant-ui
             port:
-              name: http-dashboard
+              name: hassio-gui-api
         path: /
         pathType: Prefix
