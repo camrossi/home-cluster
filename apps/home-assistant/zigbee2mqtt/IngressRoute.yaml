@@ -1,15 +1,19 @@
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
   name: zigbee2mqtt
+  labels:
+    app.kubernetes.io/instance: home-assistant
 spec:
-  entryPoints:
-    - web
-  routes:
-    - kind: Rule
-      match: Host(`zigbee2mqtt.sabby.local`)
-      priority: 10
-      services:
-        - name: zigbee2mqtt
-          port: 8080
-          scheme: http
+  ingressClassName: traefik
+  rules:
+  - host: zigbee2mqtt.sabby.local
+    http:
+      paths:
+      - backend:
+          service:
+            name: zigbee2mqtt
+            port:
+              name: zigbee2mqtt
+        path: /
+        pathType: Prefix
