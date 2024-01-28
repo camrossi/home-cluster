@@ -4,13 +4,12 @@ kind: Service
 metadata:
   name: pihole-udp
   annotations:
-    metallb.universe.tf/allow-shared-ip: "true"
+     io.cilium/lb-ipam-ips: 192.168.0.226
+     type: l2
 spec:
   selector:
     app: pihole
   type: LoadBalancer
-  loadBalancerIP: 192.168.0.235
-  externalTrafficPolicy: Local
   ports:
     - name: dns-udp
       port: 53
@@ -21,13 +20,12 @@ kind: Service
 metadata:
   name: pihole-tcp
   annotations:
-    metallb.universe.tf/allow-shared-ip: "true"
+     io.cilium/lb-ipam-ips: 192.168.0.226
+     type: l2
 spec:
   selector:
     app: pihole
   type: LoadBalancer
-  externalTrafficPolicy: Local
-  loadBalancerIP: 192.168.0.235
   ports:
     - port: 80
       targetPort: 80
