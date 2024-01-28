@@ -5,7 +5,8 @@ metadata:
   name: pihole-udp
   annotations:
      io.cilium/lb-ipam-ips: 192.168.0.226
-     type: l2
+  labels: 
+    type: l2
 spec:
   selector:
     app: pihole
@@ -21,7 +22,8 @@ metadata:
   name: pihole-tcp
   annotations:
      io.cilium/lb-ipam-ips: 192.168.0.226
-     type: l2
+  labels: 
+    type: l2
 spec:
   selector:
     app: pihole
