@@ -17,4 +17,3 @@ spec:
               name: http-dashboard
         path: /
         pathType: Prefix
-kubec 
