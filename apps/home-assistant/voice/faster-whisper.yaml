@@ -27,7 +27,7 @@ spec:
           imagePullPolicy: Always
           args:
             - --model
-            - base.en
+            - base
           env:
             - name: TZ
               value: Australia/Sydney
