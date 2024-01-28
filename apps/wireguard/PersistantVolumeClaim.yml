@@ -5,7 +5,6 @@ metadata:
   namespace: wireguard
   name: wireguard
 spec:
-  storageClassName: "nfs-client"
   accessModes:
     - ReadWriteMany
   resources:

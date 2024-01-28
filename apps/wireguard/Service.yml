@@ -4,6 +4,10 @@ kind: Service
 metadata:
   name: wireguard
   namespace: wireguard
+  annotations:
+      io.cilium/lb-ipam-ips: 192.168.0.228
+    labels: 
+      type: l2
 spec:
   selector:
     app: wireguard
@@ -12,6 +16,4 @@ spec:
       port: 51820
       targetPort: 51820
       protocol: UDP
-  externalTrafficPolicy: Local
   type: LoadBalancer
-  loadBalancerIP: 192.168.0.236
