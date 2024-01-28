@@ -1,0 +1,19 @@
+defaultRules:
+  rules:
+    kubeProxy: false
+    windows: false
+grafana:
+  ingress:
+    enabled: true
+  ingressClassName: "traefik"
+kubeProxy:
+  enabled: false
+prometheus:
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
