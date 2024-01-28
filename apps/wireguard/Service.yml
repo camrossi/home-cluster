@@ -5,9 +5,9 @@ metadata:
   name: wireguard
   namespace: wireguard
   annotations:
-      io.cilium/lb-ipam-ips: 192.168.0.228
-    labels: 
-      type: l2
+    io.cilium/lb-ipam-ips: 192.168.0.228
+  labels: 
+    type: l2
 spec:
   selector:
     app: wireguard
