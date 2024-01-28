@@ -4,10 +4,10 @@ defaultRules:
     windows: false
 grafana:
   ingress:
+    ingressClassName: "traefik"
     enabled: true
-  ingressClassName: "traefik"
-  hosts:
-    - grafana.sabby.local
+    hosts:
+      - grafana.sabby.local
 kubeProxy:
   enabled: false
 prometheus:
