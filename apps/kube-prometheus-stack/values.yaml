@@ -5,6 +5,9 @@ defaultRules:
 grafana:
   ingress:
     enabled: true
+  host:
+    name: grafana.sabby.local
+    path: "/"
   ingressClassName: "traefik"
 kubeProxy:
   enabled: false
@@ -17,3 +20,6 @@ prometheus:
           resources:
             requests:
               storage: 10Gi
+kubeApiServer:
+  tlsConfig:
+    insecureSkipVerify: true
