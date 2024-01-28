@@ -1,0 +1,71 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whisper
+  labels:
+    app: whisper
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: whisper
+  template:
+    metadata:
+      labels:
+        app: whisper
+    spec:
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: whisper
+      containers:
+        - name: whisper
+          image: rhasspy/wyoming-whisper:latest
+          imagePullPolicy: Always
+          args:
+            - --model
+            - small
+          env:
+            - name: TZ
+              value: Australia/Sydney
+          ports:
+            - containerPort: 10300
+              protocol: TCP
+              name: whisper
+          volumeMounts:
+            - mountPath: /data
+              name: data
+          resources:
+            limits:
+              cpu: 12000m
+              memory: 2Gi
+            requests:
+              cpu: 100m
+              memory: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: whisper
+spec:
+  selector:
+    app: whisper
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 10300
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: whisper
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
+  volumeMode: Filesystem

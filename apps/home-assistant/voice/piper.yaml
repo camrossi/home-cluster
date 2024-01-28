@@ -1,0 +1,71 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: piper
+  labels:
+    app: piper
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: piper
+  template:
+    metadata:
+      labels:
+        app: piper
+    spec:
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: piper
+      containers:
+        - name: piper
+          image: rhasspy/wyoming-piper:latest
+          imagePullPolicy: Always
+          args:
+            - --voice
+            - en_US-lessac-medium
+          env:
+            - name: TZ
+              value: Australia/Sydney
+          ports:
+            - containerPort: 10200
+              protocol: TCP
+              name: piper
+          volumeMounts:
+            - mountPath: /data
+              name: data
+          resources:
+            limits:
+              cpu: 12000m
+              memory: 2Gi
+            requests:
+              cpu: 100m
+              memory: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: piper
+spec:
+  selector:
+    app: piper
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 10200
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: piper
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
+  volumeMode: Filesystem
