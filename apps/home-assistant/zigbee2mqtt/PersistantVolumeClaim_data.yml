@@ -6,7 +6,6 @@ metadata:
     app: zigbee2mqtt
   name: zigbee2mqtt-data
 spec:
-  storageClassName: "nfs-client"
   accessModes:
     - ReadWriteOnce
   resources:

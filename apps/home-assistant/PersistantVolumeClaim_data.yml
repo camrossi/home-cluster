@@ -4,7 +4,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: homeassistant-data
 spec:
-  storageClassName: "nfs-client"
   accessModes:
     - ReadWriteOnce
   resources:
