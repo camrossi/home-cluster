@@ -27,7 +27,7 @@ spec:
           imagePullPolicy: Always
           args:
             - --model
-            - small
+            - tiny-int8
           env:
             - name: TZ
               value: Australia/Sydney
