@@ -14,8 +14,6 @@ cephClusterSpec:
         enabled: true
       - name: rook # This enables the rook module.
         enabled: true
-      - name: prometheus
-        enabled: true
 cephObjectStores: null
 toolbox:
   enabled: true
