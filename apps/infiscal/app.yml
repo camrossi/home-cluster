@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'infiscal'
+spec:
+  sources:
+  - repoURL: 'https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts/'
+    chart: secrets-operator
+    targetRevision: 0.3.3
+  - repoURL: 'https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts/'
+    chart: infiscal
+    targetRevision: 0.3.3
+    helm:
+      valueFiles:
+      - $values/apps/infiscal/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: infiscal
+  project: default

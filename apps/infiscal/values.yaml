@@ -1,0 +1,16 @@
+backend:
+  image:
+    repository: infisical/infisical
+    tag: "v0.44.30"
+    pullPolicy: IfNotPresent
+backendEnvironmentVariables:
+  SITE_URL: http://infisical.sabby.local
+  HTTPS_ENABLED: false
+mongodb: 
+  persistence:
+    enabled: true
+    size: 8Gi
+ingress:
+  enabled: true
+  ingressClassName: traefik
+  hostName: "http://infisical.sabby.local"
