@@ -60,6 +60,9 @@ server:
         - host: immich.sabby.local
           paths:
             - path: "/"
+        - host: immich.camsab.me
+          paths:
+            - path: "/"
       tls: []
 
 microservices:
