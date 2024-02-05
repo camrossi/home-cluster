@@ -1,7 +1,8 @@
 backend:
+  replicaCount: 2
   image:
     repository: infisical/infisical
-    tag: "v0.44.30"
+    tag: "v0.44.30-postgres"
     pullPolicy: IfNotPresent
 backendEnvironmentVariables:
   SITE_URL: http://infisical.sabby.local
