@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ddclient
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ddclient
+      app.kubernetes.io/instance: ddclient
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ddclient
+        app.kubernetes.io/instance: ddclient
+    spec:
+      containers:
+      - name: ddclient
+        image: "lscr.io/linuxserver/ddclient:latest"
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: TZ
+          value: "Australia/Sydney"
+        volumeMounts:
+        - mountPath: /defaults/ddclient.conf
+          name: ddclient-settings
+          subPath: ddclient.conf
+      volumes:
+      - name: ddclient-settings
+        secret:  
+          secretName: ddclient-settings
