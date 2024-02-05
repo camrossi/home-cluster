@@ -13,4 +13,4 @@ mongodb:
 ingress:
   enabled: true
   ingressClassName: traefik
-  hostName: "http://infisical.sabby.local"
+  hostName: "infisical.sabby.local"
