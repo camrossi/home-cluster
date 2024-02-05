@@ -12,7 +12,7 @@ spec:
     targetRevision: 0.4.2
     helm:
       valueFiles:
-      - $values/apps/infiscal/values.yaml
+      - $values/apps/infisical/values.yaml
   - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
     ref: values
