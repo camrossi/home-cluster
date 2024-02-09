@@ -13,9 +13,6 @@ spec:
   - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
     ref: values
-  - repoURL: https://github.com/camrossi/home-cluster
-    path: apps/traefik/extras
-    targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: kube-system
