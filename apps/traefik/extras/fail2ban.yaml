@@ -1,7 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: my-fail2ban
+  name: fail2ban
   namespace: kube-system
 spec:
   plugin:
