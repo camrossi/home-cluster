@@ -1,11 +1,11 @@
 authentik:
-    secret_key: file:///postgres-creds/secret_key
+    secret_key: file:///authentik-creds/secret_key
     # This sends anonymous usage-data, stack traces on errors and
     # performance data to sentry.io, and is fully opt-in
     error_reporting:
         enabled: true
     postgresql:
-        password: file:///postgres-creds/postgres_password
+        password: file:///authentik-creds/postgres_password
 
 ingress:
     # Specify kubernetes ingress controller class name
@@ -20,7 +20,7 @@ ingress:
 
 postgresql:
     enabled: true
-    postgresqlPassword: file:///postgres-creds/postgres_password
+    postgresqlPassword: file:///authentik-creds/postgres_password
 redis:
     enabled: true
 
