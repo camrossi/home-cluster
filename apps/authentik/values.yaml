@@ -25,9 +25,9 @@ redis:
     enabled: true
 
 volumeMounts:
-  - name: authentik
+  - name: authentik-creds
     mountPath: /authentik-creds
 volumes:
-  - name: authentik
+  - name: authentik-creds
     secret:
-      secretName: authentik
+      secretName: authentik-creds
