@@ -1,0 +1,33 @@
+authentik:
+    secret_key: file:///postgres-creds/secret_key
+    # This sends anonymous usage-data, stack traces on errors and
+    # performance data to sentry.io, and is fully opt-in
+    error_reporting:
+        enabled: true
+    postgresql:
+        password: file:///postgres-creds/postgres_password
+
+ingress:
+    # Specify kubernetes ingress controller class name
+    ingressClassName: traefik
+    enabled: true
+    hosts:
+        # Specify external host name
+        - host: authentik.camsab.me
+          paths:
+              - path: "/"
+                pathType: Prefix
+
+postgresql:
+    enabled: true
+    postgresqlPassword: file:///postgres-creds/postgres_password
+redis:
+    enabled: true
+
+volumeMounts:
+  - name: authentik
+    mountPath: /authentik-creds
+volumes:
+  - name: authentik
+    secret:
+      secretName: authentik
