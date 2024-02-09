@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'ocis'
+spec:
+  sources:
+  - repoURL: 'https://github.com/owncloud/ocis-charts/tree/master/charts/ocis'
+    chart: ocis
+    version: 0.5.0
+    helm:
+      valueFiles:
+      - $values/apps/ocis/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: ocis
+  project: default
