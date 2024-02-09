@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: my-fail2ban
+  namespace: my-namespace
+spec:
+  plugin:
+    fail2ban:
+      rules:
+        bantime: 3h
+        enabled: "true"
+        findtime: 10m
+        maxretry: "4"
+      whitelist:
+        ip: ::1,127.0.0.1,192.168.0.0/24
