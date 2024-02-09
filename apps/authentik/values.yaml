@@ -6,7 +6,22 @@ authentik:
         enabled: true
     postgresql:
         password: file:///authentik-creds/postgres_password
-
+email:
+    # -- SMTP Server emails are sent from, fully optional
+    host: "smtp.gmail.com"
+    port: 587
+    # -- SMTP credentials, when left empty, no authentication will be done
+    username: file:///authentik-creds/gmail_app_pass
+    # -- SMTP credentials, when left empty, no authentication will be done
+    password: file:///authentik-creds/gmail_app_pass
+    # -- Enable either use_tls or use_ssl, they can't be enabled at the same time.
+    use_tls: true
+    # -- Enable either use_tls or use_ssl, they can't be enabled at the same time.
+    use_ssl: false
+    # -- Connection timeout
+    timeout: 30
+    # -- Email from address, can either be in the format "foo@bar.baz" or "authentik <foo@bar.baz>"
+    from: "authentik@camsab.me"
 ingress:
     # Specify kubernetes ingress controller class name
     ingressClassName: traefik
@@ -17,7 +32,6 @@ ingress:
           paths:
               - path: "/"
                 pathType: Prefix
-
 postgresql:
     enabled: true
     postgresqlPassword: file:///authentik-creds/postgres_password
