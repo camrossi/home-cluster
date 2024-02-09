@@ -14,3 +14,6 @@ providers:
       enabled: true
 api:
   dashboard: true
+ports:
+  metrics:
+    exposeInternal: true
