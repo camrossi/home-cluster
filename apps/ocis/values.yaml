@@ -14,4 +14,4 @@ image:
   # -- Image repository
   repository: owncloud/ocis
   # -- Image tag. Defaults to the chart's appVersion.
-  tag: "5.0.0-rc.4"
+  tag: "4.0.6"
