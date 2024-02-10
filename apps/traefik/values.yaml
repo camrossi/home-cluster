@@ -41,7 +41,9 @@ metrics:
       interval: 30s
       honorLabels: true
     prometheusRule:
-      additionalLabels: {}
+      additionalLabels:
+        # This is needed to make the ServiceMonitor being picked up by prometheus ServiceMonitorSelector
+        release: kube-prometheus-stack
       rules:
         - alert: TraefikDown
           expr: up{job="traefik"} == 0
