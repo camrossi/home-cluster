@@ -11,6 +11,11 @@ grafana:
 kubeProxy:
   enabled: false
 prometheus:
+  ingress:
+    enabled: true
+    ingressClassName: "traefik"
+    hosts:
+      - prometheus.sabby.local
   prometheusSpec:
     storageSpec:
       volumeClaimTemplate:
