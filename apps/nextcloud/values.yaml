@@ -51,8 +51,9 @@ postgresql:
 mariadb:
   db:
     name: nextcloud
-    existingSecret: "mariadb-credentials"
   enabled: true
+  auth:
+    existingSecret: "mariadb-credentials"
   master:
     persistence:
       accessMode: ReadWriteOnce
