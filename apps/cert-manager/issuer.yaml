@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+ name: le-example-dns
+ namespace: whoami
+spec:
+ acme:
+   server: https://acme-staging-v02.api.letsencrypt.org/directory
+   privateKeySecretRef:
+     # if not existing, it will register a new account and stores it
+     name: example-issuer-account-key
+   solvers:
+     - dns01:
+         cloudflare:
+           apiTokenSecretRef:
+             name: cloudflare-api-token-secret
+             key: api-token

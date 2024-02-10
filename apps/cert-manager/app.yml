@@ -5,7 +5,7 @@ metadata:
 spec:
   sources:
   - repoURL: 'https://charts.jetstack.io'
-    chart: jetstack/cert-manager
+    chart: cert-manager
     targetRevision: v1.14.2
     helm:
       valueFiles:
@@ -15,5 +15,5 @@ spec:
     ref: values
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: kube-system
+    namespace: cert-manager
   project: default
