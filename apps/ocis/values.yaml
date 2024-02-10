@@ -51,12 +51,5 @@ services:
         - ReadWriteOnce
       size: 1Gi
   storageUsers:
-    storageBackend:
-      driver: ocis
-  persistence:
-    enabled: true
-    maintenance:
-      cleanUpExpiredUploads:
-        enabled: true
-      purgeExpiredTrashBinItems:
-        enabled: true
+    persistence:
+      enabled: true
