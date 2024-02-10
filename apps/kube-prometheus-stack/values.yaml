@@ -8,6 +8,9 @@ grafana:
     enabled: true
     hosts:
       - grafana.sabby.local
+  persistence:
+    enabled: true
+    size: 1Gi
 kubeProxy:
   enabled: false
 prometheus:
