@@ -42,10 +42,10 @@ nextcloud:
         'enable_previews' => false
       );
 internalDatabase:
-  enabled: false
+  enabled: true
 
 externalDatabase:
-  enabled: true
+  enabled: false
   type: mysql
   existingSecret:
     enabled: true
@@ -57,7 +57,7 @@ postgresql:
 mariadb:
   db:
     name: nextcloud
-  enabled: true
+  enabled: false
   auth:
     existingSecret: "mariadb-credentials"
   master:
