@@ -15,6 +15,7 @@ ingress:
   enabled: true
 
 
+
 phpClientHttpsFix:
   enabled: false
   protocol: https
@@ -54,7 +55,11 @@ externalDatabase:
 postgresql:
   enabled: false
 mariadb:
+  db:
+    name: nextcloud
   enabled: true
+  auth:
+    existingSecret: "mariadb-credentials"
   master:
     persistence:
       accessMode: ReadWriteOnce
