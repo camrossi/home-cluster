@@ -1,4 +1,4 @@
-externalDomain: ocis.sabby.local
+externalDomain: ocis.camsab.me
 ingress:
   enabled: true
 insecure:
