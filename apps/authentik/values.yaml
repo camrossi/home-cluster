@@ -1,12 +1,12 @@
 authentik:
-    secret_key: file:///authentik-creds/secret_key
-    # This sends anonymous usage-data, stack traces on errors and
-    # performance data to sentry.io, and is fully opt-in
-    error_reporting:
-        enabled: true
-    postgresql:
-        password: file:///authentik-creds/postgres_password
-email:
+  secret_key: file:///authentik-creds/secret_key
+  # This sends anonymous usage-data, stack traces on errors and
+  # performance data to sentry.io, and is fully opt-in
+  error_reporting:
+    enabled: true
+  postgresql:
+    password: file:///authentik-creds/postgres_password
+  email:
     # -- SMTP Server emails are sent from, fully optional
     host: smtp.gmail.com
     port: 587
@@ -23,20 +23,20 @@ email:
     # -- Email from address, can either be in the format "foo@bar.baz" or "authentik <foo@bar.baz>"
     from: "authentik@camsab.me"
 ingress:
-    # Specify kubernetes ingress controller class name
-    ingressClassName: traefik
-    enabled: true
-    hosts:
-        # Specify external host name
-        - host: authentik.camsab.me
-          paths:
-              - path: "/"
-                pathType: Prefix
+  # Specify kubernetes ingress controller class name
+  ingressClassName: traefik
+  enabled: true
+  hosts:
+    # Specify external host name
+    - host: authentik.camsab.me
+      paths:
+        - path: "/"
+          pathType: Prefix
 postgresql:
-    enabled: true
-    postgresqlPassword: file:///authentik-creds/postgres_password
+  enabled: true
+  postgresqlPassword: file:///authentik-creds/postgres_password
 redis:
-    enabled: true
+  enabled: true
 
 volumeMounts:
   - name: authentik-creds
