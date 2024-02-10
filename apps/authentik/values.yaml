@@ -11,7 +11,7 @@ authentik:
     host: smtp.gmail.com
     port: 587
     # -- SMTP credentials, when left empty, no authentication will be done
-    username: file:///authentik-creds/gmail_app_pass
+    username: file:///authentik-creds/gmail_user
     # -- SMTP credentials, when left empty, no authentication will be done
     password: file:///authentik-creds/gmail_app_pass
     # -- Enable either use_tls or use_ssl, they can't be enabled at the same time.
