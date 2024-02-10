@@ -52,9 +52,14 @@ services:
       size: 1Gi
   storageUsers:
     storageBackend:
-      driver: s3ng
-    persistence:
-      enabled: true
-      accessModes:
-        - ReadWriteOnce
-      size: 50Gi
+      driver: ocis
+  persistence:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+    size: 50Gi
+    maintenance:
+      cleanUpExpiredUploads:
+        enabled: true
+      purgeExpiredTrashBinItems:
+        enabled: true
