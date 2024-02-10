@@ -25,6 +25,16 @@ nextcloud:
     secretName: nextcloud-credentials
     usernameKey: nextcloud-username
     passwordKey: nextcloud-password
+  configs:
+    custom.config.php: |-
+      <?php
+      $CONFIG = array (
+        'overwriteprotocol' => 'https',
+        'overwrite.cli.url' => 'https://nextcloud.camsab.me',
+        'filelocking.enabled' => 'true',
+        'loglevel' => '2',
+        'enable_previews' => false
+      );
 internalDatabase:
   enabled: false
 postgresql:
@@ -41,8 +51,6 @@ mariadb:
       size: 8Gi
   replication:
     enabled: false
-
-
 
 ## Enable persistence using Persistent Volume Claims
 ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
