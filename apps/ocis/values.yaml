@@ -20,8 +20,6 @@ features:
   demoUsers: false
 services:
   nats:
-    # -- Persistence settings.
-    # @default -- see detailed persistence configuration options below
     persistence:
       enabled: true
       accessModes:
@@ -40,20 +38,6 @@ services:
       accessModes:
         - ReadWriteOnce
       size: 5Gi
-  storageUsers:
-    storageBackend:
-      driver: ocis
-    maintenance:
-      # Expired uploads can be cleaned up automatically by enabling the clean up job.
-      cleanUpExpiredUploads:
-        # -- Enables a job, that cleans up expired uploads. Requires persistence to be enabled and RWX storage.
-        enabled: true
-    persistence:
-      enabled: true
-      accessModes:
-        - ReadWriteOnce
-      # -- Size of the persistent volume.
-      size: 100Gi
   store:
     persistence:
       enabled: true
@@ -66,3 +50,15 @@ services:
       accessModes:
         - ReadWriteOnce
       size: 1Gi
+  storageUsers:
+    storageBackend:
+      driver: ocis
+    persistence:
+      # -- Enables persistence.
+      # Needs to be enabled on production installations.
+      # If not enabled, pod restarts will lead to data loss.
+      # Also scaling this service beyond one instance is not possible if the service instances don't share the same storage.
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
+      size: 50Gi
