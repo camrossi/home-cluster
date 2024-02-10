@@ -4,9 +4,9 @@ metadata:
   name: 'ocis'
 spec:
   sources:
-  - repoURL: 'https://github.com/owncloud/ocis-charts/tree/master/charts/ocis'
-    chart: ocis
-    version: 0.5.0
+  - repoURL: 'https://github.com/owncloud/ocis-charts.git'
+    path: charts/ocis
+    targetRevision: master
     helm:
       valueFiles:
       - $values/apps/ocis/values.yaml

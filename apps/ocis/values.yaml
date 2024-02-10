@@ -6,12 +6,61 @@ ingress:
 insecure:
   # disables ssl certificate checking for connections to the openID connect identity provider.
   # Not recommended for production setups, but we don't have valid certificates in minikube
-  oidcIdpInsecure: true
+  oidcIdpInsecure: false
   # disables ssl certificate checking for connections to the oCIS http apis.
   # Not recommended for production setups, but we don't have valid certificates in minikube
-  ocisHttpApiInsecure: true
+  ocisHttpApiInsecure: false
 image:
   # -- Image repository
   repository: owncloud/ocis
   # -- Image tag. Defaults to the chart's appVersion.
   tag: "4.0.6"
+features:
+  basicAuthentication: true
+  demoUsers: false
+services:
+  nats:
+    # -- Persistence settings.
+    # @default -- see detailed persistence configuration options below
+    persistence:
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
+      # -- Size of the persistent volume.
+      size: 1Gi
+  search:
+    persistence:
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
+      size: 1Gi
+  storageSystem:
+    persistence:
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
+      size: 5Gi
+  storageUsers:
+    storageBackend:
+      driver: ocis
+    maintenance:
+      # Expired uploads can be cleaned up automatically by enabling the clean up job.
+      cleanUpExpiredUploads:
+        # -- Enables a job, that cleans up expired uploads. Requires persistence to be enabled and RWX storage.
+        enabled: true
+    persistence:
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
+      # -- Size of the persistent volume.
+      size: 100Gi
+  store:
+    persistence:
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
+      size: 1Gi
+  thumbnails:
+    persistence:
+      enabled: true
+      size: 1Gi
