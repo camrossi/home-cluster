@@ -3,6 +3,11 @@ kind: Application
 metadata:
   name: 'kube-prometheus-stack'
 spec:
+syncPolicy:
+  automated:
+    prune: true
+  syncOptions:
+    - ServerSideApply=true
   sources:
   - repoURL: 'https://prometheus-community.github.io/helm-charts'
     chart: kube-prometheus-stack
