@@ -69,3 +69,12 @@ persistence:
   enabled: true
   accessMode: ReadWriteOnce
   size: 100Gi
+
+## Esnsure there is enough time to start the container before the  liveness probe kills it
+startupProbe:
+  enabled: true
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 30
+  successThreshold: 1
