@@ -19,6 +19,13 @@ features:
   basicAuthentication: true
   demoUsers: true
 services:
+  storageusers:
+    persistence:
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
+      # -- Size of the persistent volume.
+      size: 50Gi
   nats:
     persistence:
       enabled: true
@@ -50,7 +57,3 @@ services:
       accessModes:
         - ReadWriteOnce
       size: 1Gi
-  storageusers:
-    storageBackend:
-      persistence:
-        enabled: true
