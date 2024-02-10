@@ -19,6 +19,7 @@ metrics:
     service:
       enabled: true
     serviceMonitor:
+      namespace: "kube-prometheus-stack"
       metricRelabelings:
         - sourceLabels: [__name__]
           separator: ;
