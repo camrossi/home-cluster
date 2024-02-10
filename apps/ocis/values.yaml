@@ -63,4 +63,6 @@ services:
   thumbnails:
     persistence:
       enabled: true
+      accessModes:
+        - ReadWriteOnce
       size: 1Gi
