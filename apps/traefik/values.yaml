@@ -37,7 +37,7 @@ metrics:
       honorLabels: true
     prometheusRule:
       additionalLabels: {}
-      namespace: "another-namespace"
+      namespace: "kube-prometheus-stack"
       rules:
         - alert: TraefikDown
           expr: up{job="traefik"} == 0
