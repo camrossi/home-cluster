@@ -37,6 +37,15 @@ nextcloud:
       );
 internalDatabase:
   enabled: false
+
+externalDatabase:
+  enabled: true
+  type: mysql
+  existingSecret:
+    enabled: true
+    secretName: mariadb-credentials
+    passwordKey: db-password
+    
 postgresql:
   enabled: false
 mariadb:
