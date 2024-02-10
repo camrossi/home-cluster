@@ -17,7 +17,7 @@ image:
   tag: "4.0.6"
 features:
   basicAuthentication: true
-  demoUsers: false
+  demoUsers: true
 services:
   nats:
     persistence:
