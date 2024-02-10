@@ -15,7 +15,7 @@ phpClientHttpsFix:
   protocol: https
 
 nodeSelector:
-  - ciliuml2Announcement: yes
+  ciliuml2Announcement: yes
 
 nextcloud:
   host: nextcloud.camsab.me
