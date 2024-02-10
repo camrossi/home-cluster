@@ -18,6 +18,9 @@ spec:
   - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
     ref: values
+  - repoURL: https://github.com/camrossi/home-cluster
+    path: apps/nextcloud/extras
+    targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: nextcloud
