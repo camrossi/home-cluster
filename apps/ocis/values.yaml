@@ -53,12 +53,8 @@ services:
   storageUsers:
     storageBackend:
       driver: ocis
-    persistence:
-      # -- Enables persistence.
-      # Needs to be enabled on production installations.
-      # If not enabled, pod restarts will lead to data loss.
-      # Also scaling this service beyond one instance is not possible if the service instances don't share the same storage.
-      enabled: true
-      accessModes:
-        - ReadWriteOnce
-      size: 50Gi
+      persistence:
+        enabled: true
+        accessModes:
+          - ReadWriteOnce
+        size: 50Gi
