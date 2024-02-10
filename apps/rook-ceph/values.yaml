@@ -4,6 +4,8 @@ ingress:
       name: ceph.sabby.local
       path: "/"
 cephClusterSpec:
+  cephVersion:
+    image: registry.gitlab.onlineterroir.com/ceph/ceph:v18.2.1_patched_v1
   dashboard:
     enabled: true
     ssl: false
