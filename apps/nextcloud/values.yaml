@@ -13,7 +13,9 @@ ingress:
 phpClientHttpsFix:
   enabled: false
   protocol: https
-
+nodeSelector:
+  ciliuml2Announcement: yes
+  
 nextcloud:
   host: nextcloud.camsab.me
   ## Use an existing secret
