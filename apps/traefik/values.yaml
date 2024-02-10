@@ -1,3 +1,5 @@
+# https://github.com/traefik/traefik-helm-chart/issues/791#issuecomment-1426940654
+instanceLabelOverride: "traefik"
 service:
   enabled: true
   single: true
