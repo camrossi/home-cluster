@@ -55,9 +55,6 @@ services:
       driver: ocis
   persistence:
     enabled: true
-    accessModes:
-      - ReadWriteOnce
-    size: 50Gi
     maintenance:
       cleanUpExpiredUploads:
         enabled: true
