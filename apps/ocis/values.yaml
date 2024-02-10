@@ -50,6 +50,7 @@ services:
       accessModes:
         - ReadWriteOnce
       size: 1Gi
-  storageUsers:
-    persistence:
-      enabled: true
+  storageusers:
+    storageBackend:
+      persistence:
+        enabled: true
