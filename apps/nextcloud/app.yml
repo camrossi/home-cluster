@@ -3,11 +3,11 @@ kind: Application
 metadata:
   name: 'nextcloud'
 spec:
-syncPolicy:
-  automated:
-    prune: true
-  syncOptions:
-    - CreateNamespace=true
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
   sources:
   - repoURL: 'https://nextcloud.github.io/helm/'
     chart: nextcloud
