@@ -1,8 +1,6 @@
 ingress:
   enabled: true
 
-
-
 phpClientHttpsFix:
   enabled: false
   protocol: https
