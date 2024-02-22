@@ -22,28 +22,26 @@ authentik:
     timeout: 30
     # -- Email from address, can either be in the format "foo@bar.baz" or "authentik <foo@bar.baz>"
     from: "authentik@camsab.me"
-server:
-  ingress:
-    # Specify kubernetes ingress controller class name
-    ingressClassName: traefik
-    enabled: true
-    hosts:
-      # Specify external host name
-      - host: authentik.camsab.me
-        paths:
-          - path: "/"
-            pathType: Prefix
+ingress:
+  # Specify kubernetes ingress controller class name
+  ingressClassName: traefik
+  enabled: true
+  hosts:
+    # Specify external host name
+    - host: authentik.camsab.me
+      paths:
+        - path: "/"
+          pathType: Prefix
 postgresql:
   enabled: true
-  auth:
-    password: file:///authentik-creds/postgres_password
+  postgresqlPassword: file:///authentik-creds/postgres_password
 redis:
   enabled: true
-global:
-  volumeMounts:
-    - name: authentik-creds
-      mountPath: /authentik-creds
-  volumes:
-    - name: authentik-creds
-      secret:
-        secretName: authentik-creds
+
+volumeMounts:
+  - name: authentik-creds
+    mountPath: /authentik-creds
+volumes:
+  - name: authentik-creds
+    secret:
+      secretName: authentik-creds
