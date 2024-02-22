@@ -29,10 +29,10 @@ server:
     enabled: true
     hosts:
       # Specify external host name
-      - host: authentik.camsab.me
-        paths:
-          - path: "/"
-            pathType: Prefix
+      - authentik.camsab.me
+    paths:
+      - path: "/"
+        pathType: Prefix
 postgresql:
   enabled: true
   auth:
