@@ -28,11 +28,10 @@ server:
     ingressClassName: traefik
     enabled: true
     hosts:
-      # Specify external host name
       - authentik.camsab.me
     paths:
-      - path: "/"
-        pathType: Prefix
+      - "/"
+    pathType: Prefix
 postgresql:
   enabled: true
   auth:
