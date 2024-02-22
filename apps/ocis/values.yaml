@@ -17,6 +17,7 @@ image:
   # -- Image repository
   repository: owncloud/ocis
   # -- Image tag. Defaults to the chart's appVersion.
+  tag: "4.0.6"
 services:
   storageusers:
     persistence:
@@ -65,7 +66,7 @@ services:
 
 features:
   externalUserManagement:
-    adminUUID: "ocis"
+    adminUUID: "akadmin"
     enabled: true
     oidc:
       issuerURI: https://authentik.camsab.me/application/o/ocis/
