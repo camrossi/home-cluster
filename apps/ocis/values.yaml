@@ -95,7 +95,7 @@ features:
       certTrusted: true
       insecure: true
       bindDN: "cn=ocis,ou=users,dc=ldap,dc=camsab,dc=me"
-      useServerUUID: true
+      useServerUUID: false
       refintEnabled: true
       user:
         objectClass: user
