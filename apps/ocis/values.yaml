@@ -2,7 +2,7 @@ externalDomain: ocis.camsab.me
 logging:
   level: "debug"
   pretty: "true"
-  color: "true"
+  color: "false"
 ingress:
   enabled: true
 insecure:
