@@ -5,9 +5,6 @@ logging:
   color: "true"
 ingress:
   enabled: true
-  hosts:
-    - ocis.camsab.me
-    - ocis.sabby.local
 insecure:
   # disables ssl certificate checking for connections to the openID connect identity provider.
   # Not recommended for production setups, but we don't have valid certificates in minikube
