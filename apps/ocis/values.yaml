@@ -1,6 +1,6 @@
 externalDomain: ocis.camsab.me
 logging:
-  level: "debug"
+  level: "info"
   pretty: "true"
   color: "true"
 ingress:
@@ -94,7 +94,7 @@ features:
       certTrusted: true
       insecure: true
       bindDN: "cn=ocis,ou=users,dc=ldap,dc=camsab,dc=me"
-      useServerUUID: false
+      useServerUUID: true
       refintEnabled: true
       user:
         objectClass: user
