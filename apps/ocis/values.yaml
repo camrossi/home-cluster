@@ -111,3 +111,10 @@ features:
           groupName: cn
 secretRefs:
   ldapSecretRef: "ldap-bind-secrets"
+  jwtSecretRef: "jwt-secret"
+  machineAuthApiKeySecretRef: "machine-auth-api-key"
+  storagesystemJwtSecretRef: "storage-system-jwt-secret"
+  storagesystemSecretRef: "storage-system"
+  thumbnailsSecretRef: "thumbnails-transfer-secret"
+  transferSecretSecretRef: "transfer-secret"
+
