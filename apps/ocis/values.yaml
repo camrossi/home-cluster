@@ -8,7 +8,7 @@ ingress:
   annotations:
     cert-manager.io/issuer: "ocis"
   tls:
-    secretName: ocis-ingress-key
+    - secretName: ocis-ingress-key
     hosts:
       - ocis.camsab.me
      
