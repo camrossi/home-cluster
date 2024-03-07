@@ -6,7 +6,7 @@ spec:
   sources:
   - repoURL: 'https://charts.rook.io/release'
     chart: rook-ceph
-    targetRevision: v1.13.3
+    targetRevision: v1.13.5
     helm:
       valueFiles:
       - $operator-values/apps/rook-ceph/operator-values.yaml
@@ -15,7 +15,7 @@ spec:
     ref: operator-values
   - repoURL: 'https://charts.rook.io/release'
     chart: rook-ceph-cluster
-    targetRevision: v1.13.3
+    targetRevision: v1.13.5
     helm:
       valueFiles:
       - $values/apps/rook-ceph/values.yaml
