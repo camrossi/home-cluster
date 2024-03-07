@@ -1,13 +1,13 @@
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
- name: ocis
- namespace: ocis
+ name: letsencrypt
+ namespace: cert-manager
 spec:
  acme:
    server: https://acme-staging-v02.api.letsencrypt.org/directory
    privateKeySecretRef:
-     name: ocis-ingress-key
+     name: letsencrypt-issuer-account-key
    solvers:
      - dns01:
          cloudflare:
