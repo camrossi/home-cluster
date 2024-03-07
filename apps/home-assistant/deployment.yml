@@ -7,6 +7,8 @@ metadata:
     app: homeassistant
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: homeassistant
@@ -15,8 +17,6 @@ spec:
       labels:
         app: homeassistant
         name: homeassistant
-    strategy:
-      type: Recreate
     spec:
       hostNetwork: true
       #Allow access to Cluster DNS
