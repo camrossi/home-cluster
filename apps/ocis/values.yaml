@@ -6,7 +6,7 @@ logging:
 ingress:
   enabled: true
   annotations:
-    cert-manager.io/issuer: "letsencrypt"
+    cert-manager.io/clusterissuer: "letsencrypt"
   tls:
     - secretName: ocis-ingress-key
       hosts:
