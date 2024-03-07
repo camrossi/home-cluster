@@ -62,7 +62,7 @@ server:
       tls:
         - secretName: immich-ingress-key
           hosts:
-            - immich.camsab.m
+            - immich.camsab.me
 
 microservices:
   enabled: true
