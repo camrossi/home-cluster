@@ -5,6 +5,13 @@ logging:
   color: "true"
 ingress:
   enabled: true
+  annotations:
+    cert-manager.io/issuer: "ocis"
+  tls:
+    secretName: ocis-ingress-key
+    hosts:
+      - ocis.camsab.me
+     
 insecure:
   # disables ssl certificate checking for connections to the openID connect identity provider.
   # Not recommended for production setups, but we don't have valid certificates in minikube
@@ -110,8 +117,8 @@ features:
           id: uid
           groupName: cn
 secretRefs:
-  ldapSecretRef: "ldap-bind-secrets"
   jwtSecretRef: "jwt-secret"
+  ldapSecretRef: "ldap-bind-secrets"
   machineAuthApiKeySecretRef: "machine-auth-api-key"
   storagesystemJwtSecretRef: "storage-system-jwt-secret"
   storagesystemSecretRef: "storage-system"
