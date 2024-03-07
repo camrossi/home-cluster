@@ -9,8 +9,8 @@ ingress:
     cert-manager.io/issuer: "ocis"
   tls:
     - secretName: ocis-ingress-key
-    hosts:
-      - ocis.camsab.me
+      hosts:
+        - ocis.camsab.me
      
 insecure:
   # disables ssl certificate checking for connections to the openID connect identity provider.
