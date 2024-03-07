@@ -5,7 +5,7 @@ ingress:
       path: "/"
 cephClusterSpec:
   cephVersion:
-    image: quay.io/ceph/ceph:v18.2.2
+    image: registry.gitlab.onlineterroir.com/ceph/ceph:v18.2.1_patched_v1
   dashboard:
     enabled: true
     ssl: false
