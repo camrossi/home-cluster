@@ -10,6 +10,9 @@ spec:
     helm:
       valueFiles:
       - $values/apps/cert-manager/values.yaml
+  - repoURL: https://github.com/camrossi/home-cluster
+    path: apps/cert-manager/extra
+    targetRevision: main
   - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
     ref: values
