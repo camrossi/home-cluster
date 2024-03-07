@@ -11,7 +11,7 @@ spec:
       valueFiles:
       - $values/apps/cert-manager/values.yaml
   - repoURL: https://github.com/camrossi/home-cluster
-    path: apps/cert-manager/extra
+    path: apps/cert-manager/extras
     targetRevision: main
   - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
