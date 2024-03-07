@@ -54,16 +54,15 @@ server:
     main:
       enabled: true
       annotations:
-        # proxy-body-size is set to 0 to remove the body limit on file uploads
-        #nginx.ingress.kubernetes.io/proxy-body-size: "0"
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
       hosts:
-        - host: immich.sabby.local
-          paths:
-            - path: "/"
         - host: immich.camsab.me
           paths:
             - path: "/"
-      tls: []
+      tls:
+        - secretName: immich-ingress-key
+          hosts:
+            - immich.camsab.m
 
 microservices:
   enabled: true
