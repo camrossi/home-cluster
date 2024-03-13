@@ -21,3 +21,8 @@ toolbox:
   enabled: true
 monitoring:
   enabled: true
+cephBlockPools:
+  - name: ceph-blockpool
+    storageClass:
+      parameters:
+        imageFeatures: layering,fast-diff,object-map,deep-flatten,exclusive-lock
