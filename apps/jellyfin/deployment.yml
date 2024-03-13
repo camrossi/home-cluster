@@ -24,6 +24,10 @@ spec:
         volumeMounts:
         - name: media
           mountPath: "/media"
+        - name: config
+          mountPath: "/config"
+        - name: cache
+          mountPath: "/cache"
       volumes:
       - name: media
         persistentVolumeClaim:
