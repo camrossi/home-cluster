@@ -28,3 +28,9 @@ spec:
       - name: media
         persistentVolumeClaim:
           claimName: media
+      - name: config
+        persistentVolumeClaim:
+          claimName: config
+      - name: cache
+        persistentVolumeClaim:
+          claimName: cache

@@ -9,4 +9,28 @@ spec:
    - ReadWriteOnce
   resources:
     requests:
-      storage: "100Gi"
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: config
+  namespace: jellyfin
+spec:
+  accessModes:
+   - ReadWriteOnce
+  resources:
+    requests:
+      storage: "100Mi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cache
+  namespace: jellyfin
+spec:
+  accessModes:
+   - ReadWriteOnce
+  resources:
+    requests:
+      storage: "1Gi"
