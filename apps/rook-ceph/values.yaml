@@ -17,6 +17,9 @@ cephClusterSpec:
       - name: rook # This enables the rook module.
         enabled: true
 cephObjectStores: null
+nfs:
+  # -- Enable the nfs csi driver
+  enabled: true
 toolbox:
   enabled: true
 monitoring:
