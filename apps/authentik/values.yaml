@@ -35,8 +35,7 @@ server:
 postgresql:
   enabled: true
   auth:
-    usePasswordFiles: true
-    password: file:///authentik-creds/postgres_password
+    postgresPassword: file:///authentik-creds/postgres_password
 redis:
   enabled: true
 global:
