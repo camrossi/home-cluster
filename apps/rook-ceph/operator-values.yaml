@@ -1,1 +1,5 @@
 enableDiscoveryDaemon: true
+csi:
+  nfs:
+    # -- Enable the nfs csi driver
+    enabled: true
