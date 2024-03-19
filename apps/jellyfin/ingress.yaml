@@ -10,8 +10,8 @@ spec:
       - kind: Rule
         match: "Host(`jellyfin.camsab.me`)"
         middlewares:
-            - name: authentik
-              namespace: authentik
+          - name: ak-outpost-authentik-embedded-outpost
+            namespace: authentik
         priority: 10
         services: 
           - name: jellyfin
@@ -21,8 +21,8 @@ spec:
         match: "Host(`jellyfin.camsab.me`) && PathPrefix(`/outpost.goauthentik.io/`)"
         priority: 15
         services:
-            - kind: Service
-              name: ak-outpost-authentik-embedded-outpost
-              port: 9000
+          - name: ak-outpost-authentik-embedded-outpost
+            namespace: authentik
+            port: 9000
   tls:
     secretName: jellyfin
