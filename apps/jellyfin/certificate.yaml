@@ -9,5 +9,5 @@ spec:
   dnsNames:
     - jellyfin.camsab.me
   issuerRef:
-    kind: Issuer
+    kind: ClusterIssuer
     name: letsencrypt-staging
