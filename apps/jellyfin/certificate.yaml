@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: jellyfin
+  namespace: jellyfin
+spec:
+  commonName: jellyfin.camsab.me
+  secretName: jellyfin
+  dnsNames:
+    - jellyfin.camsab.me
+  issuerRef:
+    kind: Issuer
+    name: letsencrypt-staging

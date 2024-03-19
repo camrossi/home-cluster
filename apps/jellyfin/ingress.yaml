@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jellyfin
+  namespace: jellyfin
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    traefik.ingress.kubernetes.io/router.middlewares:
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: jellyfin.camsab.me
+  - https:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: test
+              port:
+                number: 80
