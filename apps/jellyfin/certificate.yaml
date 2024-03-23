@@ -10,4 +10,4 @@ spec:
     - jellyfin.camsab.me
   issuerRef:
     kind: ClusterIssuer
-    name: letsencrypt-staging
+    name: letsencrypt-production
