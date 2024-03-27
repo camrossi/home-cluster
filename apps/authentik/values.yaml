@@ -34,7 +34,6 @@ server:
     pathType: Prefix
 postgresql:
   enabled: true
-  tag: 16.2.0
   auth:
     postgresPassword: file:///authentik-creds/postgres_password
     password: file:///authentik-creds/postgres_password

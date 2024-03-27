@@ -85,6 +85,8 @@ frontend:
 # https://github.com/bitnami/charts/tree/main/bitnami/postgresql/#parameters
 postgresql:
   enabled: true
+  image:
+    tag: 16.2.0
   global:
     postgresql:
       auth:
