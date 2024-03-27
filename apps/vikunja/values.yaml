@@ -18,8 +18,18 @@ api:
     tag: 0.22.1
     pullPolicy: IfNotPresent
   ingress:
-    main:
-      enabled: false
+    enabled: true
+    annotations:
+      # proxy-body-size is set to 0 to remove the body limit on file uploads
+      nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    hosts:
+      - host: vikunja.camsab.me
+        paths:
+          - path: "/api/v1"
+    tls:
+      - secretName: vikunja-ingress-key
+        hosts:
+          - vikunja.camsab.me
   configMaps:
     # The configuration for Vikunja's api.
     # https://vikunja.io/docs/config-options/
@@ -70,8 +80,8 @@ frontend:
           hosts:
             - vikunja.camsab.me
   # You only need to provide the URL to the API as environment variable here if you deviate from the "built-in" ingress in the api section.
-  #env:
-  #  VIKUNJA_API_URL: http://vikunja.local/api
+  env:
+    VIKUNJA_API_URL: http://vikunja-api/api
 
 ##########################
 # END VIKUNJA COMPONENTS #
