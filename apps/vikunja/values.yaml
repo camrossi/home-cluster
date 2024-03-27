@@ -42,7 +42,7 @@ api:
 
           typesense:
             # Typesense will only work if it is enabled below (typesense.enabled).
-            url: "{{ printf "%s-typesense" .Release.Name }}:8108"
+            url: "http://{{ printf "%s-typesense" .Release.Name }}:8108"
             apiKey: "{{ .Values.typesense.env.TYPESENSE_API_KEY }}"
           redis:
             # Redis will only work if it is enabled below (redis.enabled).
