@@ -1,0 +1,122 @@
+## This chart relies on the common library chart from bjw-s
+## You can find it and the values you can provide and modify, at https://github.com/bjw-s/helm-charts/tree/a081de53024d8328d1ae9ff7e4f6bc500b0f3a29/charts/library/common
+## Here's the link to the values.yaml file: https://github.com/bjw-s/helm-charts/blob/a081de53024d8328d1ae9ff7e4f6bc500b0f3a29/charts/library/common/values.yaml
+## Refer there for more detail about the supported values.
+## Any values that you find in the above `values.yaml` can be provided to this chart and are then rendered.
+
+image:
+  tag: 0.23.0
+
+######################
+# VIKUNJA COMPONENTS #
+######################
+# You can find the default values that this `values.yaml` overrides, in the comment at the top of this file.
+api:
+  enabled: true
+  image:
+    repository: vikunja/api
+    tag: 0.23.0
+    pullPolicy: IfNotPresent
+  ingress:
+    main:
+      enabled: false
+  configMaps:
+    # The configuration for Vikunja's api.
+    # https://vikunja.io/docs/config-options/
+    config:
+      enabled: true
+      data:
+        config.yml: |
+          # Vikunja needs to know the frontend URL for password reset emails.
+          # So you might need to provide its value, if you're not using an ingress.
+          # service:
+          #   frontendUrl: http://vikunja.local
+
+          typesense:
+            # Typesense will only work if it is enabled below (typesense.enabled).
+            url: "{{ printf "%s-typesense" .Release.Name }}:8108"
+            apiKey: "{{ .Values.typesense.env.TYPESENSE_API_KEY }}"
+          redis:
+            # Redis will only work if it is enabled below (redis.enabled).
+            host: "{{ printf "%s-redis-master" .Release.Name }}:6379"
+            db: "{{ .Release.Name }}"
+  env:
+    # To utilize a secret in the environment variables, you can do something like the following: https://github.com/bjw-s/helm-charts/blob/a081de53024d8328d1ae9ff7e4f6bc500b0f3a29/charts/library/common/values.yaml#L141-L145
+    # You could also use MySQL or SQLite, but we recommend PostgreSQL.
+    # https://vikunja.io/docs/config-options/#type
+    VIKUNJA_DATABASE_TYPE: "postgres"
+    VIKUNJA_DATABASE_USER: "{{ .Values.postgresql.global.postgresql.auth.username }}"
+    VIKUNJA_DATABASE_PASSWORD: "{{ .Values.postgresql.global.postgresql.auth.password }}"
+    VIKUNJA_DATABASE_NAME: "{{ .Values.postgresql.global.postgresql.auth.database }}"
+
+frontend:
+  image:
+    tag: 0.23.0
+  service:
+    main:
+      type: ClusterIP
+  ingress:
+    main:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+      hosts:
+        - host: vikunja.camsab.me
+          paths:
+            - path: "/"
+      tls:
+        - secretName: vikunja-ingress-key
+          hosts:
+            - vikunja.camsab.me
+  # You only need to provide the URL to the API as environment variable here if you deviate from the "built-in" ingress in the api section.
+  #env:
+  #  VIKUNJA_API_URL: http://vikunja.local/api
+
+##########################
+# END VIKUNJA COMPONENTS #
+##########################
+
+# Optional Dependencies
+
+#  ┬─┐┌─┐┐─┐┌┐┐┌─┐┬─┐┬─┐┐─┐┐─┐┬
+#  │─┘│ │└─┐ │ │ ┬│┬┘├─ └─┐│ ││
+#  ┘  ┘─┘──┘ ┘ ┘─┘┘└┘┴─┘──┘└─\┘─┘
+# Please refer to PostgreSQL subchart for a full list of possible values
+# https://github.com/bitnami/charts/tree/main/bitnami/postgresql/#parameters
+postgresql:
+  enabled: true
+  global:
+    postgresql:
+      auth:
+        username: vikunja
+        database: vikunja
+        password: vikunja
+
+#  ┬─┐┬─┐┬─┐o┐─┐
+#  │┬┘├─ │ ││└─┐
+#  ┘└┘┴─┘┘─┘┘──┘
+# Please refer to Redis subchart for a full list of possible values
+# https://github.com/bitnami/charts/tree/main/bitnami/redis/#parameters
+redis:
+  enabled: false
+  architecture: standalone
+  auth:
+    enabled: false
+
+typesense:
+  enabled: true
+  env:
+    TYPESENSE_DATA_DIR: /data
+    TYPESENSE_API_KEY: typesense
+  persistence:
+    data:
+      # Enabling typesense persistence is recommended to avoid slow reindexing
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 1Gi
+      # storageClass: storage-class
+
+  image:
+    repository: docker.io/typesense/typesense
+    tag: 0.25.1
+    pullPolicy: IfNotPresent

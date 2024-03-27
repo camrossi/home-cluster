@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'vikunja'
+spec:
+  sources:
+  - repoURL: 'https://kolaente.dev/vikunja/helm-chart.git'
+    targetRevision: v0.4.3
+    helm:
+      valueFiles:
+      - $values/apps/vikunja/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: vikunja
+  project: default
