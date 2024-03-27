@@ -18,15 +18,16 @@ api:
     tag: 0.22.1
     pullPolicy: IfNotPresent
   ingress:
-    enabled: true
-    hosts:
-      - host: vikunja.camsab.me
-        paths:
-          - path: "/api/v1"
-    tls:
-      - secretName: vikunja-ingress-key
-        hosts:
-          - vikunja.camsab.me
+    main:
+      enabled: true
+      hosts:
+        - host: vikunja.camsab.me
+          paths:
+            - path: "/api/v1"
+      tls:
+        - secretName: vikunja-ingress-key
+          hosts:
+            - vikunja.camsab.me
   configMaps:
     # The configuration for Vikunja's api.
     # https://vikunja.io/docs/config-options/
