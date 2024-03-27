@@ -78,8 +78,8 @@ frontend:
           hosts:
             - vikunja.camsab.me
   # You only need to provide the URL to the API as environment variable here if you deviate from the "built-in" ingress in the api section.
-  #env:
-  #  VIKUNJA_API_URL: http://vikunja-api/api
+  env:
+    VIKUNJA_API_URL: https://vikunja.camsab.me/api/v1
 
 ##########################
 # END VIKUNJA COMPONENTS #
