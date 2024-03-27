@@ -19,9 +19,6 @@ api:
     pullPolicy: IfNotPresent
   ingress:
     enabled: true
-    annotations:
-      # proxy-body-size is set to 0 to remove the body limit on file uploads
-      nginx.ingress.kubernetes.io/proxy-body-size: "0"
     hosts:
       - host: vikunja.camsab.me
         paths:
