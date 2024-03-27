@@ -48,7 +48,7 @@ api:
     VIKUNJA_DATABASE_USER: "{{ .Values.postgresql.global.postgresql.auth.username }}"
     VIKUNJA_DATABASE_PASSWORD: "{{ .Values.postgresql.global.postgresql.auth.password }}"
     VIKUNJA_DATABASE_NAME: "{{ .Values.postgresql.global.postgresql.auth.database }}"
-    VIKUNJA_DATABASE_DATABASE: "vikunja-postgresql"
+    VIKUNJA_DATABASE_HOST: "vikunja-postgresql"
 
 frontend:
   image:
