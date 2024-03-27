@@ -5,6 +5,7 @@ metadata:
 spec:
   sources:
   - repoURL: 'https://kolaente.dev/vikunja/helm-chart.git'
+    path: ./
     targetRevision: v0.4.3
     helm:
       valueFiles:

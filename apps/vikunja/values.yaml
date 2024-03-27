@@ -5,7 +5,7 @@
 ## Any values that you find in the above `values.yaml` can be provided to this chart and are then rendered.
 
 image:
-  tag: 0.23.0
+  tag: 0.22.1
 
 ######################
 # VIKUNJA COMPONENTS #
@@ -15,7 +15,7 @@ api:
   enabled: true
   image:
     repository: vikunja/api
-    tag: 0.23.0
+    tag: 0.22.1
     pullPolicy: IfNotPresent
   ingress:
     main:
@@ -51,7 +51,7 @@ api:
 
 frontend:
   image:
-    tag: 0.23.0
+    tag: 0.22.1
   service:
     main:
       type: ClusterIP
