@@ -4,9 +4,6 @@
 ## Refer there for more detail about the supported values.
 ## Any values that you find in the above `values.yaml` can be provided to this chart and are then rendered.
 
-image:
-  tag: 0.22.1
-
 ######################
 # VIKUNJA COMPONENTS #
 ######################
@@ -14,8 +11,8 @@ image:
 api:
   enabled: true
   image:
-    repository: vikunja/api
-    tag: 0.22.1
+    repository: vikunja/vikunja
+    tag: 0.23.0
     pullPolicy: IfNotPresent
   ingress:
     main:
@@ -23,7 +20,7 @@ api:
       hosts:
         - host: vikunja.camsab.me
           paths:
-            - path: "/api/v1"
+            - path: "/"
       tls:
         - secretName: vikunja-ingress-key
           hosts:
@@ -44,29 +41,11 @@ api:
     VIKUNJA_DATABASE_PASSWORD: "{{ .Values.postgresql.global.postgresql.auth.password }}"
     VIKUNJA_DATABASE_NAME: "{{ .Values.postgresql.global.postgresql.auth.database }}"
     VIKUNJA_DATABASE_HOST: "vikunja-postgresql"
+    VIKUNJA_API_URL: https://vikunja.camsab.me/api/v1
 
 frontend:
-  image:
-    tag: 0.22.1
-  service:
-    main:
-      type: ClusterIP
-  ingress:
-    main:
-      enabled: true
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-production"
-      hosts:
-        - host: vikunja.camsab.me
-          paths:
-            - path: "/"
-      tls:
-        - secretName: vikunja-ingress-key
-          hosts:
-            - vikunja.camsab.me
-  # You only need to provide the URL to the API as environment variable here if you deviate from the "built-in" ingress in the api section.
-  env:
-    VIKUNJA_API_URL: https://vikunja.camsab.me/api/v1
+  #VErsion 0.23 merges API and Frontend
+  enabled: false
 
 ##########################
 # END VIKUNJA COMPONENTS #
