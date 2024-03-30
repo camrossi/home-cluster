@@ -68,7 +68,7 @@ postgresql:
         username: vikunja
         database: vikunja
         password: vikunja
-
+        postgresPassword: GpPF96Sazz
 #  ┬─┐┬─┐┬─┐o┐─┐
 #  │┬┘├─ │ ││└─┐
 #  ┘└┘┴─┘┘─┘┘──┘
