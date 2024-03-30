@@ -28,6 +28,7 @@ postgresql:
         username: immich
         database: immich
         password: immich
+        postgresPassword: f1FJk4JUSt
   primary:
     initdb:
       scripts:
