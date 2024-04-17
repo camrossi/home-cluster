@@ -3,9 +3,9 @@ ingress:
     host:
       name: ceph.sabby.local
       path: "/"
-#cephClusterSpec:
-#  cephVersion:
-#    image: quay.io/ceph/ceph:v18.2.2
+cephClusterSpec:
+  cephVersion:
+    image: quay.io/ceph/ceph:v18.2.2
   dashboard:
     enabled: true
     ssl: false
