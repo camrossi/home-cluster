@@ -12,8 +12,8 @@ api:
   enabled: true
   image:
     repository: vikunja/vikunja
-    tag: 0.23.0
-    pullPolicy: IfNotPresent
+    tag: unstable
+    pullPolicy: Always
   ingress:
     main:
       enabled: true
