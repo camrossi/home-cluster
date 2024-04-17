@@ -13,7 +13,7 @@ api:
   image:
     repository: vikunja/vikunja
     tag: unstable
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   ingress:
     main:
       enabled: true
