@@ -12,7 +12,7 @@ api:
   enabled: true
   image:
     repository: vikunja/vikunja
-    tag: 0.23.0
+    tag: unstable
     pullPolicy: Always
   ingress:
     main:
