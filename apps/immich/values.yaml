@@ -60,10 +60,14 @@ server:
         - host: immich.camsab.me
           paths:
             - path: "/"
+        - host: immich.camsab.local
+          paths:
+            - path: "/"
       tls:
         - secretName: immich-ingress-key
           hosts:
             - immich.camsab.me
+            - immich.camsab.local
 
 microservices:
   enabled: true
