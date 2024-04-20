@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'stash'
+spec:
+  sources:
+  - repoURL: 'https://charts.appscode.com/stable/'
+    chart: stash
+    targetRevision: v0.34.0
+    helm:
+      valueFiles:
+      - $values/apps/stash/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  - repoURL: https://github.com/camrossi/home-cluster
+    path: apps/stash/extras
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: stash
+  project: default
