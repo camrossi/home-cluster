@@ -5,7 +5,7 @@ metadata:
 spec:
   sources:
   - repoURL: 'https://charts.appscode.com/stable/'
-    chart: stash
+    chart: stash-community
     targetRevision: v0.34.0
     helm:
       valueFiles:
