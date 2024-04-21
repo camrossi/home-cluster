@@ -5,7 +5,7 @@
 # These entries are shared between all the Immich components
 
 image:
-  tag: 1.102.3
+  tag: v1.102.3
 
 immich:
   persistence:
