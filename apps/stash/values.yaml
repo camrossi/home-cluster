@@ -1,4 +1,6 @@
 licenseSecretName: "stash-license"
+annotations:
+  argocd.argoproj.io/compare-options: IgnoreExtraneous
 monitoring:
   # Name of monitoring agent (one of "prometheus.io", "prometheus.io/operator", "prometheus.io/builtin")
   agent: "prometheus.io/operator"
