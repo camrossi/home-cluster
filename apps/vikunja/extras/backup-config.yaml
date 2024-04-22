@@ -1,0 +1,37 @@
+apiVersion: stash.appscode.com/v1beta1
+kind: BackupConfiguration
+metadata:
+  name: postgresql-backup
+  namespace: vikunja
+spec:
+  repository:
+    name: vikunja-db
+  schedule: "0 16 * * *"
+  target:
+    ref:
+      apiVersion: apps/v1
+      kind: StatefulSet
+      name: vikunja-postgresql
+    volumeMounts:
+    - name: data
+      mountPath: /bitnami/postgresql
+    paths:
+    - /bitnami/postgresql/dump.sql.gz
+  hooks:
+    preBackup:
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - "PGPASSWORD=vikunja pg_dump --clean --if-exists --username=postgres | gzip > /bitnami/postgresql/dump.sql.gz"
+    postBackup:
+      executionPolicy: Always
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - "rm -fr /bitnami/postgresql/dump.sql.gz"
+  retentionPolicy:
+    name: 'keep-last-5'
+    keepLast: 5
+    prune: true
