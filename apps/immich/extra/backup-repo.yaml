@@ -7,7 +7,7 @@ spec:
   backend:
     rest:
       url: http://192.168.0.205:8000/immich/db
-    storageSecretName: rest-secret
+    storageSecretName: backup-secret
 ---
 apiVersion: stash.appscode.com/v1alpha1
 kind: Repository
@@ -18,4 +18,4 @@ spec:
   backend:
     rest:
       url: http://192.168.0.205:8000/immich/pics
-    storageSecretName: rest-secret
+    storageSecretName: backup-secret
