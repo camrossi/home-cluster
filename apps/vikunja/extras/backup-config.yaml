@@ -23,7 +23,7 @@ spec:
         command:
           - /bin/sh
           - -c
-          - "PGPASSWORD=vikunja pg_dump --clean --if-exists --username=postgres | gzip > /bitnami/postgresql/dump.sql.gz"
+          - "PGPASSWORD=vikunja pg_dump --clean --if-exists --username=vikunja | gzip > /bitnami/postgresql/dump.sql.gz"
     postBackup:
       executionPolicy: Always
       exec:
