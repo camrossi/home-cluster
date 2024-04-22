@@ -1,0 +1,21 @@
+apiVersion: stash.appscode.com/v1alpha1
+kind: Repository
+metadata:
+  name: immich-db
+  namespace: immich
+spec:
+  backend:
+    rest:
+      url: http://192.168.0.205:8000/immich/db
+    storageSecretName: rest-secret
+---
+apiVersion: stash.appscode.com/v1alpha1
+kind: Repository
+metadata:
+  name: immich-pics
+  namespace: immich
+spec:
+  backend:
+    rest:
+      url: http://192.168.0.205:8000/immich/pics
+    storageSecretName: rest-secret
