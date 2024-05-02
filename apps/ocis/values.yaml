@@ -23,7 +23,7 @@ image:
   # -- Image repository
   repository: owncloud/ocis
   # -- Image tag. Defaults to the chart's appVersion.
-  tag: "4.0.6"
+  tag: "5.0.2"
 services:
   storageusers:
     persistence:
