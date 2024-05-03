@@ -20,3 +20,13 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: stash
   project: default
+ignoreDifferences:
+  - kind: Secret
+    name: stash-stash-community-apiserver-cert
+    jsonPointers:
+      - /data
+  - group: apps
+    kind: Deployment
+    name: stash-stash-community
+    jsonPointers:
+      - /spec/template/metadata/annotations/checksum/apiregistration.yaml

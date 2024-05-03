@@ -11,6 +11,10 @@ grafana:
   persistence:
     enabled: true
     size: 1Gi
+  sidecar:
+    dashboards:
+      # Support for new table panels, when enabled grafana auto migrates the old table panels to newer table panels
+      enableNewTablePanelSyntax: true
 kubeProxy:
   enabled: false
 prometheus:
