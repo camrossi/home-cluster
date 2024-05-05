@@ -2,35 +2,71 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: data-immich-postgresql-0-backup
+  name: nats-data-backup
 spec:
   accessModes:
    - ReadWriteOnce
   storageClassName: longhorn
   resources:
     requests:
-      storage: "8Gi"
+      storage: "1Gi"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: immich-machine-learning-cache-backup
-spec:
-  accessModes:
-   - ReadWriteMany
-  storageClassName: longhorn
-  resources:
-    requests:
-      storage: "10Gi"
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: redis-data-immich-redis-master-0-backup
+  name: search-data-backup
 spec:
   accessModes:
    - ReadWriteOnce
   storageClassName: longhorn
   resources:
     requests:
-      storage: "8Gi"
+      storage: "1Gi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: storagesystem-data-backup
+spec:
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: "5Gi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: storageusers-data-backup
+spec:
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: "50Gi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: thumbnails-data-backup
+spec:
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: "1Gi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: web-data-backup
+spec:
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: "1Gi"
