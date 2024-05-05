@@ -18,6 +18,7 @@ spec:
           defaultSettings:
             defaultDataPath: /var/mnt/longhorn
             defaultDataLocality: "best-effort"
+            defaultReplicaCount: 2
           ingress:
             enabled: true
             host: longhorn.camsab.local

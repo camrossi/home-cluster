@@ -34,3 +34,42 @@ spec:
   resources:
     requests:
       storage: "1Gi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-v2
+  namespace: jellyfin
+spec:
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: "100Gi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: config-v2
+  namespace: jellyfin
+spec:
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: "100Mi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cache-v2
+  namespace: jellyfin
+spec:
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: "1Gi"
