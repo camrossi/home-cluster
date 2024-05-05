@@ -31,10 +31,10 @@ spec:
       volumes:
       - name: media
         persistentVolumeClaim:
-          claimName: media
+          claimName: media-v2
       - name: config
         persistentVolumeClaim:
-          claimName: config
+          claimName: config-v2
       - name: cache
         persistentVolumeClaim:
-          claimName: cache
+          claimName: cache-v2
