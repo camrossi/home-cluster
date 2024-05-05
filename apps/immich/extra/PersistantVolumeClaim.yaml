@@ -2,18 +2,6 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: photo-library
-spec:
-  accessModes:
-    - ReadWriteMany
-  storageClassName: ceph-filesystem
-  resources:
-    requests:
-      storage: 150Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
   name: photos
 spec:
   accessModes:
