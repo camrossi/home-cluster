@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: longhorn
+spec:
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  sources:
+    - chart: longhorn
+      repoURL: https://charts.longhorn.io/
+      targetRevision: v1.6.1 # Replace with the Longhorn version you'd like to install or upgrade to
+      helm:
+        values: |
+          preUpgradeChecker:
+            jobEnabled: false
+          defaultSettings:
+            defaultDataPath: /var/mnt/longhorn
+            defaultDataLocality: "best-effort"
+          ingress:
+            enabled: true
+            host: longhorn.camsab.local
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: longhorn-system
