@@ -63,6 +63,7 @@ postgresql:
   image:
     tag: 16.2.0
   global:
+    storageClass: longhorn
     postgresql:
       auth:
         username: vikunja
@@ -91,7 +92,7 @@ typesense:
       enabled: true
       accessMode: ReadWriteOnce
       size: 1Gi
-      # storageClass: storage-class
+      storageClass: longhorn
 
   image:
     repository: docker.io/typesense/typesense
