@@ -35,3 +35,27 @@ spec:
     name: 'keep-last-5'
     keepLast: 5
     prune: true
+---
+apiVersion: stash.appscode.com/v1beta1
+kind: BackupConfiguration
+metadata:
+  name: files-backup
+  namespace: vikunja
+spec:
+  repository:
+    name: vikunja-files
+  schedule: "0 16 * * *"
+  target:
+    ref:
+      apiVersion: apps/v1
+      kind: Deployment
+      name: vikunja-api
+    volumeMounts:
+    - name: data
+      mountPath: /app/vikunja/files
+    paths:
+    - /app/vikunja/files
+  retentionPolicy:
+    name: 'keep-last-5'
+    keepLast: 5
+    prune: true
