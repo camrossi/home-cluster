@@ -10,6 +10,9 @@
 # You can find the default values that this `values.yaml` overrides, in the comment at the top of this file.
 api:
   enabled: true
+  persistence:
+    data:  
+      storageClass: longhorn
   image:
     repository: vikunja/vikunja
     tag: 0.23.0
