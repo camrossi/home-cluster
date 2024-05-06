@@ -3,8 +3,9 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: photos
-  labels:
-    recurring-job-group.longhorn.io/backup: enabled
+  # Can't change it afterwards so for now I manually label the PVC directly... 
+  #labels:
+  #  recurring-job-group.longhorn.io/backup: enabled
 spec:
   accessModes:
     - ReadWriteMany
