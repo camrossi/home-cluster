@@ -30,6 +30,9 @@ postgresql:
         password: immich
         postgresPassword: f1FJk4JUSt
   primary:
+    persistence:
+      labels:
+        recurring-job-group.longhorn.io/backup: enabled
     initdb:
       scripts:
         create-extensions.sql: |
