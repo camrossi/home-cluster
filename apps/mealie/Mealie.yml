@@ -21,8 +21,6 @@ spec:
         image: ghcr.io/mealie-recipes/mealie:v1.6.0
         imagePullPolicy: Always
         env:
-        - name: ALLOW_SIGNUP
-          value: True
         - name: PUID
           value: "1000"
         - name: PGID
