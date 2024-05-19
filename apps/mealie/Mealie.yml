@@ -1,0 +1,56 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mealie
+  labels:
+    app: mealie
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mealie
+  template:
+    metadata:
+      labels:
+        app: mealie
+        name: mealie
+    spec:
+      containers:
+      - name: mealie
+        image: ghcr.io/mealie-recipes/mealie:v1.6.0
+        imagePullPolicy: Always
+        env:
+        - name: ALLOW_SIGNUP
+          value: true
+        - name: PUID
+          value: 1000
+        - name: PGID
+          value:
+        - name: ALLOW_SIGNUP
+          value: 1000
+        - name: TZ
+          value: Australia/Sydney
+        - name: MAX_WORKERS
+          value: 1
+        - name: WEB_CONCURRENCY
+          value: 1
+        - name: DB_ENGINE
+          value: postgres
+        - name: POSTGRES_USER
+          value: mealie
+        - name: POSTGRES_PASSWORD: 
+          value: mealie
+        - name: POSTGRES_SERVER
+          value: postgres
+        - name: POSTGRES_PORT
+          value: 5432
+        - name: POSTGRES_DB
+          value: mealie
+        volumeMounts:
+        - name: mealie-data
+          mountPath: "/app/data/"
+      volumes:
+      - name: mealie-data
+        persistentVolumeClaim:
+          claimName: mealie-data
