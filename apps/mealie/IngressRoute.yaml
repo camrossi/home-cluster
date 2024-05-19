@@ -8,12 +8,12 @@ spec:
   ingressClassName: traefik
   rules:
   - host: mealie.camsab.me
-    https:
+    http:
       paths:
       - backend:
           service:
             name: mealie
             port:
-              name: mealie
+              number: 443
         path: /
         pathType: Prefix
