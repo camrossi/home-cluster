@@ -8,5 +8,6 @@ spec:
     app: mealie
   type: ClusterIP
   ports:
-    - targetPort: 80
-      name: mealie
+    - port: 443
+      targetPort: 443
+      name: mealie-admin
