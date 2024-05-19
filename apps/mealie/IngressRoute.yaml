@@ -17,7 +17,6 @@ spec:
           service:
             name: mealie
             port:
-              number: 443
               name: mealie
         path: /
         pathType: Prefix
