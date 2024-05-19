@@ -20,9 +20,6 @@ spec:
       - name: mealie
         image: ghcr.io/mealie-recipes/mealie:v1.6.0
         imagePullPolicy: Always
-        env:
-        - name: ALLOW_SIGNUP
-          value: true
         volumeMounts:
         - name: mealie-data
           mountPath: "/app/data/"
