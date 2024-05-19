@@ -11,6 +11,7 @@ spec:
   tls:
   - hosts:
       - mealie.camsab.me
+    secretName: mealie-ingress-key
   rules:
   - host: mealie.camsab.me
     http:
