@@ -22,7 +22,7 @@ spec:
         imagePullPolicy: Always
         env:
         - name: ALLOW_SIGNUP
-          value: true
+          value: True
         - name: PUID
           value: "1000"
         - name: PGID
