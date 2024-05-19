@@ -21,9 +21,9 @@ spec:
             - containerPort: 5432
           env:
             - name: POSTGRES_USER
-              value: mealie
+              value: "mealie"
             - name: POSTGRES_PASSWORD
-              value: mealie
+              value: "mealie"
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgredb
@@ -35,3 +35,4 @@ spec:
       resources:
         requests:
           storage: 8Gi
+      volumeMode: Filesystem
