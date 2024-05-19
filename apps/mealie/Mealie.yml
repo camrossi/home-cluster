@@ -30,7 +30,7 @@ spec:
         - name: ALLOW_SIGNUP
           value: 1000
         - name: TZ
-          value: Australia/Sydney
+          value: "Australia/Sydney"
         - name: MAX_WORKERS
           value: 1
         - name: WEB_CONCURRENCY
