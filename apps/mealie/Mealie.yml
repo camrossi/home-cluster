@@ -39,7 +39,7 @@ spec:
           value: postgres
         - name: POSTGRES_USER
           value: mealie
-        - name: POSTGRES_PASSWORD: 
+        - name: POSTGRES_PASSWORD
           value: mealie
         - name: POSTGRES_SERVER
           value: postgres
