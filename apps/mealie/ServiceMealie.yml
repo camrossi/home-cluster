@@ -10,4 +10,4 @@ spec:
   ports:
     - port: 443
       targetPort: 443
-      name: mealie-admin
+      name: mealie
