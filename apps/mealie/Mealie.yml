@@ -20,6 +20,9 @@ spec:
       - name: mealie
         image: ghcr.io/mealie-recipes/mealie:v1.6.0
         imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: mealie-oidc-id
         env:
         - name: PUID
           value: "1000"
@@ -45,6 +48,20 @@ spec:
           value: "5432"
         - name: POSTGRES_DB
           value: "mealie"
+        - name: BASE_URL
+          value: https://mealie.camsab.me
+        - name: OIDC_AUTH_ENABLED
+          value: "True"
+        - name: OIDC_AUTO_REDIRECT
+          value: "True"
+        - name: OIDC_REMEMBER_ME
+          value: "True"
+        - name: OIDC_SIGNUP_ENABLED
+          value: "True"
+        - name: OIDC_CONFIGURATION_URL
+          value: "https://authentik.camsab.me/application/o/mealie/.well-known/openid-configuration"
+        - name: OIDC_ADMIN_GROUP
+          value: "Admin"
         volumeMounts:
         - name: mealie-data
           mountPath: "/app/data/"
