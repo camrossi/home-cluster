@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spliit
+  labels:
+    app: spliit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spliit
+  template:
+    metadata:
+      labels:
+        app: spliit
+        name: spliit
+    spec:
+      containers:
+      - name: spliit
+        image: quay.io/camillo/spliit2:1.7.0
+        imagePullPolicy: Always
+        env:
+        - name: POSTGRES_PRISMA_URL
+          value: "postgresql://spliit:spliit@postgres"
+        - name: POSTGRES_URL_NON_POOLING
+          value: "postgresql://spliit:spliit@postgres"
