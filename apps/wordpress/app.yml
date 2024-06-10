@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'wordpress'
+spec:
+  sources:
+  - repoURL: 'https://charts.bitnami.com/bitnami'
+    chart: wordpress
+    targetRevision: 22.3.1
+    helm:
+      valueFiles:
+      - $values/apps/wordpress/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  - repoURL: https://github.com/camrossi/home-cluster
+    path: apps/wordpress/extra
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: wordpress
+  project: default
