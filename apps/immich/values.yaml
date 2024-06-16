@@ -4,8 +4,8 @@
 
 # These entries are shared between all the Immich components
 
-image:
-  tag: v1.105.1
+#image:
+#  tag: v1.105.1
 
 immich:
   persistence:
@@ -72,11 +72,11 @@ server:
           hosts:
             - immich.camsab.me
 
-microservices:
-  enabled: true
-  image:
-    repository: ghcr.io/immich-app/immich-server
-    pullPolicy: IfNotPresent
+#microservices:
+#  enabled: true
+#  image:
+##    repository: ghcr.io/immich-app/immich-server
+#   pullPolicy: IfNotPresent
 
 machine-learning:
   enabled: true
