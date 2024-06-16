@@ -4,8 +4,8 @@
 
 # These entries are shared between all the Immich components
 
-#image:
-#  tag: v1.105.1
+image:
+  tag: v1.106.4
 
 immich:
   persistence:
