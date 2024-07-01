@@ -11,7 +11,7 @@ syncPolicy:
   sources:
   - repoURL: 'https://prometheus-community.github.io/helm-charts'
     chart: kube-prometheus-stack
-    targetRevision: 56.2.0
+    targetRevision: 60.4.0
     helm:
       valueFiles:
       - $values/apps/kube-prometheus-stack/values.yaml
