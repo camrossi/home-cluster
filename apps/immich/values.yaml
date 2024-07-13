@@ -5,7 +5,7 @@
 # These entries are shared between all the Immich components
 
 image:
-  tag: v1.107.2
+  tag: v1.108.0
 
 immich:
   persistence:
