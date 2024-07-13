@@ -34,3 +34,14 @@ prometheus:
 kubeApiServer:
   tlsConfig:
     insecureSkipVerify: true
+kubeScheduler:
+  enabled: false
+kubeControllerManager: 
+   enabled: false
+
+defaultRules:
+  create: true
+  rules:
+    kubeControllerManager: false
+    kubeSchedulerAlerting: false
+    kubeSchedulerRecording: false
