@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webtop
+  labels:
+    app: webtop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webtop
+  template:
+    metadata:
+      labels:
+        app: webtop
+        name: webtop
+    spec:
+      containers:
+      - name: webtop
+        image: lscr.io/linuxserver/webtop:latest
+        imagePullPolicy: Always
+        env:
+        - name: TZ
+          value: "Australia/Sydney"
+        volumeMounts:
+        - name: config
+          mountPath: "/config"
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: config
