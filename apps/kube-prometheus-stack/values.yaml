@@ -2,6 +2,9 @@ defaultRules:
   rules:
     kubeProxy: false
     windows: false
+    kubeControllerManager: false
+    kubeSchedulerAlerting: false
+    kubeSchedulerRecording: false
 grafana:
   ingress:
     ingressClassName: "traefik"
@@ -34,3 +37,7 @@ prometheus:
 kubeApiServer:
   tlsConfig:
     insecureSkipVerify: true
+kubeScheduler:
+  enabled: false
+kubeControllerManager: 
+   enabled: false
