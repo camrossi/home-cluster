@@ -19,7 +19,7 @@ api:
       storageClass: longhorn
   image:
     repository: vikunja/vikunja
-    tag: 0.23.0
+    tag: 0.24.1
     pullPolicy: Always
   ingress:
     main:
