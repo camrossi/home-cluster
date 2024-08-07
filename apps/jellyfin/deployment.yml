@@ -33,7 +33,7 @@ spec:
       volumes:
       - name: media
         persistentVolumeClaim:
-          claimName: media-v2
+          claimName: media-nfs
       - name: config
         persistentVolumeClaim:
           claimName: config-v2
