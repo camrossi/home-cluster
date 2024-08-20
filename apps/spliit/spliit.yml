@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: spliit
-        image: quay.io/camillo/spliit2:1.8.1
+        image: quay.io/camillo/spliit2:1.9.0
         imagePullPolicy: Always
         env:
         - name: POSTGRES_PRISMA_URL
