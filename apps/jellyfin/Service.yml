@@ -4,10 +4,12 @@ kind: Service
 metadata:
   name: jellyfin
   namespace: jellyfin
+  labels:
+    type: l2
 spec:
   selector:
     app: jellyfin
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - port: 8096
       targetPort: 8096
