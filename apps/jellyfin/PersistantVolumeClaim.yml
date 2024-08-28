@@ -36,4 +36,4 @@ spec:
   storageClassName: longhorn
   resources:
     requests:
-      storage: "200Gi"
+      storage: "500Gi"
