@@ -6,7 +6,7 @@ spec:
   sources:
   - repoURL: 'https://immich-app.github.io/immich-charts'
     chart: immich
-    targetRevision: 0.7.0
+    targetRevision: 0.7.2
     helm:
       valueFiles:
       - $values/apps/immich/values.yaml
