@@ -1,0 +1,7 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: uptime-kuma.camsab.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
