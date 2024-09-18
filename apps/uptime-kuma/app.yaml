@@ -4,7 +4,7 @@ metadata:
   name: 'uptime-kuma'
 spec:
   sources:
-  - repoURL: 'https://helm.irsigler.cloud '
+  - repoURL: 'https://helm.irsigler.cloud'
     chart: uptime-kuma
     targetRevision: 2.19.4
     helm:
@@ -13,10 +13,15 @@ spec:
   - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
     ref: values
-  - repoURL: https://github.com/camrossi/home-cluster
-    path: apps/traefik/extras
-    targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: kube-system
   project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
+      - ServerSideApply=true
