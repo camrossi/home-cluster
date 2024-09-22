@@ -11,6 +11,16 @@ spec:
     matchLabels:
       app: webtop
   template:
+    spec:
+     affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: NotIn
+              values:
+              - rpi4-1
     metadata:
       labels:
         app: webtop
