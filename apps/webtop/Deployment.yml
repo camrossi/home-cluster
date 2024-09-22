@@ -11,6 +11,10 @@ spec:
     matchLabels:
       app: webtop
   template:
+    metadata:
+      labels:
+        app: webtop
+        name: webtop
     spec:
      affinity:
       nodeAffinity:
@@ -21,11 +25,6 @@ spec:
               operator: NotIn
               values:
               - rpi4-1
-    metadata:
-      labels:
-        app: webtop
-        name: webtop
-    spec:
       containers:
       - name: webtop
         image: lscr.io/linuxserver/webtop:latest
