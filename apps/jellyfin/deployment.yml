@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: jellyfin
-        image: jellyfin/jellyfin:10.9.10
+        image: jellyfin/jellyfin:10.9.11
         imagePullPolicy: Always
         volumeMounts:
         - name: media

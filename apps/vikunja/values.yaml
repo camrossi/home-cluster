@@ -19,7 +19,7 @@ api:
       storageClass: longhorn
   image:
     repository: vikunja/vikunja
-    tag: 0.24.1
+    tag: 0.24.3
     pullPolicy: Always
   ingress:
     main:
@@ -68,7 +68,7 @@ frontend:
 postgresql:
   enabled: true
   image:
-    tag: 16.2.0
+    tag: 16.4.0
   global:
     storageClass: longhorn
     postgresql:
@@ -103,5 +103,5 @@ typesense:
 
   image:
     repository: docker.io/typesense/typesense
-    tag: "26.0"
+    tag: "27.0"
     pullPolicy: IfNotPresent
