@@ -29,7 +29,7 @@ spec:
                 - rpi4-1
       containers:
       - name: webtop
-        image: lscr.io/linuxserver/webtop:arch-i3
+        image: lscr.io/linuxserver/webtop:arch-xfce
         imagePullPolicy: Always
         env:
         - name: TZ
