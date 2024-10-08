@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'actions-runner-controller'
+spec:
+  sources:
+  - repoURL: 'oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller'
+    targetRevision: v0.9.3
+    helm:
+      valueFiles:
+      - $values/apps/actions-runner-controller/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: actions-runner-controller
+  project: default
