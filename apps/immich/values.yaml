@@ -30,6 +30,7 @@ postgresql:
         password: immich
         postgresPassword: f1FJk4JUSt
   primary:
+    resourcesPreset: "large"
     # Can't change it afterwards so for now I manually label the PVC directly... 
     #persistence:
     #  labels:
@@ -71,12 +72,6 @@ server:
         - secretName: immich-ingress-key
           hosts:
             - immich.camsab.me
-
-#microservices:
-#  enabled: true
-#  image:
-##    repository: ghcr.io/immich-app/immich-server
-#   pullPolicy: IfNotPresent
 
 machine-learning:
   enabled: true
