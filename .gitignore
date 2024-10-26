@@ -1,2 +1,4 @@
 secret.yaml
 secrets.yaml
+config.txt
+apps/action-runners/*
