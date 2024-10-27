@@ -5,12 +5,10 @@ metadata:
   namespace: registry
 spec:
   entryPoints:
-    - websecure
+    - web
   routes:
       - kind: Rule
-        match: "Host(`registry.camsab.me`)"
+        match: "Host(`registry.camsab.local`)"
         services: 
           - name: docker-registry-ui
             port: 80
-  tls:
-    secretName: registry
