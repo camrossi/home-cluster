@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: registry
+  namespace: registry
+spec:
+  entryPoints:
+    - websecure
+  routes:
+      - kind: Rule
+        match: "Host(`registry.camsab.me`)"
+        services: 
+          - name: registry-ui
+            port: 80
+  tls:
+    secretName: registry
