@@ -10,7 +10,7 @@ spec:
       - kind: Rule
         match: "Host(`registry.camsab.me`)"
         services: 
-          - name: registry-ui
+          - name: docker-registry-ui
             port: 80
   tls:
     secretName: registry
