@@ -7,6 +7,8 @@ metadata:
     app: webtop
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: webtop
@@ -16,9 +18,18 @@ spec:
         app: webtop
         name: webtop
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: NotIn
+                values:
+                - rpi4-1
       containers:
       - name: webtop
-        image: lscr.io/linuxserver/webtop:latest
+        image: lscr.io/linuxserver/webtop:arch-xfce
         imagePullPolicy: Always
         env:
         - name: TZ

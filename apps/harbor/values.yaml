@@ -1,0 +1,24 @@
+expose:
+  type: ingress
+  tls:
+    enabled: true
+    certSource: secret
+    secret:
+      secretName: harbor-ssl
+    ingress:
+      hosts:
+        core: harbor.camsab.me
+        annotations:
+            kubernetes.io/ingress.class: traefik
+            cert-manager.io/cluster-issuer: letsencrypt-production
+    ingress:
+        annotations:
+            kubernetes.io/ingress.class: traefik
+            cert-manager.io/cluster-issuer: letsencrypt-production
+
+externalURL: https://harbor.camsab.me
+
+trivy:
+    enabled: false
+notary:
+    enabled: false
