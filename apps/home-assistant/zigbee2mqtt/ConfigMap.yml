@@ -19,7 +19,7 @@ data:
       server: "mqtt://mosquitto-service" # mqtt://<name_of_pod>.<name_of_namespace> (mosquitto)
     # Zigbee Adapter path
     serial:
-      port: /dev/ttyACM0
+      adapter: ember
     # Enable the Zigbee2MQTT frontend
     frontend:
       port: 8080
