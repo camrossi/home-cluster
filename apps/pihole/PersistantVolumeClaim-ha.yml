@@ -1,0 +1,48 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pihole-v2
+  namespace: pihole
+spec:
+  accessModes:
+   - ReadWriteOnce
+  resources:
+    requests:
+      storage: "500Mi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pihole-dnsmasq-v2
+  namespace: pihole
+spec:
+  accessModes:
+   - ReadWriteOnce
+  resources:
+    requests:
+      storage: "500Mi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pihole-v2-2
+  namespace: pihole
+spec:
+  accessModes:
+   - ReadWriteOnce
+  resources:
+    requests:
+      storage: "500Mi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pihole-dnsmasq-v2-2
+  namespace: pihole
+spec:
+  accessModes:
+   - ReadWriteOnce
+  resources:
+    requests:
+      storage: "500Mi"

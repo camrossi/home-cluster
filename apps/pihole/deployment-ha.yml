@@ -1,0 +1,104 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pihole-1
+  labels:
+    app: pihole-1
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: pihole-1
+  template:
+    metadata:
+      labels:
+        app: pihole-1
+        name: pihole-1
+    spec:
+      containers:
+      - name: pihole
+        image: pihole/pihole:2024.07.0
+        imagePullPolicy: Always
+        env:
+        - name: TZ
+          valueFrom:
+            configMapKeyRef:
+              name: pihole-env
+              key: TZ
+        - name: DNS1
+          valueFrom:
+            configMapKeyRef:
+              name: pihole-env
+              key: DNS1
+        - name: DNS2
+          valueFrom:
+            configMapKeyRef:
+              name: pihole-env
+              key: DNS2
+        volumeMounts:
+        - name: pihole-etc-volume
+          mountPath: "/etc/pihole"
+        - name: pihole-etc-volume-dnsmasq
+          mountPath: "/etc/dnsmasq.d"
+      volumes:
+      - name: pihole-etc-volume
+        persistentVolumeClaim:
+          claimName: pihole-v2
+      - name: pihole-etc-volume-dnsmasq
+        persistentVolumeClaim:
+          claimName: pihole-dnsmasq-v2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pihole-2
+  labels:
+    app: pihole-2
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: pihole-2
+  template:
+    metadata:
+      labels:
+        app: pihole-2
+        name: pihole-2
+    spec:
+      containers:
+      - name: pihole
+        image: pihole/pihole:2024.07.0
+        imagePullPolicy: Always
+        env:
+        - name: TZ
+          valueFrom:
+            configMapKeyRef:
+              name: pihole-env
+              key: TZ
+        - name: DNS1
+          valueFrom:
+            configMapKeyRef:
+              name: pihole-env
+              key: DNS1
+        - name: DNS2
+          valueFrom:
+            configMapKeyRef:
+              name: pihole-env
+              key: DNS2
+        volumeMounts:
+        - name: pihole-etc-volume
+          mountPath: "/etc/pihole"
+        - name: pihole-etc-volume-dnsmasq
+          mountPath: "/etc/dnsmasq.d"
+      volumes:
+      - name: pihole-etc-volume
+        persistentVolumeClaim:
+          claimName: pihole-v2-2
+      - name: pihole-etc-volume-dnsmasq
+        persistentVolumeClaim:
+          claimName: pihole-dnsmasq-v2-2

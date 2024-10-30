@@ -5,5 +5,5 @@ metadata:
   name: pihole-env
 data:
   TZ: Australia/Sydney
-  DNS1: 192.168.0.1
-  DNS2: 8.8.8.8
+  DNS1: 1.1.1.1
+  DNS2: 208.67.222.222

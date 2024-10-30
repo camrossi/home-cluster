@@ -15,7 +15,7 @@ spec:
     ref: values
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: kube-system
+    namespace: uptime-kuma
   project: default
   syncPolicy:
     automated:
