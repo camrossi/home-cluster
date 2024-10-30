@@ -20,6 +20,7 @@ data:
     # Zigbee Adapter path
     serial:
       port: /dev/ttyACM0
+      adapter: ember
     # Enable the Zigbee2MQTT frontend
     frontend:
       port: 8080
