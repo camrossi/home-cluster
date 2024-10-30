@@ -29,7 +29,7 @@ spec:
             - name: NGINX_PROXY_PASS_URL
               value: "http://docker-registry.registry:5000"
             - name: PULL_URL
-              value: "docker-registry-ui.registry:80"
+              value: "registry.camsab.me:443"
             - name: SINGLE_REGISTRY
               value: "true"
           ports:
