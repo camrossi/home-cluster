@@ -9,7 +9,7 @@ metadata:
     type: l2
 spec:
   selector:
-    app: pihole
+    app: pihole-1
   type: LoadBalancer
   ports:
     - name: dns-udp
