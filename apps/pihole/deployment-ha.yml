@@ -102,3 +102,30 @@ spec:
       - name: pihole-etc-volume-dnsmasq
         persistentVolumeClaim:
           claimName: pihole-dnsmasq-v2-2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orbital-sync
+  labels:
+    app: orbital-sync
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: orbital-sync
+  template:
+    metadata:
+      labels:
+        app: orbital-sync
+        name: orbital-sync
+    spec:
+      containers:
+      - name: orbital-sync
+        image: ghcr.io/mattwebbio/orbital-sync:1.8.2-distroless
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: orbital-sync
