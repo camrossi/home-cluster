@@ -7,7 +7,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 5001
+    - port: 5000
       targetPort: registry
       protocol: TCP
       name: registry
@@ -23,7 +23,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 5002
+    - port: 5000
       targetPort: registry
       protocol: TCP
       name: registry
@@ -39,7 +39,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 5003
+    - port: 5000
       targetPort: registry
       protocol: TCP
       name: registry
@@ -55,7 +55,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 5004
+    - port: 5000
       targetPort: registry
       protocol: TCP
       name: registry

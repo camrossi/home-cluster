@@ -1,0 +1,60 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: docker-registry-mirror
+  namespace: registry
+spec:
+  entryPoints:
+    - web
+  routes:
+      - kind: Rule
+        match: "Host(`docker-registry-mirror.camsab.me`)"
+        services: 
+          - name: docker-registry-mirror
+            port: 5000
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: gcr-registry-mirror
+  namespace: registry
+spec:
+  entryPoints:
+    - web
+  routes:
+      - kind: Rule
+        match: "Host(`gcr-registry-mirror.camsab.me`)"
+        services: 
+          - name: gcr-registry-mirror
+            port: 5000
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ghcr-registry-mirror
+  namespace: registry
+spec:
+  entryPoints:
+    - web
+  routes:
+      - kind: Rule
+        match: "Host(`ghcr-registry-mirror.camsab.me`)"
+        services: 
+          - name: ghcr-registry-mirror
+            port: 5000
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: k8s-registry-mirror
+  namespace: registry
+spec:
+  entryPoints:
+    - web
+  routes:
+      - kind: Rule
+        match: "Host(`k8s-registry-mirror.camsab.me`)"
+        services: 
+          - name: k8s-registry-mirror
+            port: 5000
