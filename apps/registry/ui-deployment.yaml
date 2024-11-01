@@ -44,6 +44,4 @@ spec:
             httpGet:
               path: /
               port: http
-          resources:
-            {}
 

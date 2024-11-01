@@ -1,0 +1,183 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-registry-mirror
+  labels:
+    app: docker-registry-mirror
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-registry-mirror
+  template:
+    metadata:
+      labels:
+        app: docker-registry-mirror
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            defaultMode: 420
+            name: registry-mirror
+        - name: data
+          persistentVolumeClaim:
+            claimName: docker-registry-mirror
+      containers:
+        - name: registry
+          image: "docker.io/registry:2.8.3"
+          imagePullPolicy: Always
+          ports:
+            - name: registry
+              containerPort: 5000
+              protocol: TCP
+          volumeMounts:
+            - mountPath: "/var/lib/registry"
+              name: "data"
+            - mountPath: "/etc/docker/registry"
+              name: "config"
+          livenessProbe:
+            httpGet:
+              path: /v2/
+              port: registry
+          readinessProbe:
+            httpGet:
+              path: /v2/
+              port: registry
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gcr-registry-mirror
+  labels:
+    app: gcr-registry-mirror
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gcr-registry-mirror
+  template:
+    metadata:
+      labels:
+        app: gcr-registry-mirror
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            defaultMode: 420
+            name: registry-mirror
+        - name: data
+          persistentVolumeClaim:
+            claimName: gcr-registry-mirror
+      containers:
+        - name: registry
+          image: "docker.io/registry:2.8.3"
+          imagePullPolicy: Always
+          ports:
+            - name: registry
+              containerPort: 5000
+              protocol: TCP
+          volumeMounts:
+            - mountPath: "/var/lib/registry"
+              name: "data"
+            - mountPath: "/etc/docker/registry"
+              name: "config"
+          livenessProbe:
+            httpGet:
+              path: /v2/
+              port: registry
+          readinessProbe:
+            httpGet:
+              path: /v2/
+              port: registry
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghcr-registry-mirror
+  labels:
+    app: ghcr-registry-mirror
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ghcr-registry-mirror
+  template:
+    metadata:
+      labels:
+        app: ghcr-registry-mirror
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            defaultMode: 420
+            name: registry-mirror
+        - name: data
+          persistentVolumeClaim:
+            claimName: ghcr-registry-mirror
+      containers:
+        - name: registry
+          image: "docker.io/registry:2.8.3"
+          imagePullPolicy: Always
+          ports:
+            - name: registry
+              containerPort: 5000
+              protocol: TCP
+          volumeMounts:
+            - mountPath: "/var/lib/registry"
+              name: "data"
+            - mountPath: "/etc/docker/registry"
+              name: "config"
+          livenessProbe:
+            httpGet:
+              path: /v2/
+              port: registry
+          readinessProbe:
+            httpGet:
+              path: /v2/
+              port: registry
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-registry-mirror
+  labels:
+    app: k8s-registry-mirror
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-registry-mirror
+  template:
+    metadata:
+      labels:
+        app: k8s-registry-mirror
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            defaultMode: 420
+            name: registry-mirror
+        - name: data
+          persistentVolumeClaim:
+            claimName: k8s-registry-mirror
+      containers:
+        - name: registry
+          image: "docker.io/registry:2.8.3"
+          imagePullPolicy: Always
+          ports:
+            - name: registry
+              containerPort: 5000
+              protocol: TCP
+          volumeMounts:
+            - mountPath: "/var/lib/registry"
+              name: "data"
+            - mountPath: "/etc/docker/registry"
+              name: "config"
+          livenessProbe:
+            httpGet:
+              path: /v2/
+              port: registry
+          readinessProbe:
+            httpGet:
+              path: /v2/
+              port: registry

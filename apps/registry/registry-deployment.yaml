@@ -46,5 +46,3 @@ spec:
             httpGet:
               path: /v2/
               port: registry
-          resources:
-            {}

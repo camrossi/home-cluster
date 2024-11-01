@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: registry-mirror
+  labels:
+    app: registry-mirror
+data:
+  config.yml: |-
+    version: 0.1
+    log:
+      fields:
+        service: registry
+    storage:
+      delete:
+        enabled: true
+      cache:
+        blobdescriptor: inmemory
+      filesystem:
+        rootdirectory: /var/lib/registry
+    http:
+      addr: :5000
