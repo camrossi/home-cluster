@@ -18,7 +18,7 @@ spec:
         - name: config
           configMap:
             defaultMode: 420
-            name: registry-mirror
+            name: docker-registry-mirror
         - name: data
           persistentVolumeClaim:
             claimName: docker-registry-mirror
@@ -64,7 +64,7 @@ spec:
         - name: config
           configMap:
             defaultMode: 420
-            name: registry-mirror
+            name: gcr-registry-mirror
         - name: data
           persistentVolumeClaim:
             claimName: gcr-registry-mirror
@@ -110,7 +110,7 @@ spec:
         - name: config
           configMap:
             defaultMode: 420
-            name: registry-mirror
+            name: ghcr-registry-mirror
         - name: data
           persistentVolumeClaim:
             claimName: ghcr-registry-mirror
@@ -156,7 +156,7 @@ spec:
         - name: config
           configMap:
             defaultMode: 420
-            name: registry-mirror
+            name: k8s-registry-mirror
         - name: data
           persistentVolumeClaim:
             claimName: k8s-registry-mirror
