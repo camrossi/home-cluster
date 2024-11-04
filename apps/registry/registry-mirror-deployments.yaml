@@ -6,6 +6,8 @@ metadata:
     app: docker-registry-mirror
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: docker-registry-mirror
