@@ -1,5 +1,14 @@
 # How to build a custom image
 
+Once you have setup git action to run locally [git action to run locally](gitaction.md)
+
+
+## Build the kernel
+Do the work and figure out which patches are integrated and which aren't you can look at 
+
+
+
+
 Start by cloning the talos and pkgs repos (our update them):
 
 ```bash
