@@ -1,10 +1,56 @@
+
 # How to build a custom image
 
 Once you have setup git action to run locally [git action to run locally](gitaction.md)
 
 
 ## Build the kernel
-Do the work and figure out which patches are integrated and which aren't you can look at 
+Do the work and figure out which patches are integrated and which aren't you can look at  https://gitlab.collabora.com/hardware-enablement/rockchip-3588/notes-for-rockchip-3588/-/blob/main/mainline-status.md
+then is a matter or figuring out which patch is integrated in which kernel release and:
+
+- My current good branch is v1.8.0-6.12
+- Update the relavant patch code in `talos-pkgs/kernel/build/patches`
+- Ensure the Kernel config is enabling the right Configs `kernel/build/config-amd64`
+  - if the patch modifies `Kconfig` you will need to add a new entrt in the `config-amd64`
+- Tag your kernel `git tag <tag>
+- Push the tag `git push --tags`
+  - This will trigger the CI and buld the kernel and push it in your repo. If you set:
+  ```
+  env:
+    REGISTRY: registry.camsab.me:443
+    USER: "talos"
+  ```
+The resulting image will be pused as  `registry.camsab.me:443/talos/kernel:<TAG>`
+
+## Build the SBC overlay
+
+This has the u-Boot code with its own patches for now is a 1:1 copy from Nico's repo and only thing I changed is the `Makefile` and the gitaction to use my local git registry. 
+- In the Makefile I have set
+  ```
+  REGISTRY ?= registry.camsab.me
+  USERNAME ?= talos
+  ```
+   change as requried
+- Set `image` in `installers/pkg.yaml` top point to the right kernel.
+
+
+## Build the extensions
+
+If some of the requried modules changed you need to update `sbcs/rk3588/files/modules.txt` and list the module path so it can be copied. 
+- If there is a new version of talos:
+  - Create a new branch from that version so you have the right images/updates
+- Change the `PKG_KERNEL` in the Makefile to point to the Kernel generated in the previous step. i.e. `registry.camsab.me:443/talos/kernel:v1.8.3-6.12.0`
+- In the Makefile I have set 
+  ```
+  REGISTRY ?= registry.camsab.me
+  USERNAME ?= talos
+  ```
+  change as requried
+
+Update the Makefile and ensure `PKGS` matches whatever version is used in the siderolabls repo. I.e. copy the calue from `https://github.com/siderolabs/extensions/blob/v1.8.3/Makefile`
+
+
+## Build the talos images
 
 
 
