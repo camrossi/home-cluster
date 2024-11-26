@@ -39,7 +39,7 @@ This has the u-Boot code with its own patches for now is a 1:1 copy from Nico's 
 If some of the requried modules changed you need to update `sbcs/rk3588/files/modules.txt` and list the module path so it can be copied. 
 - If there is a new version of talos:
   - Create a new branch from that version so you have the right images/updates
-- Change the `PKG_KERNEL` in the Makefile to point to the Kernel generated in the previous step. i.e. `registry.camsab.me:443/talos/kernel:v1.8.3-6.12.0`
+- Change the `PKG_KERNEL` in the Makefile to point to the Kernel generated in the previous step. i.e. `registry.camsab.me:443/talos/kernel:v1.8.3-6.12.1`
 - In the Makefile I have set 
   ```
   REGISTRY ?= registry.camsab.me
@@ -52,7 +52,18 @@ Update the Makefile and ensure `PKGS` matches whatever version is used in the si
 
 ## Build the talos images
 
+- Edit the CI and set the env variables to point to the correct tags BOTH from uspstream and your local repos
+- In the `talos-build` step set the image to the imager that is gonna be built in the previous step:
+```
+  talos-build:
+    needs: [talos-build-tools]
+    runs-on: home-runners
+    container:
+      image: registry.camsab.me:443/talos/imager:v1.8.3-6.12.1
+```
+- My installer already comes with Linux Utils and iSCSI
 
+# Legacy Docs
 
 
 Start by cloning the talos and pkgs repos (our update them):
