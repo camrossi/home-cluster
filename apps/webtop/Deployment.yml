@@ -33,6 +33,10 @@ spec:
       - name: webtop
         image: lscr.io/linuxserver/webtop:latest
         imagePullPolicy: Always
+        ecurityContext:
+          privileged: true
+          runAsGroup: 0
+          runAsUser: 0
         env:
         - name: TZ
           value: "Australia/Sydney"
