@@ -33,7 +33,7 @@ spec:
       - name: webtop
         image: lscr.io/linuxserver/webtop:latest
         imagePullPolicy: Always
-        ecurityContext:
+        securityContext:
           privileged: true
           runAsGroup: 0
           runAsUser: 0
