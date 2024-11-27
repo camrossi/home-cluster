@@ -36,6 +36,8 @@ spec:
         env:
         - name: TZ
           value: "Australia/Sydney"
+        - name: DRINODE
+          value: "/dev/dri/renderD128"
         volumeMounts:
         - name: config
           mountPath: "/config"
