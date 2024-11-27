@@ -18,15 +18,17 @@ spec:
         app: webtop
         name: webtop
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: kubernetes.io/hostname
-                operator: NotIn
-                values:
-                - rpi4-1
+      nodeSelector:
+        kubernetes.io/hostname: "rk1-4"
+      #affinity:
+      #  nodeAffinity:
+      #    requiredDuringSchedulingIgnoredDuringExecution:
+      #      nodeSelectorTerms:
+      #      - matchExpressions:
+      #        - key: kubernetes.io/hostname
+      #          operator: NotIn
+      #          values:
+      #          - rpi4-1
       containers:
       - name: webtop
         image: lscr.io/linuxserver/webtop:arch-xfce
@@ -37,7 +39,12 @@ spec:
         volumeMounts:
         - name: config
           mountPath: "/config"
+        - name: dri
+          mountPath: /dev/dri
       volumes:
       - name: config
         persistentVolumeClaim:
           claimName: config
+      - name: dri
+        hostPath:
+          path: /dev/dri
