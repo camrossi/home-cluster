@@ -2,5 +2,4 @@ secret.yaml
 secrets.yaml
 config.txt
 apps/action-runners/*
-
 apps/ddclient/example config/secret_example.yaml
