@@ -18,9 +18,6 @@ spec:
       labels:
         app: jellyfin
         name: jellyfin
-      spec:
-      nodeSelector:
-        kubernetes.io/hostname: "rk1-2"
     spec:
       containers:
       - name: jellyfin
@@ -37,8 +34,8 @@ spec:
           mountPath: "/config"
         - name: cache
           mountPath: "/cache"
-        - name: dev
-          mountPath: /dev
+      #  - name: dev
+      #    mountPath: /dev
       volumes:
       - name: media
         persistentVolumeClaim:
@@ -49,6 +46,6 @@ spec:
       - name: cache
         persistentVolumeClaim:
           claimName: cache-v2
-      - name: dev
-        hostPath:
-          path: /dev
+      #- name: dev
+      #  hostPath:
+      #    path: /dev
