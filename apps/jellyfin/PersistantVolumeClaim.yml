@@ -33,7 +33,7 @@ metadata:
 spec:
   accessModes:
    - ReadWriteMany
-  storageClassName: longhorn
+  storageClassName: longhorn-1-replicas
   resources:
     requests:
       storage: "500Gi"
