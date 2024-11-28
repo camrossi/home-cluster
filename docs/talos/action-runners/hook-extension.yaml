@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hook-extension
+  namespace: actions-runner
+data:
+  custom-config.yaml: |
+    metadata:
+      annotations:
+        example: "extension"
+    spec:
+      containers:
+        - name: "$job" # Target the job container
+          securityContext:
+            privileged: true
+          volumeMounts:
+          - name: dev
+            mountPath: /dev
+          - name: out
+            mountPath: /out
+      volumes:
+      - name: dev
+        hostPath:
+          path: /dev
+      - name: out
+        persistentVolumeClaim:
+          claimName: out

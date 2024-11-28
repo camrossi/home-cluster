@@ -1,0 +1,39 @@
+containerMode:
+  type: "kubernetes"
+  kubernetesModeWorkVolumeClaim:
+    accessModes: ["ReadWriteOnce"]
+    resources:
+      requests:
+        storage: 10Gi
+template:
+  spec:
+    securityContext:
+      fsGroup: 1001
+    containers:
+      - name: runner
+        securityContext:
+        image: ghcr.io/actions/actions-runner:latest
+        command: ["/home/runner/run.sh"]
+        env:
+          - name: ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER
+            value: "false"
+          - name: ACTIONS_RUNNER_CONTAINER_HOOK_TEMPLATE
+            value: /home/runner/pod-templates/custom-config.yaml
+        volumeMounts:
+        - name: pod-templates
+          mountPath: /home/runner/pod-templates
+          readOnly: true
+        - name: dev
+          mountPath: /dev
+        - name: out
+          mountPath: /out
+    volumes:
+    - name: pod-templates
+      configMap:  
+        name: hook-extension
+    - name: dev
+      hostPath:
+        path: /dev
+    - name: out
+      persistentVolumeClaim:
+        claimName: out
