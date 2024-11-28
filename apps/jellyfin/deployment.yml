@@ -37,8 +37,8 @@ spec:
           mountPath: "/config"
         - name: cache
           mountPath: "/cache"
-        - name: dri
-          mountPath: /dev/dri
+        - name: dev
+          mountPath: /dev
       volumes:
       - name: media
         persistentVolumeClaim:
@@ -49,6 +49,6 @@ spec:
       - name: cache
         persistentVolumeClaim:
           claimName: cache-v2
-      - name: dri
+      - name: dev
         hostPath:
-          path: /dev/dri
+          path: /dev
