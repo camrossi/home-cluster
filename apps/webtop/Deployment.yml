@@ -31,7 +31,7 @@ spec:
       #          - rpi4-1
       containers:
       - name: webtop
-        image: lscr.io/linuxserver/webtop:latest
+        image: lscr.io/linuxserver/webtop:ubuntu-xfce
         imagePullPolicy: Always
         securityContext:
           privileged: true
