@@ -59,3 +59,12 @@ metrics:
 ingressRoute:
   dashboard:
     entryPoints: ["web"]
+ports:
+  web:
+    transport:
+      respondingTimeouts:
+        readTimeout: 10m
+  websecure:
+    transport:
+      respondingTimeouts:
+        readTimeout: 10m

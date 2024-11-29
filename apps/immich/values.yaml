@@ -61,6 +61,7 @@ server:
       enabled: true
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
+        
       hosts:
         - host: immich.camsab.me
           paths:
