@@ -21,8 +21,12 @@ spec:
     spec:
       containers:
       - name: jellyfin
-        image: jellyfin/jellyfin:10.9.11
+        image: jellyfin/jellyfin:10.10.3
         imagePullPolicy: Always
+        securityContext:
+          privileged: true
+          runAsGroup: 0
+          runAsUser: 0
         volumeMounts:
         - name: media
           mountPath: "/media"
@@ -30,6 +34,8 @@ spec:
           mountPath: "/config"
         - name: cache
           mountPath: "/cache"
+      #  - name: dev
+      #    mountPath: /dev
       volumes:
       - name: media
         persistentVolumeClaim:
@@ -40,3 +46,6 @@ spec:
       - name: cache
         persistentVolumeClaim:
           claimName: cache-v2
+      #- name: dev
+      #  hostPath:
+      #    path: /dev
