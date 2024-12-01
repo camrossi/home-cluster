@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: manyfold
-        image: ghcr.io/manyfold3d/manyfold:latest
+        image: lscr.io/linuxserver/manyfold:latest
         imagePullPolicy: Always
         env:
         - name: TZ
