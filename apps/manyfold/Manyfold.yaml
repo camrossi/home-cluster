@@ -38,9 +38,9 @@ spec:
         - name: SECRET_KEY_BASE
           value: ".koDptr8!yx!x.J_zMpUf!vnKFzFsyDxBjb.Bisk"
         - name: PUID
-          value: "1000"
+          value: "0"
         - name: PGID
-          value: "1000"
+          value: "0"
         volumeMounts:
         - name: manyfold-models
           mountPath: "/libraries"
