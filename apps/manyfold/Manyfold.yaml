@@ -21,10 +21,6 @@ spec:
         image: lscr.io/linuxserver/manyfold:latest
         imagePullPolicy: Always
         env:
-        - name: PUID
-          value: "1000"
-        - name: PGID
-          value: "1000"
         - name: TZ
           value: Australia/Sydney
         - name: DATABASE_ADAPTER
