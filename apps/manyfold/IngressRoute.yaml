@@ -6,9 +6,6 @@ metadata:
     app.kubernetes.io/instance: manyfold
 spec:
   ingressClassName: traefik
-  web:
-  - hosts:
-      - manyfold.camsab.me
   rules:
   - host: manyfold.camsab.me
     http:
