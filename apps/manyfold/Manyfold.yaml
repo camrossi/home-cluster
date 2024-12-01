@@ -20,6 +20,10 @@ spec:
       - name: manyfold
         image: lscr.io/linuxserver/manyfold:latest
         imagePullPolicy: Always
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+          allowPrivilegeEscalation: false
         env:
         - name: TZ
           value: Australia/Sydney
