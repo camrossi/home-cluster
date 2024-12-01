@@ -22,6 +22,10 @@ spec:
       - name: manyfold
         image: lscr.io/linuxserver/manyfold:latest
         imagePullPolicy: Always
+        securityContext:
+          fsGroup: 1000
+          runAsUser: 1000
+          runAsGroup: 1000
         env:
         - name: TZ
           value: Australia/Sydney
@@ -38,9 +42,9 @@ spec:
         - name: SECRET_KEY_BASE
           value: ".koDptr8!yx!x.J_zMpUf!vnKFzFsyDxBjb.Bisk"
         - name: PUID
-          value: "0"
+          value: "1000"
         - name: PGID
-          value: "0"
+          value: "1000"
         volumeMounts:
         - name: manyfold-models
           mountPath: "/libraries"
