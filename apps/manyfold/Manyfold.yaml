@@ -30,7 +30,7 @@ spec:
         - /bin/chown
         - -R
         - "1000"  # or whatever the mongo UID is, use string "1000" not 1000 due to yaml
-        - /data/db
+        - /libraries/models
         volumeMounts:
         - name: manyfold-models # or whatever
           mountPath: /libraries/models
