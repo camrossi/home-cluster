@@ -20,11 +20,8 @@ spec:
     spec:
       containers:
       - name: manyfold
-        image: lscr.io/linuxserver/manyfold:latest
+        image: ghcr.io/manyfold3d/manyfold:latest
         imagePullPolicy: Always
-        securityContext:
-          runAsUser: 1000
-          runAsGroup: 1000
         env:
         - name: TZ
           value: Australia/Sydney
