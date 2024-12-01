@@ -37,6 +37,8 @@ spec:
           value: "manyfold"
         - name: REDIS_URL
           value: redis://redis-server:6379
+        - name: SECRET_KEY_BASE
+          value: ".koDptr8!yx!x.J_zMpUf!vnKFzFsyDxBjb.Bisk"
         volumeMounts:
         - name: manyfold-data
           mountPath: "/app/data/"
