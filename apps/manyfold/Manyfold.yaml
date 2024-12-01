@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: manyfold
+  labels:
+    app: manyfold
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: manyfold
+  template:
+    metadata:
+      labels:
+        app: manyfold
+        name: manyfold
+    spec:
+      containers:
+      - name: manyfold
+        image: lscr.io/linuxserver/manyfold:latest
+        imagePullPolicy: Always
+        env:
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: TZ
+          value: Australia/Sydney
+        - name: DATABASE_ADAPTER
+          value: postgresql
+        - name: DATABASE_URL
+          value: manyfold-postgresql
+        - name: POSTGRES_USER
+          value: "manyfold"
+        - name: POSTGRES_PASSWORD
+          value: "manyfold"
+        - name: REDIS_URL
+          value: redis://redis-server:6379
+        volumeMounts:
+        - name: manyfold-data
+          mountPath: "/app/data/"
+      volumes:
+      - name: manyfold-data
+        persistentVolumeClaim:
+          claimName: manyfold-data
