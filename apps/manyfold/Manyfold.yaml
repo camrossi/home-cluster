@@ -23,6 +23,17 @@ spec:
         app: manyfold
         name: manyfold
     spec:
+      initContainers:
+      - name: chmod-er
+        image: busybox:latest
+        command:
+        - /bin/chown
+        - -R
+        - "1000"  # or whatever the mongo UID is, use string "1000" not 1000 due to yaml
+        - /data/db
+        volumeMounts:
+        - name: manyfold-models # or whatever
+          mountPath: /libraries/models
       containers:
       - name: manyfold
         image: lscr.io/linuxserver/manyfold:latest
@@ -48,7 +59,7 @@ spec:
           value: "1000"
         volumeMounts:
         - name: manyfold-models
-          mountPath: "/libraries"
+          mountPath: "/libraries/models"
       volumes:
       - name: manyfold-models
         persistentVolumeClaim:
