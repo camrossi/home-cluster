@@ -37,6 +37,10 @@ spec:
           value: redis://redis:6379
         - name: SECRET_KEY_BASE
           value: ".koDptr8!yx!x.J_zMpUf!vnKFzFsyDxBjb.Bisk"
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
         volumeMounts:
         - name: manyfold-models
           mountPath: "/libraries"
