@@ -33,6 +33,7 @@ spec:
       name: postgredb
     spec:
       accessModes: [ "ReadWriteOnce" ]
+      storageClassName: longhorn-2-replicas 
       resources:
         requests:
           storage: 2Gi
