@@ -5,7 +5,7 @@ metadata:
   name: manyfold
 spec:
   parentRefs:
-  - name: gateway
+  - name: http-gateway
     namespace: kube-system
   hostnames:
   - "manyfold.camsab.local"
