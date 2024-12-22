@@ -29,8 +29,6 @@ spec:
         volumeMounts:
         - name: manyfold-models # or whatever
           mountPath: /libraries/models
-        - name: manyfold-config # or whatever
-          mountPath: /config
       containers:
       - name: manyfold
         image: lscr.io/linuxserver/manyfold:latest
@@ -57,6 +55,8 @@ spec:
         volumeMounts:
         - name: manyfold-models
           mountPath: "/libraries/models"
+        - name: manyfold-config # or whatever
+          mountPath: /config
       volumes:
       - name: manyfold-models
         persistentVolumeClaim:
