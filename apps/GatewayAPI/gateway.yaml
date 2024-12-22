@@ -1,0 +1,27 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: gateway
+spec:
+  gatewayClassName: cilium
+  infrastructure:
+    labels:
+      type: l2
+  listeners:
+  - protocol: HTTP
+    port: 80
+    name: web-gw
+    allowedRoutes:
+      namespaces:
+        from: All
+  - name: wildcard
+    hostname: "*.camsab.me"
+    port: 443
+    protocol: HTTPS
+    allowedRoutes:
+      namespaces:
+        from: All
+    tls:
+      mode: Terminate
+      certificateRefs:
+          - name:  camsab-me-tls

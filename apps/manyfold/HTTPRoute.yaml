@@ -1,0 +1,15 @@
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: manyfold
+spec:
+  parentRefs:
+  - name: gateway
+    namespace: kube-system
+  hostnames:
+  - "manyfold.camsab.local"
+  rules:
+  - backendRefs:
+    - name: manyfold
+      port: 3214
