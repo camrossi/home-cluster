@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'CloudNativePG'
+spec:
+  sources:
+  - repoURL: 'https://cloudnative-pg.github.io/charts'
+    chart: cnpg
+    targetRevision: v0.22.1
+    helm:
+      valueFiles:
+      - $values/apps/CloudNativePG/values.yaml
+  - repoURL: 'https://github.com/camrossi/CloudNativePG'
+    targetRevision: main
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: cloudnative-pg
+  project: default
