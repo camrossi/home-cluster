@@ -10,3 +10,15 @@ spec:
   resources:
     requests:
       storage: "10Gi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: manyfold-config
+spec:
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: longhorn-2-replicas
+  resources:
+    requests:
+      storage: "100Mi"
