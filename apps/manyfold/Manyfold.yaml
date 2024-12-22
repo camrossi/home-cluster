@@ -9,11 +9,11 @@ spec:
   replicas: 1
   strategy:
     type: Recreate
-  securityContext:
-    runAsNonRoot: true
-    fsGroup: 1000
-    runAsUser: 1000
-    runAsGroup: 1000
+#  securityContext:
+#    runAsNonRoot: true
+#    fsGroup: 1000
+#    runAsUser: 1000
+#    runAsGroup: 1000
   selector:
     matchLabels:
       app: manyfold
