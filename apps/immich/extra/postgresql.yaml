@@ -35,7 +35,7 @@ spec:
         - CREATE EXTENSION IF NOT EXISTS "earthdistance" CASCADE;
 
   storage:
-    size: 4Gi
+    size: 8Gi
     storageClass: longhorn-2-replicas
 
   externalClusters:
