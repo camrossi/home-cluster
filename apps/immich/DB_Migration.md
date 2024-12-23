@@ -93,3 +93,5 @@ env:
 ```
 
 NOTE: I have not deleted yet the old DB instance becuase I don't wanna loose data in case I have made a mistake. 
+
+If all works fine... Delete the postgress section from the Values files.

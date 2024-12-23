@@ -66,9 +66,6 @@ server:
         - host: immich.camsab.me
           paths:
             - path: "/"
-        - host: immich.camsab.local
-          paths:
-            - path: "/"
       tls:
         - secretName: immich-ingress-key
           hosts:
