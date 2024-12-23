@@ -1,4 +1,4 @@
-Deploy cloudnative-pgvecto.rs I used HELM and didn't have to customize antying. 
+1) Deploy cloudnative-pgvecto.rs I used HELM and didn't have to customize antying. 
 
 2) Create the environment variables/passwords that are needed for your environemtn
 ```yaml
@@ -94,4 +94,4 @@ env:
 
 NOTE: I have not deleted yet the old DB instance becuase I don't wanna loose data in case I have made a mistake. 
 
-If all works fine... Delete the postgress section from the Values files.
+If all works fine... Delete the postgress section from the Immich Values files.
