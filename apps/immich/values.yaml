@@ -93,3 +93,6 @@ machine-learning:
 envFrom:
   - secretRef:
       name: immich-postgres-user
+
+env:
+  DB_HOSTNAME: 'immich-postgres-rw'
