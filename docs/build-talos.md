@@ -44,8 +44,16 @@ If some of the requried modules changed you need to update `sbcs/rk3588/files/mo
   ```
   REGISTRY ?= registry.camsab.me
   USERNAME ?= talos
+
+  # Remove All the Targets and just keep/add what we need
+  TARGETS = binfmt-misc
+  TARGETS += rk3588
+  TARGETS += mali-gpu-firmware
+  TARGETS += usb-modem-drivers
+
   ```
   change as requried
+
 
 Update the Makefile and ensure `PKGS` matches whatever version is used in the siderolabls repo. I.e. copy the calue from `https://github.com/siderolabs/extensions/blob/v1.8.3/Makefile`
 
