@@ -20,6 +20,23 @@ then is a matter or figuring out which patch is integrated in which kernel relea
     REGISTRY: registry.camsab.me:443
     USER: "talos"
   ```
+
+### Extra Kernel Configs:
+
+```
+CONFIG_VIDEO_ROCKCHIP_RGA=m
+CONFIG_VIDEO_HANTRO=m
+CONFIG_VIDEOBUF2_DMA_CONTIG=m
+CONFIG_VIDEOBUF2_DMA_SG=m
+CONFIG_DRM_PANTHOR=m
+CONFIG_RTC_DRV_HYM8563=y
+CONFIG_CRYPTO_SM3_GENERIC=m
+CONFIG_CRYPTO_DEV_ROCKCHIP2=m
+CONFIG_ROCKCHIP_DW_HDMI_QP=m
+CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY=y
+```
+
+
 The resulting image will be pused as  `registry.camsab.me:443/talos/kernel:<TAG>`
 
 ## Build the SBC overlay
@@ -50,16 +67,46 @@ If some of the requried modules changed you need to update `sbcs/rk3588/files/mo
 Update the Makefile and ensure `PKGS` matches whatever version is used in the siderolabls repo. I.e. copy the calue from `https://github.com/siderolabs/extensions/blob/v1.8.3/Makefile`
 
 
+```txt
+modules.order
+modules.builtin
+modules.builtin.modinfo
+kernel/drivers/crypto/rockchip/rk_crypto2.ko
+kernel/crypto/sm3_generic.ko
+kernel/drivers/media/platform/rockchip/rga/rockchip-rga.ko
+kernel/drivers/media/platform/verisilicon/hantro-vpu.ko
+kernel/drivers/media/mc/mc.ko
+kernel/drivers/media/common/videobuf2/videobuf2-common.ko
+kernel/drivers/media/common/videobuf2/videobuf2-dma-contig.ko
+kernel/drivers/media/common/videobuf2/videobuf2-dma-sg.ko
+kernel/drivers/media/common/videobuf2/videobuf2-memops.ko
+kernel/drivers/media/common/videobuf2/videobuf2-v4l2.ko
+kernel/drivers/media/common/videobuf2/videobuf2-vmalloc.ko
+kernel/drivers/media/v4l2-core/v4l2-dv-timings.ko
+kernel/drivers/media/v4l2-core/v4l2-h264.ko
+kernel/drivers/media/v4l2-core/v4l2-jpeg.ko
+kernel/drivers/media/v4l2-core/v4l2-mem2mem.ko
+kernel/drivers/media/v4l2-core/v4l2-vp9.ko
+kernel/drivers/media/v4l2-core/videodev.ko
+kernel/drivers/gpu/drm/panthor/panthor.ko
+kernel/drivers/gpu/drm/drm_gpuvm.ko
+kernel/drivers/gpu/drm/drm_exec.ko
+kernel/drivers/gpu/drm/scheduler/gpu-sched.ko
+```
 ## Build the talos images
+
+- I am using the remote talos repo so there is actually no need to sync anything upstrealm all I really care is hte gitaction job.
+
 
 - Edit the CI and set the env variables to point to the correct tags BOTH from uspstream and your local repos
 - In the `talos-build` step set the image to the imager that is gonna be built in the previous step:
+*Note*: This is kinda a buggy behaviour where I can't find a way to use tags so DO NOT SKIP THIS
 ```
   talos-build:
     needs: [talos-build-tools]
     runs-on: home-runners
     container:
-      image: registry.camsab.me:443/talos/imager:v1.8.3-6.12.1
+      image: registry.camsab.me:443/talos/imager:v1.9.1-6.12.6-custom
 ```
 - My installer already comes with Linux Utils and iSCSI
 
@@ -88,6 +135,8 @@ USER=camillo
 REGISTRY_AND_USERNAME=$REGISTRY/$USER
 export REGISTRY_AND_USERNAME
 make kernel REGISTRY=$REGISTRY_AND_USERNAME PUSH=true TAG=$KERNEL
+
+
 cd ../talos
 git checkout $TALOS
 
