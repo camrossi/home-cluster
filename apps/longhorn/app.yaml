@@ -21,7 +21,7 @@ spec:
             defaultReplicaCount: 2
           ingress:
             enabled: true
-            host: longhorn.camsab.local
+            host: longhorn.camsab.me
 
   destination:
     server: https://kubernetes.default.svc
