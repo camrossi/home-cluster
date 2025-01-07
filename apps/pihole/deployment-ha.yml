@@ -124,7 +124,7 @@ spec:
     spec:
       containers:
       - name: orbital-sync
-        image: ghcr.io/mattwebbio/orbital-sync:1.8.2-distroless
+        image: ghcr.io/mattwebbio/orbital-sync:1.8.3-distroless
         imagePullPolicy: Always
         envFrom:
         - secretRef:
