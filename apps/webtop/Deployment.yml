@@ -19,16 +19,7 @@ spec:
         name: webtop
     spec:
       nodeSelector:
-        kubernetes.io/hostname: "rk1-1"
-      #affinity:
-      #  nodeAffinity:
-      #    requiredDuringSchedulingIgnoredDuringExecution:
-      #      nodeSelectorTerms:
-      #      - matchExpressions:
-      #        - key: kubernetes.io/hostname
-      #          operator: NotIn
-      #          values:
-      #          - rpi4-1
+        kubernetes.io/hostname: "rk1-4"
       containers:
       - name: webtop
         image: lscr.io/linuxserver/webtop:latest
