@@ -8,7 +8,7 @@ spec:
   - name: http-gateway
     namespace: kube-system
   hostnames:
-  - "immich.camsab.local"
+  - "immich.camsab.me"
   rules:
   - backendRefs:
     - name: immich-server

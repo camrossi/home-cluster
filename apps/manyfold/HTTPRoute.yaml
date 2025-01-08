@@ -8,7 +8,7 @@ spec:
   - name: http-gateway
     namespace: kube-system
   hostnames:
-  - "manyfold.camsab.local"
+  - "manyfold.camsab.me"
   rules:
   - backendRefs:
     - name: manyfold
