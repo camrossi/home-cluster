@@ -8,6 +8,7 @@ metadata:
 spec:
   accessModes:
     - "ReadWriteOnce"
+  storageClassName: longhorn-1-replicas
   resources:
     requests:
       storage: 10Gi

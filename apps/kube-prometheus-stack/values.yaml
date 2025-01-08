@@ -10,7 +10,7 @@ grafana:
     ingressClassName: "traefik"
     enabled: true
     hosts:
-      - grafana.sabby.local
+      - grafana.camsab.me
   persistence:
     enabled: true
     size: 1Gi
@@ -25,7 +25,7 @@ prometheus:
     enabled: true
     ingressClassName: "traefik"
     hosts:
-      - prometheus.sabby.local
+      - prometheus.camsab.me
   prometheusSpec:
     storageSpec:
       volumeClaimTemplate:

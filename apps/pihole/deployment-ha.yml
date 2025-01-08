@@ -30,7 +30,7 @@ spec:
       containers:
       - name: pihole
         image: pihole/pihole:2024.07.0
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
         - name: TZ
           valueFrom:
@@ -91,7 +91,7 @@ spec:
       containers:
       - name: pihole
         image: pihole/pihole:2024.07.0
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
         - name: TZ
           valueFrom:
@@ -142,7 +142,7 @@ spec:
     spec:
       containers:
       - name: orbital-sync
-        image: ghcr.io/mattwebbio/orbital-sync:1.8.2-distroless
+        image: ghcr.io/mattwebbio/orbital-sync:1.8.3-distroless
         imagePullPolicy: Always
         envFrom:
         - secretRef:

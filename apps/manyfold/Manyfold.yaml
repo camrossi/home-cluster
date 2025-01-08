@@ -9,11 +9,6 @@ spec:
   replicas: 1
   strategy:
     type: Recreate
-  securityContext:
-    runAsNonRoot: true
-    fsGroup: 1000
-    runAsUser: 1000
-    runAsGroup: 1000
   selector:
     matchLabels:
       app: manyfold
@@ -60,7 +55,12 @@ spec:
         volumeMounts:
         - name: manyfold-models
           mountPath: "/libraries/models"
+        - name: manyfold-config # or whatever
+          mountPath: /config
       volumes:
       - name: manyfold-models
         persistentVolumeClaim:
           claimName: manyfold-models
+      - name: manyfold-config
+        persistentVolumeClaim:
+          claimName: manyfold-config

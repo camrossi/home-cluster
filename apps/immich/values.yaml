@@ -5,7 +5,7 @@
 # These entries are shared between all the Immich components
 
 image:
-  tag: v1.121.0
+  tag: v1.123.0
 
 immich:
   persistence:
@@ -16,31 +16,6 @@ immich:
       existingClaim: photos
 
 # Dependencies
-
-postgresql:
-  enabled: true
-  image:
-    repository: tensorchord/pgvecto-rs
-    tag: pg14-v0.2.0
-  global:
-    postgresql:
-      auth:
-        username: immich
-        database: immich
-        password: immich
-        postgresPassword: f1FJk4JUSt
-  primary:
-    resourcesPreset: "large"
-    # Can't change it afterwards so for now I manually label the PVC directly... 
-    #persistence:
-    #  labels:
-    #    recurring-job-group.longhorn.io/backup: enabled
-    initdb:
-      scripts:
-        create-extensions.sql: |
-          CREATE EXTENSION cube;
-          CREATE EXTENSION earthdistance;
-          CREATE EXTENSION vectors;
 
 redis:
   enabled: true
@@ -66,9 +41,6 @@ server:
         - host: immich.camsab.me
           paths:
             - path: "/"
-        - host: immich.camsab.local
-          paths:
-            - path: "/"
       tls:
         - secretName: immich-ingress-key
           hosts:
@@ -89,3 +61,10 @@ machine-learning:
       type: pvc
       accessMode: ReadWriteMany
       storageClass: longhorn
+
+envFrom:
+  - secretRef:
+      name: immich-postgres-user
+
+env:
+  DB_HOSTNAME: 'immich-postgres-rw'

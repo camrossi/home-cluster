@@ -1,0 +1,15 @@
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: immich-local
+spec:
+  parentRefs:
+  - name: http-gateway
+    namespace: kube-system
+  hostnames:
+  - "immich.camsab.local"
+  rules:
+  - backendRefs:
+    - name: immich-server
+      port: 2283

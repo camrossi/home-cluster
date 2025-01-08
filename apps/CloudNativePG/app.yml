@@ -1,0 +1,15 @@
+project: default
+source:
+  repoURL: 'https://github.com/camrossi/home-cluster'
+  path: 'apps/CloudNativePG '
+  targetRevision: HEAD
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: cloudnative-pg
+syncPolicy:
+  syncOptions:
+    - CreateNamespace=true
+sources:
+  - repoURL: 'https://cloudnative-pg.github.io/charts'
+    targetRevision: 0.22.1
+    chart: cloudnative-pg

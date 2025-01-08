@@ -6,7 +6,7 @@ spec:
   sources:
   - repoURL: 'https://helm.irsigler.cloud'
     chart: uptime-kuma
-    targetRevision: 2.19.4
+    targetRevision: 2.21.*
     helm:
       valueFiles:
       - $values/apps/uptime-kuma/values.yaml
