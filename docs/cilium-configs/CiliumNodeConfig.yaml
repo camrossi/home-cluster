@@ -1,0 +1,11 @@
+apiVersion: cilium.io/v2
+kind: CiliumNodeConfig
+metadata:
+  namespace: kube-system
+  name: enable-xdp
+spec:
+  nodeSelector:
+    matchLabels:
+      model: rk1
+  defaults:
+    bpf-lb-acceleration: native
