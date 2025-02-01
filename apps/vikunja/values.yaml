@@ -19,7 +19,7 @@ api:
       storageClass: longhorn
   image:
     repository: vikunja/vikunja
-    tag: 0.24.4
+    tag: 0.24.6
     pullPolicy: Always
   ingress:
     main:
@@ -68,7 +68,7 @@ frontend:
 postgresql:
   enabled: true
   image:
-    tag: 16.4.0
+    tag: 16.6.0
   global:
     storageClass: longhorn
     postgresql:
