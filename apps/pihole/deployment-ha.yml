@@ -18,6 +18,15 @@ spec:
         app: pihole-1
         name: pihole-1
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: topology.kubernetes.io/zone
+                operator: In
+                values:
+                - "blue"
       containers:
       - name: pihole
         image: pihole/pihole:2024.07.0
@@ -70,6 +79,15 @@ spec:
         app: pihole-2
         name: pihole-2
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: topology.kubernetes.io/zone
+                operator: In
+                values:
+                - "green"
       containers:
       - name: pihole
         image: pihole/pihole:2024.07.0

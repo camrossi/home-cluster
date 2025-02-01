@@ -19,16 +19,7 @@ spec:
         name: webtop
     spec:
       nodeSelector:
-        kubernetes.io/hostname: "rk1-1"
-      #affinity:
-      #  nodeAffinity:
-      #    requiredDuringSchedulingIgnoredDuringExecution:
-      #      nodeSelectorTerms:
-      #      - matchExpressions:
-      #        - key: kubernetes.io/hostname
-      #          operator: NotIn
-      #          values:
-      #          - rpi4-1
+        kubernetes.io/hostname: "rk1-4"
       containers:
       - name: webtop
         image: lscr.io/linuxserver/webtop:latest
@@ -45,7 +36,7 @@ spec:
         - name: DOCKER_MODS
           value: "linuxserver/mods:universal-package-install"
         - name: INSTALL_PACKAGES
-          value: "firefox,nfs-utils"
+          value: "firefox|nfs-utils"
         volumeMounts:
         - name: config
           mountPath: "/config"

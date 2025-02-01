@@ -1,0 +1,24 @@
+kind: CiliumL2AnnouncementPolicy
+apiVersion: cilium.io/v2alpha1
+metadata:
+  name: l2
+spec:
+  externalIPs: false
+  interfaces:
+  - ^end.*
+  loadBalancerIPs: true
+  nodeSelector:
+    matchLabels:
+      model: rk1
+  serviceSelector:
+    matchLabels:
+      type: l2
+---
+kind: CiliumLoadBalancerIPPool
+apiVersion: cilium.io/v2alpha1
+metadata:
+  name: lb-pool
+spec:
+  blocks:
+  - cidr: 192.168.0.224/27
+  disabled: false
