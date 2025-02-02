@@ -4,9 +4,9 @@ metadata:
   name: 'vikunja'
 spec:
   sources:
-  - repoURL: 'https://kolaente.dev/vikunja/helm-chart.git'
-    path: ./
-    targetRevision: v0.4.3
+  - repoURL: kolaente.dev/vikunja
+    chart: vikunja
+    targetRevision: 1.0.0
     helm:
       valueFiles:
       - $values/apps/vikunja/values.yaml
