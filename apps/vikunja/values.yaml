@@ -47,6 +47,7 @@ vikunja:
     VIKUNJA_DATABASE_USER: "{{ coalesce .Values.postgresql.global.postgresql.auth.username .Values.postgresql.auth.username }}"
     VIKUNJA_DATABASE_PASSWORD: "{{ coalesce .Values.postgresql.global.postgresql.auth.password .Values.postgresql.auth.password }}"
     VIKUNJA_DATABASE_NAME: "{{ coalesce .Values.postgresql.global.postgresql.auth.database .Values.postgresql.auth.database }}"
+    VIKUNJA_DATABASE_HOST: "vikunja-postgresql"
 
 ##########################
 # END VIKUNJA COMPONENTS #
