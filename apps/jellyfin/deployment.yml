@@ -18,9 +18,6 @@ spec:
       labels:
         app: jellyfin
         name: jellyfin
-    spec:
-      nodeSelector:
-        kubernetes.io/hostname: "rpi4-1"
       containers:
       - name: jellyfin
         image: jellyfin/jellyfin:10.10.5
