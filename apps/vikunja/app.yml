@@ -4,9 +4,9 @@ metadata:
   name: 'vikunja'
 spec:
   sources:
-  - repoURL: 'https://kolaente.dev/vikunja/helm-chart.git'
-    path: ./
-    targetRevision: v0.4.3
+  - repoURL: kolaente.dev/vikunja
+    chart: vikunja
+    targetRevision: 1.0.0
     helm:
       valueFiles:
       - $values/apps/vikunja/values.yaml
@@ -20,3 +20,9 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: vikunja
   project: default
+ignoreDifferences:
+  - group: ''
+    kind: 'Secret'
+    name: vikunja-postgresql
+    jsonPointers:
+    - /data

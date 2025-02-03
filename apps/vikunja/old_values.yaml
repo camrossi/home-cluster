@@ -8,19 +8,19 @@
 # VIKUNJA COMPONENTS #
 ######################
 # You can find the default values that this `values.yaml` overrides, in the comment at the top of this file.
-vikunja:
-  image:
-    repository: vikunja/vikunja
+api:
+  enabled: true
   persistence:
-    # This is your Vikunja data will live, you can either let
-    # the chart create a new PVC for you or provide an existing one.
     data:
       enabled: true
-      # existingClaim: # your-claim
       accessMode: ReadWriteOnce
       size: 10Gi
       mountPath: /app/vikunja/files
-      # storageClass: storage-class
+      storageClass: longhorn
+  image:
+    repository: vikunja/vikunja
+    tag: 0.24.6
+    pullPolicy: Always
   ingress:
     main:
       enabled: true
@@ -44,10 +44,15 @@ vikunja:
     # You could also use MySQL or SQLite, but we recommend PostgreSQL.
     # https://vikunja.io/docs/config-options/#type
     VIKUNJA_DATABASE_TYPE: "postgres"
-    VIKUNJA_DATABASE_USER: "{{ coalesce .Values.postgresql.global.postgresql.auth.username .Values.postgresql.auth.username }}"
-    VIKUNJA_DATABASE_PASSWORD: "{{ coalesce .Values.postgresql.global.postgresql.auth.password .Values.postgresql.auth.password }}"
-    VIKUNJA_DATABASE_NAME: "{{ coalesce .Values.postgresql.global.postgresql.auth.database .Values.postgresql.auth.database }}"
+    VIKUNJA_DATABASE_USER: "{{ .Values.postgresql.global.postgresql.auth.username }}"
+    VIKUNJA_DATABASE_PASSWORD: "{{ .Values.postgresql.global.postgresql.auth.password }}"
+    VIKUNJA_DATABASE_NAME: "{{ .Values.postgresql.global.postgresql.auth.database }}"
     VIKUNJA_DATABASE_HOST: "vikunja-postgresql"
+    VIKUNJA_API_URL: https://vikunja.camsab.me/api/v1
+
+frontend:
+  #VErsion 0.23 merges API and Frontend
+  enabled: false
 
 ##########################
 # END VIKUNJA COMPONENTS #
@@ -62,14 +67,16 @@ vikunja:
 # https://github.com/bitnami/charts/tree/main/bitnami/postgresql/#parameters
 postgresql:
   enabled: true
-  primary:
-    networkPolicy:
-      enabled: false
-  auth:
-    username: vikunja
-    database: vikunja
-    password: vikunja
-
+  image:
+    tag: 16.6.0
+  global:
+    storageClass: longhorn
+    postgresql:
+      auth:
+        username: vikunja
+        database: vikunja
+        password: vikunja
+        postgresPassword: GpPF96Sazz
 #  ┬─┐┬─┐┬─┐o┐─┐
 #  │┬┘├─ │ ││└─┐
 #  ┘└┘┴─┘┘─┘┘──┘
@@ -92,9 +99,9 @@ typesense:
       enabled: true
       accessMode: ReadWriteOnce
       size: 1Gi
-      # storageClass: storage-class
+      storageClass: longhorn
 
   image:
     repository: docker.io/typesense/typesense
-    tag: 0.25.1
+    tag: "27.1"
     pullPolicy: IfNotPresent
