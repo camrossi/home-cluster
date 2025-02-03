@@ -27,6 +27,7 @@ prometheus:
     hosts:
       - prometheus.camsab.me
   prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
     storageSpec:
       volumeClaimTemplate:
         spec:
