@@ -39,7 +39,7 @@ spec:
         - name: DATABASE_ADAPTER
           value: postgresql
         - name: DATABASE_URL
-          value: manyfold-postgresql
+          value: postgresql://postgresql:5432
         - name: POSTGRES_USER
           value: "manyfold"
         - name: POSTGRES_PASSWORD
