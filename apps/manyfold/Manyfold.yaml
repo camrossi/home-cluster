@@ -37,11 +37,7 @@ spec:
         - name: TZ
           value: Australia/Sydney
         - name: DATABASE_URL
-          value: postgresql://postgres:5432
-        - name: POSTGRES_USER
-          value: "manyfold"
-        - name: POSTGRES_PASSWORD
-          value: "manyfold"
+          value: postgresql://manyfold:manyfold@postgres:5432
         - name: REDIS_URL
           value: redis://redis:6379
         - name: SECRET_KEY_BASE
