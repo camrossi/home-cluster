@@ -36,10 +36,8 @@ spec:
         env:
         - name: TZ
           value: Australia/Sydney
-        - name: DATABASE_ADAPTER
-          value: postgresql
         - name: DATABASE_URL
-          value: postgresql://postgresql:5432
+          value: postgresql://postgres:5432
         - name: POSTGRES_USER
           value: "manyfold"
         - name: POSTGRES_PASSWORD
