@@ -6,7 +6,7 @@ spec:
   sources:
   - repoURL: 'https://traefik.github.io/charts'
     chart: traefik
-    targetRevision: 31.1.1
+    targetRevision: 34.4.0
     helm:
       valueFiles:
       - $values/apps/traefik/values.yaml
