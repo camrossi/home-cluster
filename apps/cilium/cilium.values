@@ -13,6 +13,8 @@ cgroup:
   autoMount:
     enabled: false
   hostRoot: /sys/fs/cgroup
+bandwidthManager:
+  enabled: true
 hubble:
   tls:
     auto:
@@ -67,3 +69,6 @@ securityContext:
     - NET_ADMIN
     - SYS_ADMIN
     - SYS_RESOURCE
+
+
+
