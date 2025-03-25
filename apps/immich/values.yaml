@@ -23,7 +23,7 @@ redis:
   auth:
     enabled: false
   master:
-    resourcesPreset: "small"
+    resourcesPreset: "micro"
 
 # Immich components
 
