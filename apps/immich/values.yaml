@@ -22,15 +22,8 @@ redis:
   architecture: standalone
   auth:
     enabled: false
-  resources:
-    limits:
-      cpu: 200m
-      ephemeral-storage: 1Gi
-      memory: 192Mi
-    requests:
-      cpu: 100m
-      ephemeral-storage: 50Mi
-      memory: 128Mi
+  master:
+    resourcesPreset: "small"
 
 # Immich components
 
