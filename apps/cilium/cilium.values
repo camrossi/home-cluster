@@ -1,5 +1,19 @@
+k8sServiceHost: 127.0.0.1
+k8sServicePort: 7445
+kubeProxyReplacement: true
+routingMode: native
+autoDirectNodeRoutes: true
+ipv4NativeRoutingCIDR: "10.244.0.0/16"
+enableIPv4BIGTCP: true
+endpointRoutes:
+  enabled: true
+bandwidthManager:
+  enabled: true
 bpf:
   masquerade: true
+  datapathMode: netkit
+loadBalancer:
+  mode: dsr
 operator:
   prometheus:
     enabled: true
@@ -46,9 +60,6 @@ gatewayAPI:
   enabled: true
 ipam:
   mode: kubernetes
-k8sServiceHost: 127.0.0.1
-k8sServicePort: 7445
-kubeProxyReplacement: true
 l2announcements:
   enabled: true
 securityContext:
