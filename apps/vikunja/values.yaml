@@ -65,6 +65,7 @@ postgresql:
   primary:
     networkPolicy:
       enabled: false
+    resourcesPreset: "micro"
   auth:
     username: vikunja
     database: vikunja
