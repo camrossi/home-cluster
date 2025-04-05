@@ -22,6 +22,8 @@ redis:
   architecture: standalone
   auth:
     enabled: false
+  master:
+    resourcesPreset: "micro"
 
 # Immich components
 

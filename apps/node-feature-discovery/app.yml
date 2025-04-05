@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'node-feature-discovery'
+spec:
+  sources:
+  - repoURL: https://kubernetes-sigs.github.io/node-feature-discovery/charts
+    chart: node-feature-discovery
+    targetRevision: 0.17.2
+    helm:
+      valueFiles:
+      - $values/apps/node-feature-discovery/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  - repoURL: https://github.com/camrossi/home-cluster
+    path: apps/node-feature-discovery/extras
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: node-feature-discovery
+  project: default

@@ -1,0 +1,11 @@
+worker:
+  config:
+    sources:
+      custom:
+        - name: "panthor rule"
+          labels:
+            "feature.node.kubernetes.io/gpu-model": "panthor"
+          matchFeatures:
+            - feature: kernel.loadedmodule
+              matchExpressions:
+                panthor: {op: Exists}
