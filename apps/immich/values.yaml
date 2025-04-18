@@ -59,14 +59,6 @@ server:
           topologyKey: "kubernetes.io/hostname"
 machine-learning:
   enabled: true
-  affinity:
-    podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchLabels:
-              app.kubernetes.io/instance: immich
-              app.kubernetes.io/name: server
-          topologyKey: "kubernetes.io/hostname"
   image:
     repository: ghcr.io/immich-app/immich-machine-learning
     pullPolicy: IfNotPresent
