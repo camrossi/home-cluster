@@ -79,7 +79,7 @@ machine-learning:
       # Optional: Set this to pvc to avoid downloading the ML models every start.
       type: pvc
       accessMode: ReadWriteOnce
-      storageClass: longhorn
+      storageClass: longhorn-2-replicas
 
 envFrom:
   - secretRef:
