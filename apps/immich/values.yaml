@@ -51,7 +51,7 @@ server:
 
   affinity:
     podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution
+      requiredDuringSchedulingIgnoredDuringExecution:
         - labelSelector:
             matchLabels:
               app.kubernetes.io/instance: immich
