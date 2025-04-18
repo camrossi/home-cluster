@@ -28,6 +28,7 @@ redis:
 # Immich components
 
 server:
+  
   enabled: true
   image:
     repository: ghcr.io/immich-app/immich-server
@@ -48,6 +49,14 @@ server:
           hosts:
             - immich.camsab.me
 
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: immich
+              app.kubernetes.io/name: machine-learning
+          topologyKey: "kubernetes.io/hostname"
 machine-learning:
   enabled: true
   image:
