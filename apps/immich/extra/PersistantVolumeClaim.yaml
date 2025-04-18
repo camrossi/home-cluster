@@ -22,7 +22,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: longhorn
+  storageClassName: longhorn-2-replicas
   dataSource:
     name: photos
     kind: PersistentVolumeClaim
