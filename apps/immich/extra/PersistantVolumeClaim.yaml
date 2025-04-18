@@ -23,6 +23,9 @@ spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: longhorn
+  dataSource:
+    name: photos
+    kind: PersistentVolumeClaim
   resources:
     requests:
       storage: 600Gi
