@@ -23,7 +23,7 @@ spec:
         kubernetes.io/hostname: "rpi4-1"
       containers:
       - name: jellyfin
-        image: jellyfin/jellyfin:10.10.6
+        image: jellyfin/jellyfin:10.10.7
         imagePullPolicy: Always
         securityContext:
           privileged: true

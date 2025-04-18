@@ -13,7 +13,7 @@ immich:
     library:
       # Automatically creating the library volume is not supported by this chart
       # You have to specify an existing PVC to use
-      existingClaim: photos
+      existingClaim: media
 
 # Dependencies
 
@@ -78,7 +78,7 @@ machine-learning:
       size: 10Gi
       # Optional: Set this to pvc to avoid downloading the ML models every start.
       type: pvc
-      accessMode: ReadWriteMany
+      accessMode: ReadWriteOnce
       storageClass: longhorn
 
 envFrom:
