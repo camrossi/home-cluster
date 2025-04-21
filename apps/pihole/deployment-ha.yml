@@ -29,7 +29,7 @@ spec:
                 - "blue"
       containers:
       - name: pihole
-        image: pihole/pihole:2025.02.7
+        image: pihole/pihole:2025.04.0
         imagePullPolicy: IfNotPresent
         env:
         - name: TZ
@@ -90,7 +90,7 @@ spec:
                 - "green"
       containers:
       - name: pihole
-        image: pihole/pihole:2025.02.7
+        image: pihole/pihole:2025.04.0
         imagePullPolicy: IfNotPresent
         env:
         - name: TZ
@@ -142,7 +142,7 @@ spec:
     spec:
       containers:
       - name: orbital-sync
-        image: ghcr.io/mattwebbio/orbital-sync:1.8.3-distroless
+        image: ghcr.io/mattwebbio/orbital-sync:1.8.4-distroless
         imagePullPolicy: Always
         envFrom:
         - secretRef:
