@@ -72,6 +72,10 @@ services:
       size: 1Gi
 registry:
   type: nats-js-kv
+
+cache:
+  type: nats-js-kv
+
 features:
   externalUserManagement:
     adminUUID: "akadmin"
