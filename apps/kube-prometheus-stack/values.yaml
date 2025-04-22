@@ -48,6 +48,7 @@ kubeControllerManager:
    enabled: false
 
 prometheusOperator:
+  enabled: true
   admissionWebhooks:
     enabled: true
     validatingWebhookConfiguration:
