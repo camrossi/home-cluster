@@ -47,24 +47,14 @@ kubeScheduler:
 kubeControllerManager: 
    enabled: false
 prometheusOperator:
-  enabled: true
-  createCustomResource: true
   admissionWebhooks:
     enabled: true
 
     annotations:
-      argocd.argoproj.io/hook: PreSync
-      argocd.argoproj.io/hook-delete-policy: HookFailed
+      argocd.argoproj.io/hook: PostSync
+      argocd.argoproj.io/hook-delete-policy: HookSucceeded
 
     patch:
       annotations:
-        argocd.argoproj.io/hook: PreSync
-        argocd.argoproj.io/hook-delete-policy: HookFailed
-
-    mutatingWebhookConfiguration:
-      annotations:
-        argocd.argoproj.io/hook: PreSync
-
-    validatingWebhookConfiguration:
-      annotations:
-        argocd.argoproj.io/hook: PreSync
+        argocd.argoproj.io/hook: PostSync
+        argocd.argoproj.io/hook-delete-policy: HookSucceeded
