@@ -12,7 +12,8 @@ ingress:
       hosts:
         - ocis.camsab.me
 deploymentStrategy:
-  type: Recreate    
+  type: Recreate
+  rollingUpdate: {}
 insecure:
   # disables ssl certificate checking for connections to the openID connect identity provider.
   # Not recommended for production setups, but we don't have valid certificates in minikube
