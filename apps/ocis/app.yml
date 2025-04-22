@@ -20,3 +20,9 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: ocis
   project: default
+  ignoreDifferences:
+  - kind: ConfigMap
+    jsonPointers:
+      - /data/service-account-id
+      - /data/application-id
+      - /data/storage-uuid
