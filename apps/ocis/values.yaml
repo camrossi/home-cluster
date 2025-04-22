@@ -1,8 +1,8 @@
 externalDomain: ocis.camsab.me
 logging:
   level: "info"
-  pretty: "true"
-  color: "true"
+  pretty: true
+  color: true
 ingress:
   enabled: true
   annotations:
@@ -52,12 +52,12 @@ services:
       accessModes:
         - ReadWriteOnce
       size: 5Gi
-  store:
-    persistence:
-      enabled: true
-      accessModes:
-        - ReadWriteOnce
-      size: 1Gi
+  #store:
+  #  persistence:
+  #    enabled: true
+  #    accessModes:
+  #      - ReadWriteOnce
+  #    size: 1Gi
   thumbnails:
     persistence:
       enabled: true
@@ -80,7 +80,7 @@ features:
     enabled: true
     oidc:
       issuerURI: https://authentik.camsab.me/application/o/ocis/
-      webClientID: ymTDwg5sZyWF6QNw0gaS78wjtbfl6lMx0lW8LCjr
+      #webClientID: ymTDwg5sZyWF6QNw0gaS78wjtbfl6lMx0lW8LCjr
       accessTokenVerifyMethod: "none"
       userIDClaim: preferred_username
       userIDClaimAttributeMapping: username
