@@ -51,7 +51,3 @@ prometheusOperator:
   enabled: true
   admissionWebhooks:
     enabled: true
-    validatingWebhookConfiguration:
-      annotations:
-        argocd.argoproj.io/hook: PostSync
-        argocd.argoproj.io/hook-delete-policy: HookSucceeded
