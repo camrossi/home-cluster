@@ -13,7 +13,6 @@ ingress:
         - ocis.camsab.me
 deploymentStrategy:
   type: Recreate
-  rollingUpdate: null
 
 insecure:
   # disables ssl certificate checking for connections to the openID connect identity provider.
