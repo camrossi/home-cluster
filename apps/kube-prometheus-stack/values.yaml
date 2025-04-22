@@ -8,6 +8,7 @@ defaultRules:
 grafana:
   deploymentStrategy:
     type: Recreate
+    rollingUpdate: null
   ingress:
     ingressClassName: "traefik"
     enabled: true
