@@ -1,4 +1,3 @@
-disableOpenApiValidation: true
 externalDomain: ocis.camsab.me
 logging:
   level: "info"
@@ -68,6 +67,9 @@ services:
         - ReadWriteOnce
       size: 1Gi
   web:
+    config:
+      oidc:
+        webClientID: ymTDwg5sZyWF6QNw0gaS78wjtbfl6lMx0lW8LCjr
     persistence:
       enabled: true
       accessModes:
@@ -77,13 +79,13 @@ registry:
   type: nats-js-kv
 cache:
   type: nats-js-kv
+
 features:
   externalUserManagement:
     adminUUID: "akadmin"
     enabled: true
     oidc:
       issuerURI: https://authentik.camsab.me/application/o/ocis/
-      webClientID: ymTDwg5sZyWF6QNw0gaS78wjtbfl6lMx0lW8LCjr
       accessTokenVerifyMethod: "none"
       userIDClaim: preferred_username
       userIDClaimAttributeMapping: username
