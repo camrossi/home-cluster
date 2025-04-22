@@ -1,3 +1,4 @@
+disableOpenApiValidation: true
 externalDomain: ocis.camsab.me
 logging:
   level: "info"
@@ -13,7 +14,6 @@ ingress:
         - ocis.camsab.me
 deploymentStrategy:
   type: Recreate
-  rollingUpdate: {}
 insecure:
   # disables ssl certificate checking for connections to the openID connect identity provider.
   # Not recommended for production setups, but we don't have valid certificates in minikube
