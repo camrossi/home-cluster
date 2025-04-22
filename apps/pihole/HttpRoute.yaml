@@ -1,0 +1,30 @@
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: pihole-0
+spec:
+  parentRefs:
+  - name: http-gateway
+    namespace: kube-system
+  hostnames:
+  - "pihole-0.camsab.me"
+  rules:
+  - backendRefs:
+    - name: pihole-0-ui
+      port: 80
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: pihole-1
+spec:
+  parentRefs:
+  - name: http-gateway
+    namespace: kube-system
+  hostnames:
+  - "pihole-1.camsab.me"
+  rules:
+  - backendRefs:
+    - name: pihole-1-ui
+      port: 80

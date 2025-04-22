@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nebula-sync
+  labels:
+    app: nebula-sync
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: nebula-sync
+  template:
+    metadata:
+      labels:
+        app: nebula-sync
+        name: nebula-sync
+    spec:
+      containers:
+      - name: nebula-sync
+        image: ghcr.io/lovelaze/nebula-sync:latest
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: nebula-sync

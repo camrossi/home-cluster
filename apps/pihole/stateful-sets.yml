@@ -1,0 +1,96 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pihole-dns
+  labels:
+    app: pihole
+    type: l2
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: UDP
+    port: 53
+    name: dns-udp
+  selector:
+    app: pihole
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pihole-0-ui
+spec:
+  selector:
+    statefulset.kubernetes.io/pod-name: pihole-0
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pihole-1-ui
+spec:
+  selector:
+    statefulset.kubernetes.io/pod-name: pihole-1
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: pihole
+spec:
+  selector:
+    matchLabels:
+      app: pihole
+  serviceName: "pihole"
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: pihole
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: pihole
+        image: pihole/pihole:2025.04.0
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: TZ
+          valueFrom:
+            configMapKeyRef:
+              name: pihole-env
+              key: TZ
+        - name: DNS1
+          valueFrom:
+            configMapKeyRef:
+              name: pihole-env
+              key: DNS1
+        - name: DNS2
+          valueFrom:
+            configMapKeyRef:
+              name: pihole-env
+              key: DNS2
+        volumeMounts:
+          - name: etc-volume
+            mountPath: "/etc/pihole"
+          - name: etc-volume-dnsmasq
+            mountPath: "/etc/dnsmasq.d"
+  volumeClaimTemplates:
+  - metadata:
+      name: etc-volume
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+  - metadata:
+      name: etc-volume-dnsmasq
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi

@@ -54,12 +54,6 @@ services:
       accessModes:
         - ReadWriteOnce
       size: 5Gi
-  #store:
-  #  persistence:
-  #    enabled: true
-  #    accessModes:
-  #      - ReadWriteOnce
-  #    size: 1Gi
   thumbnails:
     persistence:
       enabled: true
