@@ -6,6 +6,8 @@ defaultRules:
     kubeSchedulerAlerting: false
     kubeSchedulerRecording: false
 grafana:
+  deploymentStrategy:
+    type: Recreate
   ingress:
     ingressClassName: "traefik"
     enabled: true
@@ -28,6 +30,7 @@ prometheus:
       - prometheus.camsab.me
   prometheusSpec:
     serviceMonitorSelectorNilUsesHelmValues: false
+    scrapeConfigSelectorNilUsesHelmValues: false
     storageSpec:
       volumeClaimTemplate:
         spec:
