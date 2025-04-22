@@ -127,6 +127,7 @@ secretRefs:
   thumbnailsSecretRef: "thumbnails-transfer-secret"
   transferSecretSecretRef: "transfer-secret"
   serviceAccountSecretRef: "service-account-secret"
+  collaborationWopiSecret: "collaboration-wopi-secret"
 
 # HTTP settings for oCIS services.
 http:
