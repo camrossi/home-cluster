@@ -49,6 +49,7 @@ kubeControllerManager:
 
 prometheusOperator:
   admissionWebhooks:
+    enabled: true
     validatingWebhookConfiguration:
       annotations:
         argocd.argoproj.io/hook: PostSync
