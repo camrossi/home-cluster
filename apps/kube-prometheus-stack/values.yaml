@@ -46,10 +46,3 @@ kubeScheduler:
   enabled: false
 kubeControllerManager: 
    enabled: false
-
-prometheusOperator:
-  admissionWebhooks:
-    validatingWebhookConfiguration:
-      annotations:
-        argocd.argoproj.io/hook: PostSync1
-        argocd.argoproj.io/hook-delete-policy: HookSucceeded
