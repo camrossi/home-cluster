@@ -47,6 +47,8 @@ kubeScheduler:
 kubeControllerManager: 
    enabled: false
 prometheusOperator:
+  enabled: true
+  createCustomResource: true
   admissionWebhooks:
     enabled: true
     annotations:
