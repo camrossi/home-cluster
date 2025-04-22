@@ -83,7 +83,7 @@ features:
     enabled: true
     oidc:
       issuerURI: https://authentik.camsab.me/application/o/ocis/
-      #webClientID: ymTDwg5sZyWF6QNw0gaS78wjtbfl6lMx0lW8LCjr
+      webClientID: ymTDwg5sZyWF6QNw0gaS78wjtbfl6lMx0lW8LCjr
       accessTokenVerifyMethod: "none"
       userIDClaim: preferred_username
       userIDClaimAttributeMapping: username
