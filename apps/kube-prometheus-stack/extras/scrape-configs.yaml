@@ -7,4 +7,4 @@ spec:
     - labels:
         job: prometheus
       targets:
-        - rpi3.camsab.me:9090
+        - rpi3.camsab.me:9100
