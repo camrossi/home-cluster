@@ -151,120 +151,34 @@ http:
   # CSP settings for oCIS services.
   csp:
     directives:
-      # @schema
-      # type: array
-      # items:
-      #   type: string
-      #   required: true
-      # @schema
-      # -- child-src directive, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/child-src
       childSrc:
         - "'self'"
-      # @schema
-      # type: array
-      # items:
-      #   type: string
-      #   required: true
-      # @schema
-      # -- connect-src directive, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/connect-src
       connectSrc:
         - "'self'"
-        # If Uppy Companion is used, you need to add it with your URI:
-        # - "https://companion.kube.owncloud.test/"
-        # - "wss:///companion.kube.owncloud.test/"
-      # @schema
-      # type: array
-      # items:
-      #   type: string
-      #   required: true
-      # @schema
-      # -- default-src directive, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/default-src
+        - 'https://${AUTHENTIK_DOMAIN|authentik.camsab.me}/'
       defaultSrc:
         - "'none'"
-      # @schema
-      # type: array
-      # items:
-      #   type: string
-      #   required: true
-      # @schema
-      # -- front-src directive, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/front-src
       fontSrc:
         - "'self'"
-      # @schema
-      # type: array
-      # items:
-      #   type: string
-      #   required: true
-      # @schema
-      # -- frame-ancestors directive, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors
       frameAncestors:
         - "'self'"
-      # @schema
-      # type: array
-      # items:
-      #   type: string
-      #   required: true
-      # @schema
-      # -- frame-src directive, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-src
       frameSrc:
         - "'self'"
         - "blob:"
-      # @schema
-      # type: array
-      # items:
-      #   type: string
-      #   required: true
-      # @schema
-      # -- img-src directive, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/img-src
       imgSrc:
         - "'self'"
         - "data:"
         - "blob:"
-      # @schema
-      # type: array
-      # items:
-      #   type: string
-      #   required: true
-      # @schema
-      # -- manifest-src directive, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/manifest-src
       manifestSrc:
         - "'self'"
-      # @schema
-      # type: array
-      # items:
-      #   type: string
-      #   required: true
-      # @schema
-      # -- media-src directive, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/media-src
       mediaSrc:
         - "'self'"
-      # @schema
-      # type: array
-      # items:
-      #   type: string
-      #   required: true
-      # @schema
-      # -- object-src directive, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/object-src
       objectSrc:
         - "'self'"
         - "blob:"
-      # @schema
-      # type: array
-      # items:
-      #   type: string
-      #   required: true
-      # @schema
-      # -- script-src directive, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src
       scriptSrc:
         - "'self'"
         - "'unsafe-inline'"
-      # @schema
-      # type: array
-      # items:
-      #   type: string
-      #   required: true
-      # @schema
-      # -- style-src directive, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src
       styleSrc:
         - "'self'"
         - "'unsafe-inline'"
