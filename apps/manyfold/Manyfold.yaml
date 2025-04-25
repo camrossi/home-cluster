@@ -31,7 +31,7 @@ spec:
           mountPath: /libraries/models
       containers:
       - name: manyfold
-        image: lscr.io/linuxserver/manyfold:v0.101.0-ls59
+        image: lscr.io/linuxserver/manyfold:latest
         imagePullPolicy: Always
         env:
         - name: TZ
