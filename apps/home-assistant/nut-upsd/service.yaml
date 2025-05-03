@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nut-upsd
+  name: nut-upsd
+  namespace: home-assistant
+spec:
+  ports:
+  - name: nut-upsd
+    nodePort: 30000
+    port: 3493
+    protocol: TCP
+    targetPort: 3493
+  selector:
+    app: nut-upsd
+  sessionAffinity: None
+  type: NodePort
