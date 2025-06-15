@@ -8,20 +8,17 @@ service:
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
-  enabled: false
-  className: ""
+  enabled: true
   annotations:
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts: []
-    # - host: chart-example.local
-    #   paths:
-    #     - path: /
-    #       pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+  hosts:
+    - host: karakeep.camsab.me
+          paths:
+            - path: "/"
+  tls:
+    - secretName: karakeep-ingress-key
+      hosts:
+        - karakeep.camsab.me
 
 persistence:
   enabled: true
