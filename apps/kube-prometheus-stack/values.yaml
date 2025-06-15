@@ -32,13 +32,14 @@ prometheus:
   prometheusSpec:
     serviceMonitorSelectorNilUsesHelmValues: false
     scrapeConfigSelectorNilUsesHelmValues: false
+    retentionSize: 10GB
     storageSpec:
       volumeClaimTemplate:
         spec:
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              storage: 10Gi
+              storage: 11Gi
 kubeApiServer:
   tlsConfig:
     insecureSkipVerify: true

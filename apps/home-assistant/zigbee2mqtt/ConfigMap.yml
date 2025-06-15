@@ -27,7 +27,8 @@ data:
     advanced:
       #network_key: GENERATE
       #log_output: ["console"]
-      log_level: debug
+      log_level: info
+      log_rotation: true
       log_output:
       - console
       - file

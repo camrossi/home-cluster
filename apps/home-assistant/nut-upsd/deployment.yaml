@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nut-upsd
+  name: nut-upsd
+  namespace: home-assistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nut-upsd
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: nut-upsd
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: upsd
+                operator: In
+                values:
+                - "true"
+      containers:
+      - env:
+        - name: PORT
+          value: /dev/hidraw0
+        - name: API_PASSWORD
+          value: upsmon
+        image: instantlinux/nut-upsd:2.8.2-r2
+        imagePullPolicy: IfNotPresent
+        name: nut-upsd
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - mountPath: /dev/hidraw0
+          name: hidraw0
+      volumes:
+      - hostPath:
+          path: /dev/hidraw0
+          type: ""
+        name: hidraw0
