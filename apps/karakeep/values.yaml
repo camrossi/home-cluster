@@ -15,6 +15,7 @@ ingress:
     - host: karakeep.camsab.me
       paths:
         - path: "/"
+          pathType: ImplementationSpecific
   tls:
     - secretName: karakeep-ingress-key
       hosts:
