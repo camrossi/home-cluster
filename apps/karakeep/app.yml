@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'karakeep'
+spec:
+  sources:
+  - repoURL: 'https://handyman5.github.io/karakeep-chart'
+    chart: karakeep
+    targetRevision: 0.2.2
+    helm:
+      valueFiles:
+      - $values/apps/karakeep/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: kube-system
+  project: default
