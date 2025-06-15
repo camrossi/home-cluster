@@ -4,7 +4,7 @@ metadata:
   name: 'karakeep'
 spec:
   sources:
-  - repoURL: 'https://handyman5.github.io/karakeep-chart'
+  - repoURL: 'https://camrossi.github.io/karakeep-chart'
     chart: karakeep
     targetRevision: 0.2.2
     helm:
@@ -13,7 +13,10 @@ spec:
   - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
     ref: values
+  - repoURL: https://github.com/camrossi/home-cluster
+    path: apps/karakeep/extra
+    targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: kube-system
+    namespace: karakeep
   project: default

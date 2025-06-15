@@ -2,7 +2,6 @@ image:
   repository: ghcr.io/karakeep-app/karakeep
   tag: "0.25.0"
 
-
 service:
   type: ClusterIP
   port: 3000
@@ -40,9 +39,10 @@ persistence:
 # https://docs.karakeep.app/configuration/
 # https://github.com/karakeep-app/karakeep/blob/main/packages/shared/config.ts
 
-# web:
-#   extraEnv:
-#     DATA_DIR: /data
+web:
+  envFrom:
+    - secretRef:
+        name: karakeep
 
 # chrome:
 #   extraEnv: {}
