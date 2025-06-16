@@ -6,7 +6,7 @@ spec:
   sources:
   - repoURL: 'https://camrossi.github.io/karakeep-chart'
     chart: karakeep
-    targetRevision: 0.2.2
+    targetRevision: 0.2.3
     helm:
       valueFiles:
       - $values/apps/karakeep/values.yaml
