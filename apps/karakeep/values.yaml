@@ -12,7 +12,7 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
   hosts:
-    - host: karakeep.camsab.me
+    - host: https://karakeep.camsab.me
       paths:
         - path: "/"
           pathType: ImplementationSpecific
