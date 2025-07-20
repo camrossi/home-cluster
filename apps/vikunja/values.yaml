@@ -18,7 +18,7 @@ vikunja:
       enabled: true
       # existingClaim: # your-claim
       accessMode: ReadWriteOnce
-      size: 11Gi
+      size: 10Gi
       mountPath: /app/vikunja/files
       # storageClass: storage-class
   ingress:
