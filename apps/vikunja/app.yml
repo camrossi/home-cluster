@@ -4,7 +4,7 @@ metadata:
   name: 'vikunja'
 spec:
   sources:
-  - repoURL: kolaente.dev/vikunja
+  - repoURL: ghcr.io/go-vikunja/helm-chart
     chart: vikunja
     targetRevision: 1.0.0
     helm:
