@@ -22,7 +22,7 @@ spec:
         kubernetes.io/hostname: "rk1-3"
       containers:
       - name: webtop
-        image: lscr.io/linuxserver/arch-xfce:latest
+        image: lscr.io/linuxserver/webtop:arch-xfce
         imagePullPolicy: Always
         securityContext:
           privileged: true
