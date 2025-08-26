@@ -19,10 +19,10 @@ spec:
         name: webtop
     spec:
       nodeSelector:
-        kubernetes.io/hostname: "rk1-4"
+        kubernetes.io/hostname: "rk1-3"
       containers:
       - name: webtop
-        image: lscr.io/linuxserver/webtop:latest
+        image: lscr.io/linuxserver/arch-xfce:latest
         imagePullPolicy: Always
         securityContext:
           privileged: true
