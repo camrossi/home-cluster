@@ -56,7 +56,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: pihole
-        image: pihole/pihole:2025.04.0
+        image: pihole/pihole:2025.08.0
         imagePullPolicy: IfNotPresent
         env:
         - name: TZ
