@@ -14,7 +14,7 @@ spec:
     targetRevision: main
     ref: values
   - repoURL: https://github.com/camrossi/home-cluster
-    path: apps/karakeep/extra
+    path: apps/trilium/extra
     targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
