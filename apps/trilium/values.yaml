@@ -3,7 +3,7 @@ controllers:
     containers:
       trilium:
         image:
-          repository: triliumnext/notes
+          repository: triliumnext/trilium
           tag: v0.98.1
           pullPolicy: IfNotPresent
 persistence:
