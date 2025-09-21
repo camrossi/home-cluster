@@ -10,10 +10,8 @@ persistence:
   data:
     enabled: true
     type: persistentVolumeClaim
-    size: 20Gi
-    retain: true
-    accessMode: ReadWriteOnce
-    storageClass: longhorn-2-replicas
+    existingClaim: trilium
+
 route:
   main:
     kind: HTTPRoute
