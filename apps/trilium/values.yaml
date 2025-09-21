@@ -16,7 +16,15 @@ persistence:
     storageClass: longhorn-2-replicas
 route:
   main:
-    enabled: true
     kind: HTTPRoute
-  hostnames:
-    - "trillium.camsab.me"
+    parentRefs:
+      - group: gateway.networking.k8s.io
+        kind: Gateway
+        name: http-gateway
+        namespace: kube-system
+    hostnames: 
+      - trilium.camsab.me
+    rules:
+     - backendRefs:
+        - name: test
+          port: 80
