@@ -18,9 +18,5 @@ route:
   main:
     enabled: true
     kind: HTTPRoute
-    parentRefs:
-      group: gateway.networking.k8s.io
-      name: http-gateway
-      namespace: kube-system
   hostnames:
     - "trillium.camsab.me"
