@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'trillium'
+spec:
+  sources:
+  - repoURL: 'https://trilium-next.github.io/helm-charts'
+    chart: trillium
+    targetRevision: 1.3.0
+    helm:
+      valueFiles:
+      - $values/apps/trillium/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: trillium
+  project: default
