@@ -6,6 +6,9 @@ controllers:
           repository: triliumnext/trilium
           tag: v0.98.1
           pullPolicy: IfNotPresent
+        envFrom:
+          - secretRef:
+              name: trilium-config
 persistence:
   data:
     enabled: true
