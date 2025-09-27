@@ -18,7 +18,7 @@ route:
     parentRefs:
       - group: gateway.networking.k8s.io
         kind: Gateway
-        name: http-gateway
+        name: https-gateway
         namespace: kube-system
     hostnames: 
       - trilium.camsab.me
