@@ -4,7 +4,7 @@ controllers:
       trilium:
         image:
           repository: triliumnext/trilium
-          tag: v0.98.1
+          tag: v0.99.0
           pullPolicy: IfNotPresent
         envFrom:
           - secretRef:
