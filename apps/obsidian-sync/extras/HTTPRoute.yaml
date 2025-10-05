@@ -4,7 +4,7 @@ metadata:
   name: couchdb
 spec:
   hostnames:
-  - obsydian-sync.camsab.me
+  - obsidian-sync.camsab.me
   parentRefs:
   - group: gateway.networking.k8s.io
     kind: Gateway
