@@ -5,8 +5,8 @@ metadata:
 spec:
   sources:
   - repoURL: 'https://apache.github.io/couchdb-helm'
-    path: couchdb/couchdb
-    targetRevision: main
+    path: chart/couchdb
+    targetRevision: 4.6.2
     helm:
       valueFiles:
       - $values/apps/obsidian-sync/values.yaml
