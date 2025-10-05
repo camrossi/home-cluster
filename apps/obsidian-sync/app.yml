@@ -5,7 +5,7 @@ metadata:
 spec:
   sources:
   - repoURL: 'https://apache.github.io/couchdb-helm'
-    path: charts/couchdb-helm
+    path: couchdb/couchdb
     targetRevision: main
     helm:
       valueFiles:
