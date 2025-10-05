@@ -23,3 +23,13 @@ persistentVolume:
   existingClaims: []
   size: 10Gi
   storageClass: longhorn-2-replicas
+
+autoSetup:
+  enabled: true
+  image:
+    repository: curlimages/curl
+    tag: latest
+    pullPolicy: Always
+  defaultDatabases:
+    - _global_changes
+    - camsab_obsidian

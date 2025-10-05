@@ -14,7 +14,7 @@ spec:
   - backendRefs:
     - group: ""
       kind: Service
-      name: couchdb-svc-couchdb
+      name: obsidian-sync-svc-couchdb
       port: 5984
       weight: 1
     matches:
