@@ -1,0 +1,25 @@
+clusterSize: 1
+couchdbConfig:
+  chttpd:
+    enable_cors: true
+    max_http_request_size: 4294967296
+    require_valid_user: true
+  chttpd_auth:
+    require_valid_user: true
+  cors:
+    credentials: true
+    origins: app://obsidian.md,capacitor://localhost,http://localhost
+  couchdb:
+    max_document_size: 50000000
+    uuid: decafbaddecafbaddecafbaddecafbad
+  httpd:
+    WWW-Authenticate: Basic realm="CouchDB"
+    enable_cors: true
+persistentVolume:
+  accessModes:
+  - ReadWriteOnce
+  annotations: {}
+  enabled: true
+  existingClaims: []
+  size: 10Gi
+  storageClass: longhorn-2-replicas
