@@ -11,5 +11,5 @@ syncPolicy:
     - CreateNamespace=true
 sources:
   - repoURL: 'https://cloudnative-pg.github.io/charts'
-    targetRevision: 0.22.1
+    targetRevision: v0.26.*
     chart: cloudnative-pg

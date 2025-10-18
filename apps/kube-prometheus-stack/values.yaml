@@ -47,3 +47,7 @@ kubeScheduler:
   enabled: false
 kubeControllerManager: 
    enabled: false
+crds:
+  enabled: true
+  upgradeJob:
+    enabled: true
