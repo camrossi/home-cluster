@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: mealie
-        image: ghcr.io/mealie-recipes/mealie:v3.0.1
+        image: ghcr.io/mealie-recipes/mealie:v3.3.2
         imagePullPolicy: Always
         envFrom:
         - secretRef:
