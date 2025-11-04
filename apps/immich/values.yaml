@@ -4,10 +4,17 @@
 
 # These entries are shared between all the Immich components
 
-image:
-  tag: v2.2.2
+controllers:
+  main:
+    containers:
+      main:
+        image:
+          tag: v2.2.2
   
 immich:
+  metrics:
+    # Enabling this will create the service monitors needed to monitor immich with the prometheus operator
+    enabled: true
   persistence:
     # Main data store for all photos shared between different components.
     library:
@@ -23,11 +30,7 @@ valkey:
 # Immich components
 
 server:
-  
   enabled: true
-  image:
-    repository: ghcr.io/immich-app/immich-server
-    pullPolicy: IfNotPresent
   
   ingress:
     main:
@@ -54,11 +57,6 @@ server:
           topologyKey: "kubernetes.io/hostname"
 machine-learning:
   enabled: true
-  image:
-    repository: ghcr.io/immich-app/immich-machine-learning
-    pullPolicy: IfNotPresent
-  env:
-    TRANSFORMERS_CACHE: /cache
   persistence:
     cache:
       enabled: true
