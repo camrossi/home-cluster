@@ -36,7 +36,14 @@ valkey:
 
 server:
   enabled: true
-  
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: immich
+              app.kubernetes.io/name: machine-learning
+          topologyKey: "kubernetes.io/hostname"
   ingress:
     main:
       enabled: true
@@ -51,15 +58,6 @@ server:
         - secretName: immich-ingress-key
           hosts:
             - immich.camsab.me
-
-  affinity:
-    podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchLabels:
-              app.kubernetes.io/instance: immich
-              app.kubernetes.io/name: machine-learning
-          topologyKey: "kubernetes.io/hostname"
 machine-learning:
   enabled: true
   persistence:
