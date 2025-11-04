@@ -36,15 +36,16 @@ valkey:
 
 server:
   enabled: true
-  pod:
-    affinity:
-      podAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchLabels:
-                app.kubernetes.io/instance: immich
-                app.kubernetes.io/name: machine-learning
-            topologyKey: "kubernetes.io/hostname"
+  controllers:
+    pod:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchLabels:
+                  app.kubernetes.io/instance: immich
+                  app.kubernetes.io/name: machine-learning
+              topologyKey: "kubernetes.io/hostname"
   ingress:
     main:
       enabled: true
