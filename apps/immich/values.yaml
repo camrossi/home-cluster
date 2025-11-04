@@ -10,7 +10,12 @@ controllers:
       main:
         image:
           tag: v2.2.2
-  
+        env:
+          DB_HOSTNAME: 'immich-postgres-rw'
+        
+        envFrom:
+          - secretRef:
+              name: immich-postgres-user
 immich:
   metrics:
     # Enabling this will create the service monitors needed to monitor immich with the prometheus operator
@@ -47,14 +52,14 @@ server:
           hosts:
             - immich.camsab.me
 
-  #affinity:
-  ##  podAffinity:
-  #    requiredDuringSchedulingIgnoredDuringExecution:
-  #      - labelSelector:
-  #          matchLabels:
-  #            app.kubernetes.io/instance: immich
-  #            app.kubernetes.io/name: machine-learning
-  #        topologyKey: "kubernetes.io/hostname"
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/instance: immich
+              app.kubernetes.io/name: machine-learning
+          topologyKey: "kubernetes.io/hostname"
 machine-learning:
   enabled: true
   persistence:
@@ -65,10 +70,3 @@ machine-learning:
       type: persistentVolumeClaim
       accessMode: ReadWriteOnce
       storageClass: longhorn-2-replicas
-
-envFrom:
-  - secretRef:
-      name: immich-postgres-user
-
-env:
-  DB_HOSTNAME: 'immich-postgres-rw'
