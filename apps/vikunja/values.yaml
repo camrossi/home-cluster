@@ -96,5 +96,5 @@ typesense:
 
   image:
     repository: docker.io/typesense/typesense
-    tag: 29.0
+    tag: "29.0"
     pullPolicy: IfNotPresent
