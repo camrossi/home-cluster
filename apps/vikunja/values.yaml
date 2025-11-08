@@ -17,7 +17,8 @@ vikunja:
       mountPath: /app/vikunja/files
       storageClass: longhorn-2-replicas
   image:
-    repository: vikunja/vikunja:1.0.0-rc2
+    repository: vikunja/vikunja
+    tag: v1.0.0-rc2
 
   ingress:
     main:
