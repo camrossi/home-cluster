@@ -8,19 +8,19 @@ metadata:
 data:
   configuration.yaml: |-
     version: 4
-mqtt:
-    base_topic: zigbee2mqtt
-    server: mqtt://mosquitto-service
-serial:
-    port: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230220101754-if00
-    adapter: ember
-advanced:
-    channel: 25
-frontend:
-    enabled: true
-    port: 8080
-homeassistant:
-    enabled: true
-        ## Map devices to persistent /data directory
-devices: /data/devices.yaml
-groups: /data/groups.yaml
+    mqtt:
+        base_topic: zigbee2mqtt
+        server: mqtt://mosquitto-service
+    serial:
+        port: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230220101754-if00
+        adapter: ember
+    advanced:
+        channel: 25
+    frontend:
+        enabled: true
+        port: 8080
+    homeassistant:
+        enabled: true
+            ## Map devices to persistent /data directory
+    devices: /data/devices.yaml
+    groups: /data/groups.yaml
