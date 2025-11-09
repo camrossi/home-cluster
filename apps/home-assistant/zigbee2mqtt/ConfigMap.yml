@@ -12,7 +12,7 @@ data:
         base_topic: zigbee2mqtt
         server: mqtt://mosquitto-service
     serial:
-        port: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230220101754-if00
+        port: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230220101754-if00/ttyACM0
         adapter: ember
     advanced:
         channel: 25
