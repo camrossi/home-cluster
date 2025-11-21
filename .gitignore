@@ -3,3 +3,4 @@ secrets.yaml
 config.txt
 apps/action-runners/*
 apps/ddclient/example config/secret_example.yaml
+apps/kube-prometheus-stack/extras/discord-webok.yaml

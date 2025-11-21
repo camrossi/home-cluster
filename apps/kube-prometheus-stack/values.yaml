@@ -21,6 +21,24 @@ grafana:
     dashboards:
       # Support for new table panels, when enabled grafana auto migrates the old table panels to newer table panels
       enableNewTablePanelSyntax: true
+alertmanager:
+  alertmanagerSpec:
+    volumes:
+      - name: secret-discord-webhook
+        secret:
+          secretName: discord-webhook
+          defaultMode: 420
+    volumeMounts:
+      - name:  secret-discord-webhook
+        mountPath: /etc/alertmanager/secrets/discord-webhook/
+        readOnly: true
+  config:
+    receivers:
+      - name: "null" # used by route for "InfoInhibitor|Watchdog"
+      - name: 'discord-alerts'
+        discord_configs:
+          - webhook_url_file: /etc/alertmanager/secrets/discord-webhook/webhook
+            send_resolved: true
 kubeProxy:
   enabled: false
 prometheus:
