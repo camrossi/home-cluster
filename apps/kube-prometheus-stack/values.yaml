@@ -25,10 +25,6 @@ alertmanager:
   alertmanagerSpec:
     secrets:
       - discord-webhook
-    volumeMounts:
-      - name:  secret-discord-webhook
-        mountPath: /etc/alertmanager/secrets/discord-webhook/
-        readOnly: true
   config:
     receivers:
       - name: "null" # used by route for "InfoInhibitor|Watchdog"
