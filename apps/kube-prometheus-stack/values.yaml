@@ -28,6 +28,7 @@ alertmanager:
     useExistingSecret: true
     secrets:
       - alertmanager-config
+    configSecret: alertmanager-config
 
    #secrets:
    #   - discord-webhook
