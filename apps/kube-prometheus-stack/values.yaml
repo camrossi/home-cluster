@@ -23,15 +23,21 @@ grafana:
       enableNewTablePanelSyntax: true
 alertmanager:
   alertmanagerSpec:
+    # Work around till discord config is supported correctly:
+    # https://github.com/prometheus-operator/prometheus-operator/issues/7159
+    useExistingSecret: true
     secrets:
-      - discord-webhook
-  config:
-    receivers:
-      - name: "null" # used by route for "InfoInhibitor|Watchdog"
-      - name: 'discord-alerts'
-        discord_configs:
-          - webhook_url: https://changeme
-            send_resolved: true
+      - alertmanager-config
+
+   #secrets:
+   #   - discord-webhook
+  #config:
+  #  receivers:
+  #    - name: "null" # used by route for "InfoInhibitor|Watchdog"
+  #    - name: 'discord-alerts'
+  #      discord_configs:
+  #        - webhook_url: https://changeme
+  #          send_resolved: true
 kubeProxy:
   enabled: false
 prometheus:
