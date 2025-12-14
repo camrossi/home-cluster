@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'gitea'
+spec:
+  sources:
+  - repoURL: 'https://dl.gitea.com/charts/'
+    chart: gitea
+    targetRevision: v12.4.0
+    helm:
+      valueFiles:
+      - $values/apps/gitea/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: gitea
+  project: default

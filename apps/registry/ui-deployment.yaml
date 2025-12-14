@@ -27,9 +27,9 @@ spec:
             - name: DELETE_IMAGES
               value: "true"
             - name: NGINX_PROXY_PASS_URL
-              value: "http://docker-registry.registry:5000"
+              value: "http://docker-registry:5000"
             - name: PULL_URL
-              value: "registry.camsab.me:443"
+              value: "registry.camsab.me"
             - name: SINGLE_REGISTRY
               value: "true"
           ports:
