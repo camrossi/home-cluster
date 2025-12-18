@@ -1,0 +1,4 @@
+ingress:
+  enabled: false
+persistence:
+  enabled: true
