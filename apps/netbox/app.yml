@@ -4,9 +4,9 @@ metadata:
   name: 'netbox'
 spec:
   sources:
-  - repoURL: 'https://dl.netbox.com/charts/'
+  - repoURL: 'https://charts.netbox.oss.netboxlabs.com'
     chart: netbox
-    targetRevision: v12.4.0
+    targetRevision: "7.2.22"
     helm:
       valueFiles:
       - $values/apps/netbox/values.yaml
