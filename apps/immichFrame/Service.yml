@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: immich-frame
+  namespace: immich-frame
+  labels:
+    type: l2
+spec:
+  selector:
+    app: immich-frame
+  ports:
+    - port: 8080
+      targetPort: 8080
+      name: immich-frame

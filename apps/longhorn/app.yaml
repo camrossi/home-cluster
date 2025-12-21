@@ -29,6 +29,8 @@ spec:
           metrics:
             serviceMonitor:
               enabled: true
+          persistence:
+            defaultClass: false
 
   destination:
     server: https://kubernetes.default.svc

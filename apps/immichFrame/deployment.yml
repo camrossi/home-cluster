@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: immich-frame
+  namespace: immich-frame
+  labels:
+    app: immich-frame
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: immich-frame
+  template:
+    metadata:
+      labels:
+        app: immich-frame
+        name: immich-frame
+    spec:
+      containers:
+      - name: immich-frame
+        image: ghcr.io/immichframe/immichframe:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: config
+          mountPath: "/app/Config"
+      volumes:
+      - name: config
+        secret:  
+          secretName: settings
