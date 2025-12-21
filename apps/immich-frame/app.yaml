@@ -8,7 +8,7 @@ spec:
     namespace: immich-frame
     server: 'https://kubernetes.default.svc'
   source:
-    path: apps/immich-frame
+    path: immich-frame
     repoURL: 'https://github.com/camrossi/home-cluster.git'
     targetRevision: HEAD
   sources: []
