@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: frame-settings
+  name: frame-settings  f
 type: Opaque
 data:
   ImmichServerUrl: aHR0cDovL2ltbWljaC1zZXJ2ZXI6MjI4Mw==
