@@ -22,10 +22,6 @@ spec:
       - name: immich-frame
         image: ghcr.io/immichframe/immichframe:latest
         imagePullPolicy: Always
-        volumeMounts:
-        - name: config
-          mountPath: "/app/Config"
-      volumes:
-      - name: config
-        secret:  
-          secretName: settings
+        envFrom:
+          - secretRef:
+              name: fame-settings
