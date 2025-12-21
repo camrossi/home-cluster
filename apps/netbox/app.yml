@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'netbox'
+spec:
+  sources:
+  - repoURL: 'https://charts.netbox.oss.netboxlabs.com'
+    chart: netbox
+    targetRevision: "7.2.22"
+    helm:
+      valueFiles:
+      - $values/apps/netbox/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  - repoURL: https://github.com/camrossi/home-cluster
+    path: apps/netbox/extras
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: netbox
+  project: default

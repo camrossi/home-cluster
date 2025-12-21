@@ -1,0 +1,29 @@
+ingress:
+  enabled: false
+persistence:
+  enabled: true
+affinity:
+  podAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchLabels:
+            app.kubernetes.io/name: netbox
+        topologyKey: kubernetes.io/hostname
+
+housekeeping:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: netbox
+          topologyKey: kubernetes.io/hostname
+
+worker:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: netbox
+          topologyKey: kubernetes.io/hostname

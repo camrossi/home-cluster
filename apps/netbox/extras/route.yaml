@@ -1,0 +1,15 @@
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: netbox
+spec:
+  parentRefs:
+  - name: http-gateway
+    namespace: kube-system
+  hostnames:
+  - "netbox.camsab.me"
+  rules:
+  - backendRefs:
+    - name: netbox
+      port: 80
