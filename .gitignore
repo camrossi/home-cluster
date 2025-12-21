@@ -6,5 +6,3 @@ apps/ddclient/example config/secret_example.yaml
 apps/kube-prometheus-stack/extras/discord-webok.yaml
 apps/kube-prometheus-stack/extras/alertmanager-config.yaml
 apps/immich-frame/settings.yaml
-apps/immich-frame/settings.yaml
-apps/immich-frame/settings.yaml
