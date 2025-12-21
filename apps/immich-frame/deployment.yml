@@ -24,4 +24,4 @@ spec:
         imagePullPolicy: Always
         envFrom:
           - secretRef:
-              name: fame-settings
+              name: frame-settings
