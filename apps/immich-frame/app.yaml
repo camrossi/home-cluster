@@ -5,17 +5,17 @@ metadata:
 spec:
   destination:
     name: ''
-    namespace: immich-frame
+    namespace: immich
     server: 'https://kubernetes.default.svc'
   source:
-    path: immich-frame
+    path: apps/immich-frame
     repoURL: 'https://github.com/camrossi/home-cluster.git'
     targetRevision: HEAD
   sources: []
   project: default
   syncPolicy:
     syncOptions:
-      - CreateNamespace=true
+      - CreateNamespacekcn immich=true
     automated:
       prune: true
       selfHeal: false

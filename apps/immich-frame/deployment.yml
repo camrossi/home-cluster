@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: immich-frame
-  namespace: immich-frame
   labels:
     app: immich-frame
 spec:
