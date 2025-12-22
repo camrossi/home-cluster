@@ -34,5 +34,6 @@ worker:
               app.kubernetes.io/name: netbox
           topologyKey: kubernetes.io/hostname
 postgresql:
-  service:
-    type: NodePort
+  primary:
+    service:
+      type: NodePort
