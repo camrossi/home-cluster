@@ -38,6 +38,5 @@ postgresql:
     service:
       type: NodePort
   enabled: true
-  postgresqlUsername: netbox
-  postgresqlDatabase: netbox
-  existingSecret: database-passwords
+  auth:
+    existingSecret: database-passwords
