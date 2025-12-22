@@ -38,5 +38,6 @@ postgresql:
     service:
       type: NodePort
   enabled: true
-  auth:
-    existingSecret: database-passwords
+  postgresql:
+    auth:
+      existingSecret: database-passwords
