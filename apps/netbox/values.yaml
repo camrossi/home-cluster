@@ -42,4 +42,5 @@ postgresql:
   enabled: true
 
 valkey:
-  replicaCount: 1
+  replica:
+    replicaCount: 1
