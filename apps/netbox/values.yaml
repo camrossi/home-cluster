@@ -34,10 +34,10 @@ worker:
               app.kubernetes.io/name: netbox
           topologyKey: kubernetes.io/hostname
 postgresql:
+  auth:
+    existingSecret: database-passwords
   primary:
     service:
       type: NodePort
   enabled: true
-  postgresql:
-    auth:
-      existingSecret: database-passwords
+
