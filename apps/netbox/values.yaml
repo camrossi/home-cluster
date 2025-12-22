@@ -1,3 +1,9 @@
+image:
+  registry: registry.camsab.me
+  repository: netbox/netbox
+  pullPolicy: Always
+  tag: "latest"
+
 ingress:
   enabled: false
 persistence:
@@ -27,3 +33,6 @@ worker:
             matchLabels:
               app.kubernetes.io/name: netbox
           topologyKey: kubernetes.io/hostname
+postgresql:
+  service:
+    type: NodePort
