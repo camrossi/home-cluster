@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: immich-frame
+spec:
+  destination:
+    name: ''
+    namespace: immich
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: apps/immich-frame
+    repoURL: 'https://github.com/camrossi/home-cluster.git'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespacekcn immich=true
+    automated:
+      prune: true
+      selfHeal: false
