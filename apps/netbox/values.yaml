@@ -41,3 +41,5 @@ postgresql:
       type: NodePort
   enabled: true
 
+valkey:
+  replicaCount: 1
