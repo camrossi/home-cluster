@@ -21,5 +21,7 @@ data:
     homeassistant:
         enabled: true
             ## Map devices to persistent /data directory
+    availability:
+        enabled: true
     devices: /data/devices.yaml
     groups: /data/groups.yaml
