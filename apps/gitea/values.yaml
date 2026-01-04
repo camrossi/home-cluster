@@ -33,3 +33,6 @@ service:
       lbipam.cilium.io/sharing-key: "shared-gitea"
     labels: 
       type: l2
+serviceAccount:
+  create: true
+  automountServiceAccountToken: true
