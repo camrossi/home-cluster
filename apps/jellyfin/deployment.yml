@@ -20,10 +20,10 @@ spec:
         name: jellyfin
     spec:
       nodeSelector:
-        kubernetes.io/hostname: "rpi4-1"
+        kubernetes.io/hostname: "rk1-4"
       containers:
       - name: jellyfin
-        image: jellyfin/jellyfin:10.10.7
+        image: jellyfin/jellyfin:10.11.5
         imagePullPolicy: Always
         securityContext:
           privileged: true
@@ -36,8 +36,8 @@ spec:
           mountPath: "/config"
         - name: cache
           mountPath: "/cache"
-      #  - name: dev
-      #    mountPath: /dev
+        - name: dev
+          mountPath: /dev
       volumes:
       - name: media
         persistentVolumeClaim:
