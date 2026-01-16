@@ -48,6 +48,6 @@ spec:
       - name: cache
         persistentVolumeClaim:
           claimName: cache-v2
-      #- name: dev
-      #  hostPath:
-      #    path: /dev
+      - name: dev
+        hostPath:
+          path: /dev
