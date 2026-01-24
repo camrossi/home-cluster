@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: navidrome
+  name: navidrome
+spec:
+  ports:
+    - name: "http"
+      port: 4533
+      targetPort: 80
+  selector:
+    io.kompose.service: navidrome

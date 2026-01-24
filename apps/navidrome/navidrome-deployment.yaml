@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: navidrome
+  name: navidrome
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: navidrome
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: navidrome
+    spec:
+      containers:
+        - image: deluan/navidrome:latest
+          name: navidrome
+          ports:
+            - containerPort: 4533
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /data
+              name: data
+      restartPolicy: Always
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: data

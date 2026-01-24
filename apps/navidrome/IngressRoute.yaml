@@ -1,0 +1,47 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: navidrome
+  namespace: navidrome
+spec:
+  entryPoints:
+    - web
+  routes:
+      - kind: Rule
+        match: "Host(`navidrome.camsab.me`)"
+        services:
+          - name: navidrome
+            port: 80
+            namespace: navidrome
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: slskd
+  namespace: navidrome
+spec:
+  entryPoints:
+    - web
+  routes:
+      - kind: Rule
+        match: "Host(`slskd.camsab.me`)"
+        services:
+          - name: slskd
+            port: 80
+            namespace: navidrome
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: lidarr
+  namespace: navidrome
+spec:
+  entryPoints:
+    - web
+  routes:
+      - kind: Rule
+        match: "Host(`lidarr.camsab.me`)"
+        services:
+          - name: lidarr
+            port: 80
+            namespace: navidrome

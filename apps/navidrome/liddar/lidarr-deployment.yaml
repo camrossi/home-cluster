@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: lidarr
+  name: lidarr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: lidarr
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: lidarr
+    spec:
+      containers:
+        - env:
+            - name: TZ
+              value: "Australia/Sydney"
+            - name: WEBUI_PORTS
+              value: 8686/tcp
+          image: ghcr.io/hotio/lidarr:nightly
+          name: lidarr
+          ports:
+            - containerPort: 8686
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /config
+              name: lidarr-config
+            - mountPath: /data
+              name: data
+      restartPolicy: Always
+      volumes:
+        - name: lidarr-config
+          persistentVolumeClaim:
+            claimName: lidarr-config
+        - name: data
+          persistentVolumeClaim:
+            claimName: data
