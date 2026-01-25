@@ -2,7 +2,7 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: homeassistant
+  name: music-assistant
   labels:
     io.kompose.service: music-assistant-server
 spec:
