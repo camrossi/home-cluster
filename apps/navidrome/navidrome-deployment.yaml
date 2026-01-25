@@ -19,14 +19,28 @@ spec:
       containers:
         - image: deluan/navidrome:latest
           name: navidrome
+          env:
+            - name: ND_MUSICFOLDER
+              value: "/music"
+            - name: ND_EXTAUTH_TRUSTEDSOURCES
+              value: "10.244.0.0/16"
+            - name: ND_EXTAUTH_USERHEADER
+              value: "X-authentik-username"  
           ports:
             - containerPort: 4533
               protocol: TCP
           volumeMounts:
             - mountPath: /data
-              name: data
+              name: navidrome-data
+            - mountPath: /music
+              name: music
+              subPath: music
       restartPolicy: Always
       volumes:
-        - name: data
+        - name: navidrome-data
+          persistentVolumeClaim:
+            claimName: navidrome-data
+        - name: music
           persistentVolumeClaim:
             claimName: data
+

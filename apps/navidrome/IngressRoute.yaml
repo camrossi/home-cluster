@@ -5,14 +5,41 @@ metadata:
   namespace: navidrome
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
       - kind: Rule
-        match: "Host(`navidrome.camsab.me`)"
+        match: "Host(`navidrome.camsab.me`) && PathPrefix(`/outpost.goauthentik.io/`)"
+        priority: 200
+        services:
+          - name: ak-outpost-authentik-embedded-outpost
+            namespace: authentik
+            port: 9000
+      - kind: Rule
+        match: "Host(`navidrome.camsab.me`) && !(PathPrefix(`/share/`) || PathPrefix(`/rest/`))"
+        priority: 100
+        middlewares:
+          - name: ak-outpost-authentik-embedded-outpost
+            namespace: authentik
         services:
           - name: navidrome
             port: 80
             namespace: navidrome
+      - kind: Rule
+        match: "Host(`navidrome.camsab.me`) && PathPrefix(`/share/`)"
+        priority: 150
+        services:
+          - name: navidrome
+            port: 80
+            namespace: navidrome
+      - kind: Rule
+        match: "Host(`navidrome.camsab.me`) && PathPrefix(`/rest/`)"
+        priority: 100
+        services:
+          - name: navidrome
+            port: 80
+            namespace: navidrome
+  tls:
+    secretName: navidrome
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute

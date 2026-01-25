@@ -15,5 +15,6 @@ spec:
     - name: "50300"
       port: 50300
       targetPort: 50300
+  type: NodePort
   selector:
     io.kompose.service: slskd

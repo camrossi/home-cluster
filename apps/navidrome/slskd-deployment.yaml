@@ -16,10 +16,16 @@ spec:
       labels:
         io.kompose.service: slskd
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: "rk1-4"
       containers:
         - env:
             - name: SLSKD_REMOTE_CONFIGURATION
-              value: "true"           
+              value: "true"
+            - name: "SLSKD_SHARED_DIR"
+              value: "/data/music"
+            - name: SLSKD_UMASK
+              value: "002"  
           image: slskd/slskd:latest
           name: slskd
           ports:
