@@ -68,3 +68,11 @@ ports:
     transport:
       respondingTimeouts:
         readTimeout: 10m
+
+gateway:
+  listeners:
+    websecure:
+      certificateRefs:    
+        - kind: Secret
+          name: camsab-me-tls  # the Secret we created before the installation
+          group: ""
