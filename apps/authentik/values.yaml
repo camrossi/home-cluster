@@ -27,6 +27,11 @@ server:
     # Specify kubernetes ingress controller class name
     ingressClassName: traefik
     enabled: true
+    https: true
+    tls:
+      - secretName: authentik-outpost-tls
+        hosts:
+          - authentik.camsab.me
     hosts:
       - authentik.camsab.me
     paths:
