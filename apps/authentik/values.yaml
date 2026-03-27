@@ -27,7 +27,7 @@ server:
     # Specify kubernetes ingress controller class name
     ingressClassName: traefik
     enabled: true
-    https: true
+    https: false
     tls:
       - secretName: authentik-outpost-tls
         hosts:
