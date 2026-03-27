@@ -32,8 +32,6 @@ server:
       - secretName: authentik-outpost-tls
         hosts:
           - authentik.camsab.me
-    hosts:
-      - authentik.camsab.me
     paths:
       - "/"
     pathType: Prefix
