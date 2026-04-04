@@ -5,6 +5,8 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+strategy:
+  type: Recreate
 volume:
   enabled: true
   accessMode: ReadWriteOnce
