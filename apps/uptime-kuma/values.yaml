@@ -5,3 +5,8 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+volume:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 4Gi
+  storageClassName: "longhorn"
