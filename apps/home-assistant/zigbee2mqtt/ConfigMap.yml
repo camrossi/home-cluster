@@ -7,7 +7,7 @@ metadata:
     app: zigbee2mqtt
 data:
   configuration.yaml: |-
-    version: 4
+    version: 5
     mqtt:
         base_topic: zigbee2mqtt
         server: mqtt://mosquitto-service
