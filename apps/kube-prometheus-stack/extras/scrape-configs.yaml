@@ -8,3 +8,14 @@ spec:
         job: node-exporter
       targets:
         - rpi3.camsab.me:9100
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: rpi4-tv
+spec:
+  staticConfigs:
+    - labels:
+        job: node-exporter
+      targets:
+        - rpi4-tv.camsab.me:9100
