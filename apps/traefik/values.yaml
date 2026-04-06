@@ -57,9 +57,8 @@ metrics:
             summary: "Traefik Down"
             description: "{{ $labels.pod }} on {{ $labels.nodename }} is down"
 ingressRoute:
-  enabled: true
   dashboard:
-    entryPoints: ["web"]
+    enabled: true
 ports:
   web:
     transport:
