@@ -1,0 +1,85 @@
+certManager:
+  clusterIssuer: letsencrypt-staging
+
+serverName: ftwr.camsab.me
+
+networking:
+  ## Whether components should attempt to bind IPv4 (ipv4) /IPv6 (ipv6) / both (dual-stack)
+  ipFamily: ipv4
+
+
+matrixRTC:
+  enabled: true
+  ingress:
+    host: mrtc-ftwr.camsab.me
+
+    ## Disable TLS configuration by setting it to false
+    tlsEnabled: true
+    tlsSecret: mrtc
+
+elementAdmin:
+  enabled: true
+  ## How this ingress should be constructed
+  ingress:
+    host: admin-ftwr.camsab.me
+    tlsEnabled: true
+    tlsSecret: admin
+
+elementWeb:
+  enabled: true
+  ingress:
+    host: chat-ftwr.camsab.me
+
+    ## Disable TLS configuration by setting it to false
+    tlsEnabled: true
+    tlsSecret: chat
+
+
+
+hookshot:
+  enabled: false
+
+matrixAuthenticationService:
+  enabled: true
+  ingress:
+    host: account-ftwr.camsab.me
+
+    tlsEnabled: true
+    tlsSecret: account
+  additional:
+    auth.yaml:
+      config: |
+        passwords:
+          enabled: false
+        upstream_oauth2:
+          providers:
+            - id: 01HFVBY12TMNTYTBV8W921M5FB
+              human_name: Authentik
+              discover: true
+              issuer: "https://authentik.camsab.me/application/o/ftwr/"
+              token_endpoint_auth_method: client_secret_basic
+              client_id: "mHm6PsePevAR0XgwRLCJcshKCfdbqdbu9NT2Cbjp"
+              client_secret: "P00NsBEzQIk5CfSBulfi68UpPbv0SEu1St2fOWRHWMwlHTwKMwMwkwM22GVPYWLlpqmDlyGtIpu01EbpEPSQY9PewWKfbbogexvpAbtwtV9QEdrDVaYth94mVHZWVOYR"
+              scopes: 
+                - "openid"
+                - "profile"
+                - "email"
+              user_mapping_provider:
+                config:
+                  localpart_template: "{{ user.preferred_username }}"
+                  display_name_template: "{{ user.name|capitalize }}"
+        policy:
+          data:
+            admin_users:
+              - akadmin
+postgres:
+  enabled: true
+
+synapse:
+  enabled: true
+  ingress:
+    host: matrix-ftwr.camsab.me
+
+    ## Disable TLS configuration by setting it to false
+    tlsEnabled: true
+    tlsSecret: matrix

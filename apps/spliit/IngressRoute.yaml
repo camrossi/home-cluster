@@ -10,7 +10,7 @@ spec:
       - kind: Rule
         match: "Host(`spliit.camsab.me`) && PathPrefix(`/groups/create`)"
         middlewares:
-          - name: ak-outpost-proxy
+          - name: ak-outpost-authentik-embedded-outpost
             namespace: authentik
         priority: 11
         services: 
@@ -27,7 +27,7 @@ spec:
         match: "Host(`spliit.camsab.me`) && PathPrefix(`/outpost.goauthentik.io/`)"
         priority: 15
         services:
-          - name: ak-outpost-proxy
+          - name: ak-outpost-authentik-embedded-outpost
             namespace: authentik
             port: 9000
   tls:

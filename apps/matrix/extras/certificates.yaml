@@ -1,0 +1,78 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: account-ftwr
+spec:
+  commonName: account-ftwr.camsab.me
+  secretName: account
+  dnsNames:
+    - account-ftwr.camsab.me
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-staging
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ftwr
+spec:
+  commonName: ftwr.camsab.me
+  secretName: account
+  dnsNames:
+    - ftwr.camsab.me
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-staging
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: admin-ftwr
+spec:
+  commonName: admin-ftwr.camsab.me
+  secretName: admin
+  dnsNames:
+    - admin-ftwr.camsab.me
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-staging
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: chat-ftwr
+spec:
+  commonName: chat-ftwr.camsab.me
+  secretName: chat
+  dnsNames:
+    - chat-ftwr.camsab.me
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-staging
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: mrtc-ftwr
+spec:
+  commonName: mrtc-ftwr.camsab.me
+  secretName: mrtc
+  dnsNames:
+    - mrtc-ftwr.camsab.me
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-staging
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: matrix-ftwr
+spec:
+  commonName: matrix-ftwr.camsab.me
+  secretName: matrix
+  dnsNames:
+    - matrix-ftwr.camsab.me
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-staging
