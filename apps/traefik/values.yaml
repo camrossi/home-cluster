@@ -62,7 +62,7 @@ ingressRoute:
     entryPoints: ["web"]
     services:
       - name: traefik
-        kind: TraefikService
+        port: 80
 ports:
   web:
     transport:
