@@ -26,6 +26,8 @@ server:
   ingress:
     # Specify kubernetes ingress controller class name
     ingressClassName: traefik
+    hosts:
+      - authentik.camsab.me
     enabled: true
     https: false
     tls:
