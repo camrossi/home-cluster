@@ -60,6 +60,9 @@ ingressRoute:
   dashboard:
     enabled: true
     entryPoints: ["web"]
+    services:
+      - name: traefik
+        kind: TraefikService
 ports:
   web:
     transport:
