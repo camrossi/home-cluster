@@ -23,6 +23,7 @@ persistentVolume:
   existingClaims: []
   size: 10Gi
   storageClass: longhorn-2-replicas
+createAdminSecret: false
 
 autoSetup:
   enabled: true
