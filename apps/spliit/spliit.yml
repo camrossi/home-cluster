@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: spliit
-        image: registry.camsab.me/spliit:1.15.1
+        image: registry.camsab.me/spliit:1.19.1
         imagePullPolicy: Always
         env:
         - name: POSTGRES_PRISMA_URL
