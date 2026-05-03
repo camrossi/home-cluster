@@ -3,13 +3,11 @@ kind: Cluster
 metadata:
   name: immich-postgres
 spec:
-  # At the time of writing, immich is only compatible with pgvecto.rs <0.4. Latest postgres image with that version is 16.5.
-  imageName: ghcr.io/duvholt/cloudnative-vectorchord-pgvecto.rs:16-0.3.0-v0.3.0@sha256:0456bb83c28ce3f3815b7ae5e2dfc5e21c3483b13ed30af4d6c46e56808e0b06
+  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:16.9-0.4.3
   instances: 1
   enablePDB: false
   postgresql:
     shared_preload_libraries:
-      - "vectors.so"
       - "vchord.so"
 
   managed:
@@ -31,22 +29,9 @@ spec:
         source:
           externalCluster: cluster-pg96
       postInitSQL:
-        - CREATE EXTENSION IF NOT EXISTS "vectors";
-        - CREATE EXTENSION IF NOT EXISTS "cube" CASCADE;
-        - CREATE EXTENSION IF NOT EXISTS "earthdistance" CASCADE;
-        - CREATE EXTENSION IF NOT EXISTS vchord CASCADE;
+        - CREATE EXTENSION vchord CASCADE;
+        - CREATE EXTENSION earthdistance CASCADE;
 
   storage:
     size: 8Gi
     storageClass: longhorn-2-replicas
-
-  externalClusters:
-    - name: cluster-pg96
-      connectionParameters:
-        # Use the correct IP or host name for the source database
-        host: immich-postgresql.immich.svc.cluster.local
-        user: immich
-        dbname: immich
-      password:
-        name: immich-postgres-user
-        key: password
