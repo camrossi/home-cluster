@@ -59,7 +59,7 @@ matrixAuthenticationService:
               issuer: "https://authentik.camsab.me/application/o/ftwr/"
               token_endpoint_auth_method: client_secret_basic
               client_id: "mHm6PsePevAR0XgwRLCJcshKCfdbqdbu9NT2Cbjp"
-              client_secret: ""
+              client_secret: "wU1Ouck9a2FPb7V0ctHiguS7HdQFPNHm2p8Db556x31QgIJYFnhGr3iKcTZjPmh4BARyEAjH6UCT5ytIxMFvjA3eosE4s82HWhthqUwO4zK2FSN3kziB3N7PHlN4avhr"
               scopes: 
                 - "openid"
                 - "profile"

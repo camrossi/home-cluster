@@ -19,3 +19,17 @@ spec:
         job: node-exporter
       targets:
         - rpi4-tv.camsab.me:9100
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: rclone
+spec:
+  staticConfigs:
+    - labels:
+        job: rclone
+      targets:
+        - rpi4-tv.camsab.me:5572
+      basic_auth:
+        username: rclone
+        password: rclone
