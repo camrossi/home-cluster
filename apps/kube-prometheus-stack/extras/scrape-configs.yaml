@@ -30,6 +30,6 @@ spec:
         job: rclone
       targets:
         - rpi4-tv.camsab.me:5572
-      basic_auth:
+      basicAuth:
         username: rclone
         password: rclone
