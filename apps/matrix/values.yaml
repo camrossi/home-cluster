@@ -34,8 +34,6 @@ elementWeb:
     tlsEnabled: true
     tlsSecret: chat
 
-
-
 hookshot:
   enabled: false
 
@@ -47,31 +45,10 @@ matrixAuthenticationService:
     tlsEnabled: true
     tlsSecret: account
   additional:
-    auth.yaml:
-      config: |
-        passwords:
-          enabled: false
-        upstream_oauth2:
-          providers:
-            - id: 01HFVBY12TMNTYTBV8W921M5FB
-              human_name: Authentik
-              discover: true
-              issuer: "https://authentik.camsab.me/application/o/ftwr/"
-              token_endpoint_auth_method: client_secret_basic
-              client_id: "mHm6PsePevAR0XgwRLCJcshKCfdbqdbu9NT2Cbjp"
-              client_secret: "wU1Ouck9a2FPb7V0ctHiguS7HdQFPNHm2p8Db556x31QgIJYFnhGr3iKcTZjPmh4BARyEAjH6UCT5ytIxMFvjA3eosE4s82HWhthqUwO4zK2FSN3kziB3N7PHlN4avhr"
-              scopes: 
-                - "openid"
-                - "profile"
-                - "email"
-              user_mapping_provider:
-                config:
-                  localpart_template: "{{ user.preferred_username }}"
-                  display_name_template: "{{ user.name|capitalize }}"
-        policy:
-          data:
-            admin_users:
-              - akadmin
+    auth:
+      configSecret: additional-configs
+      configSecretKey: auth
+
 postgres:
   enabled: true
 
