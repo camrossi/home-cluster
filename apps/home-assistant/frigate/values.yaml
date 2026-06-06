@@ -1,0 +1,4 @@
+config: |
+  mqtt:
+    host: "zigbee2mqtt"
+    port: 8080
