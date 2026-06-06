@@ -9,7 +9,7 @@ spec:
     targetRevision: 7.8.*
     helm:
       valueFiles:
-      - $values/apps/frigate/values.yaml
+      - $values/apps/home-assistant/frigate/values.yaml
   - repoURL: 'https://github.com/camrossi/home-cluster'
     targetRevision: main
     ref: values
