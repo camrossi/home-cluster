@@ -10,3 +10,10 @@ config: |
           - path: rtsp://viewer@10.0.10.10:554/cam/realmonitor?channel=1&subtype=2
             roles:
               - detect
+persistence:
+  config:
+    enabled: true
+    size: 100Mi
+  media:
+    enabled: true
+    size: 10Gi
