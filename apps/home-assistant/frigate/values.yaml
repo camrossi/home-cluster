@@ -2,7 +2,7 @@ config: |
   record:
     enabled: True
     motion:
-      days: 3
+      days: 7
     alerts:
       retain:
         days: 30
