@@ -4,10 +4,10 @@ config: |
     port: 8080
   cameras:
     # Define at least one camera
-    back:
+    office:
       ffmpeg:
         inputs:
-          - path: rtsp://viewer@10.0.10.10:554/cam/realmonitor?channel=1&subtype=2
+          - path: rtsp://192.168.0.194:554/mjpeg/1
             roles:
               - detect
 persistence:
