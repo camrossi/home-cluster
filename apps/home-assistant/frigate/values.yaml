@@ -34,3 +34,6 @@ persistence:
   media:
     enabled: true
     size: 10Gi
+image:
+  repository: blakeblackshear/frigate
+  tag: 0.17.1
