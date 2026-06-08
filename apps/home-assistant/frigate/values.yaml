@@ -1,15 +1,32 @@
 config: |
+  record:
+    enabled: True
+    motion:
+      days: 3
+    alerts:
+      retain:
+        days: 30
+        mode: motion
+    detections:
+      retain:
+        days: 30
+        mode: motion
   mqtt:
     host: "zigbee2mqtt"
     port: 8080
+  go2rtc:
+  streams:
+    office:
+      - rtsp://192.168.0.194:554/mjpeg/1
   cameras:
     # Define at least one camera
     office:
       ffmpeg:
         inputs:
-          - path: rtsp://192.168.0.194:554/mjpeg/1
+          - path:  rtsp://127.0.0.1:8554/office
             roles:
               - detect
+              - record
 persistence:
   config:
     enabled: true
