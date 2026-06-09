@@ -1,4 +1,7 @@
 config: |
+  detectors:
+    npu:
+      type: teflon_tfl
   record:
     enabled: True
     motion:
@@ -37,3 +40,11 @@ persistence:
 image:
   repository: ghcr.io/blakeblackshear/frigate
   tag: 0.17.1
+
+extraVolumes:
+  - name: accel
+    hostPath:
+      path: /dev/accel
+extraVolumeMounts:
+  - name: accel
+    mountPath: /dev/accel
