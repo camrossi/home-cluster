@@ -2,7 +2,7 @@ config: |
   detectors:
     npu:
       type: teflon_tfl
-      device: /dev/accel/accel0
+      device: 0
   record:
     enabled: True
     motion:
@@ -50,6 +50,11 @@ extraVolumes:
   - name: accel
     hostPath:
       path: /dev/accel
+  - name: dri
+    hostPath:
+      path: /dev/dri
 extraVolumeMounts:
   - name: accel
     mountPath: /dev/accel
+  - name: dri
+    mountPath: /dev/dri
