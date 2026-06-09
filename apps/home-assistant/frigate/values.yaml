@@ -53,7 +53,7 @@ extraVolumes:
   - name: dri
     hostPath:
       path: /dev/dri
-  - name: overrides
+  - name: overrides-teflon
     persistentVolumeClaim:
       claimName: overrides
 extraVolumeMounts:
@@ -61,7 +61,8 @@ extraVolumeMounts:
     mountPath: /dev/accel
   - name: dri
     mountPath: /dev/dri
-
+  - name: overrides
+    mountPath: /usr/lib/teflon/libteflon.so
 extraInitContainers:
   - name: overrides
     image: busybox
