@@ -53,7 +53,7 @@ extraVolumes:
   - name: dri
     hostPath:
       path: /dev/dri
-  - name: overrides-teflon
+  - name: overrides
     persistentVolumeClaim:
       claimName: overrides
 extraVolumeMounts:
