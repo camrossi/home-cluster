@@ -42,9 +42,10 @@ image:
   repository: ghcr.io/blakeblackshear/frigate
   tag: 0.17.1
 
-podsSecurityContext:
+podSecurityContext:
   privileged: true
-
+  runAsGroup: 0
+  runAsUser: 0
 extraVolumes:
   - name: accel
     hostPath:
