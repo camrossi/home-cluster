@@ -2,7 +2,7 @@ config: |
   detectors:
     npu:
       type: teflon_tfl
-      device: 0
+      device: /dev/accel/accel0
   record:
     enabled: True
     motion:
