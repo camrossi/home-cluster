@@ -41,6 +41,9 @@ image:
   repository: ghcr.io/blakeblackshear/frigate
   tag: 0.17.1
 
+securityContext:
+  privileged: true
+
 extraVolumes:
   - name: accel
     hostPath:
