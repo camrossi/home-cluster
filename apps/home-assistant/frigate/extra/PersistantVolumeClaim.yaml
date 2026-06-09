@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: overrides
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: longhorn-1-replicas
+  resources:
+    requests:
+      storage: 100Mi

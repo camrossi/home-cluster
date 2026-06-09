@@ -53,6 +53,9 @@ extraVolumes:
   - name: dri
     hostPath:
       path: /dev/dri
+  - name: overrides
+    persistentVolumeClaim:
+      claimName: overrides
 extraVolumeMounts:
   - name: accel
     mountPath: /dev/accel
@@ -63,3 +66,6 @@ extraInitContainers:
   - name: overrides
     image: busybox
     command: ['sh', '-c', 'wget -O /usr/lib/teflon/libteflon.so https://github.com/jimmyhon/frigate-builds/releases/download/mesa-26.1.1/libteflon.so']
+    volumeMounts:
+      - name: overrides
+        mountPath: /usr/lib/teflon
