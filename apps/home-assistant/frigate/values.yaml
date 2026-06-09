@@ -67,7 +67,7 @@ extraVolumeMounts:
 extraInitContainers:
   - name: overrides
     image: busybox
-    command: ['sh', '-c', 'wget -O /usr/lib/teflon/libteflon.so https://github.com/jimmyhon/frigate-builds/releases/download/mesa-26.1.1/libteflon.so']
+    command: ['sh', '-c', 'wget -O /usr/lib/teflon/libteflon.so https://github.com/camrossi/home-cluster/raw/refs/heads/main/apps/home-assistant/frigate/extra/libteflon.so']
     volumeMounts:
       - name: overrides
         mountPath: /usr/lib/teflon
