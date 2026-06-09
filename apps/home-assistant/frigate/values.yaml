@@ -63,6 +63,7 @@ extraVolumeMounts:
     mountPath: /dev/dri
   - name: overrides
     mountPath: /usr/lib/teflon/libteflon.so
+    subPath: libteflon.so
 extraInitContainers:
   - name: overrides
     image: busybox
