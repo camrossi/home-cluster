@@ -15,6 +15,10 @@ config: |
       retain:
         days: 30
         mode: motion
+  objects:
+    track:
+      - person
+      - cat
   mqtt:
     host: "zigbee2mqtt"
     port: 8080
