@@ -3,6 +3,8 @@ config: |
     npu:
       type: teflon_tfl
       device: 0
+  detect:
+    enabled: True
   record:
     enabled: True
     motion:
@@ -20,8 +22,8 @@ config: |
       - person
       - cat
   mqtt:
-    host: "zigbee2mqtt"
-    port: 8080
+    host: "mosquitto-service"
+    port: 1883
   go2rtc:
     streams:
       office:
