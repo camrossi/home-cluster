@@ -8,14 +8,14 @@ config: |
   record:
     enabled: True
     motion:
-      days: 7
+      days: 3
     alerts:
       retain:
-        days: 30
+        days: 7
         mode: motion
     detections:
       retain:
-        days: 30
+        days: 7
         mode: motion
   objects:
     track:
@@ -43,7 +43,7 @@ persistence:
     size: 100Mi
   media:
     enabled: true
-    size: 10Gi
+    size: 20Gi
 image:
   repository: ghcr.io/blakeblackshear/frigate
   tag: 0.17.1-standard-arm64
