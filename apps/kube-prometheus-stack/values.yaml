@@ -50,7 +50,7 @@ prometheus:
   prometheusSpec:
     serviceMonitorSelectorNilUsesHelmValues: false
     scrapeConfigSelectorNilUsesHelmValues: false
-    retentionSize: 10GB
+    retentionSize: 10GiB
     storageSpec:
       volumeClaimTemplate:
         spec:
