@@ -7,16 +7,18 @@ config: |
     enabled: True
   record:
     enabled: True
-    motion:
-      days: 3
+    continuous:
+      days: 0
+    #motion:
+    #  days: 3
     alerts:
       retain:
         days: 7
         mode: motion
-    detections:
-      retain:
-        days: 7
-        mode: motion
+    #detections:
+    #  retain:
+    #    days: 7
+    #    mode: motion
   objects:
     track:
       - person
