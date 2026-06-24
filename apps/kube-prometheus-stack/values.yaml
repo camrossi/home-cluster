@@ -57,7 +57,7 @@ prometheus:
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              storage: 20Gi
+              storage: 25Gi
 kubeApiServer:
   tlsConfig:
     insecureSkipVerify: true
