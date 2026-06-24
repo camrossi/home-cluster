@@ -50,14 +50,14 @@ prometheus:
   prometheusSpec:
     serviceMonitorSelectorNilUsesHelmValues: false
     scrapeConfigSelectorNilUsesHelmValues: false
-    retentionSize: 10GiB
+    retention: 5d
     storageSpec:
       volumeClaimTemplate:
         spec:
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              storage: 11Gi
+              storage: 25Gi
 kubeApiServer:
   tlsConfig:
     insecureSkipVerify: true
