@@ -3,7 +3,7 @@ kind: Cluster
 metadata:
   name: immich-postgres
 spec:
-  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:18-1.1.1 
+  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:16.9-1.1.1
   instances: 1
   enablePDB: false
   postgresql:
@@ -33,5 +33,5 @@ spec:
         - CREATE EXTENSION earthdistance CASCADE;
 
   storage:
-    size: 10Gi
+    size: 8Gi
     storageClass: longhorn-2-replicas
