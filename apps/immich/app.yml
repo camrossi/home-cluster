@@ -1,22 +1,24 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: 'immich'
-spec:
-  sources:
-  - repoURL: 'https://immich-app.github.io/immich-charts'
-    chart: immich
-    targetRevision: 0.11.*
+project: default
+source:
+  repoURL: ghcr.io/immich-app/immich-charts
+  targetRevision: 0.13.*
+  helm:
+    valueFiles:
+      - $values/apps/immich/values.yaml
+  chart: immich
+destination:
+  server: https://kubernetes.default.svc
+  namespace: immich
+sources:
+  - repoURL: ghcr.io/immich-app/immich-charts
+    targetRevision: 0.13.*
     helm:
       valueFiles:
-      - $values/apps/immich/values.yaml
-  - repoURL: 'https://github.com/camrossi/home-cluster'
+        - $values/apps/immich/values.yaml
+    chart: immich
+  - repoURL: https://github.com/camrossi/home-cluster
     targetRevision: main
     ref: values
   - repoURL: https://github.com/camrossi/home-cluster
     path: apps/immich/extra
     targetRevision: main
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: immich
-  project: default
