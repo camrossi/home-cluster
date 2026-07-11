@@ -3,13 +3,12 @@ kind: Cluster
 metadata:
   name: immich-postgres
 spec:
-  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:18-1.1.1
+  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:16-1.1.1
   instances: 1
   enablePDB: false
   postgresql:
     shared_preload_libraries:
       - "vchord.so"
-
   managed:
     roles:
       - name: immich
