@@ -11,7 +11,7 @@ controllers:
         image:
           tag: v3.0.1
         env:
-          DB_HOSTNAME: 'immich-postgres-rw'
+          DB_HOSTNAME: 'immich-database-rw'
         
         envFrom:
           - secretRef:
