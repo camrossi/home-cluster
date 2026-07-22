@@ -29,7 +29,7 @@ config: |
   go2rtc:
     streams:
       office:
-        - rtsp://192.168.0.194:554/mjpeg/1
+        - rtsp://192.168.0.39:554/mjpeg/1
   cameras:
     # Define at least one camera
     office:
