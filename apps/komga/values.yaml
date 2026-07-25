@@ -16,7 +16,7 @@ persistence:
 gateway:
   enabled: true
   parentRefs:
-    - name: http-gateway
+    - name: https-gateway
       namespace: kube-system
   hostnames:
     - manga.camsab.me
