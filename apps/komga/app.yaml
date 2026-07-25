@@ -1,0 +1,11 @@
+project: default
+source:
+  repoURL: ghcr.io/helmforgedev/helm/komga
+  targetRevision: 1.4.13
+  helm:
+    valueFiles:
+      - $values/apps/komga/values.yaml
+  chart: immich
+destination:
+  server: https://kubernetes.default.svc
+  namespace: komga

@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: Apache-2.0
+# Production Komga with ingress, memory tuning, and backup
+komga:
+  timezone: "UTC"
+  javaToolOptions: "-Xmx2g"
+  sessionTimeout: "7d"
+
+persistence:
+  config:
+    enabled: true
+    size: 5Gi
+  data:
+    enabled: true
+    size: 100Gi
+
+gateway:
+  enabled: true
+  parentRefs:
+    - name: http-gateway
+      namespace: kube-system
+  hostnames:
+    - manga.camsab.me
+  path: /
+  pathType: PathPrefix
