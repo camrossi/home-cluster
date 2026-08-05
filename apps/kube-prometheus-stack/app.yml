@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'kube-prometheus-stack'
+spec:
+syncPolicy:
+  automated:
+    prune: true
+  syncOptions:
+    - ServerSideApply=true
+  sources:
+  - repoURL: 'https://prometheus-community.github.io/helm-charts'
+    chart: kube-prometheus-stack
+    targetRevision: 82.*
+    helm:
+      valueFiles:
+      - $values/apps/kube-prometheus-stack/values.yaml
+  - repoURL: 'https://github.com/camrossi/home-cluster'
+    targetRevision: main
+    ref: values
+  - repoURL: https://github.com/camrossi/home-cluster
+    path: apps/kube-prometheus-stack/extras
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: kube-prometheus-stack
+  project: default

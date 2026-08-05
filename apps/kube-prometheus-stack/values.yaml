@@ -1,0 +1,72 @@
+defaultRules:
+  rules:
+    kubeProxy: false
+    windows: false
+    kubeControllerManager: false
+    kubeSchedulerAlerting: false
+    kubeSchedulerRecording: false
+grafana:
+  deploymentStrategy:
+    type: Recreate
+    rollingUpdate: null
+  ingress:
+    ingressClassName: "traefik"
+    enabled: true
+    hosts:
+      - grafana.camsab.me
+  persistence:
+    enabled: true
+    size: 1Gi
+  sidecar:
+    dashboards:
+      # Support for new table panels, when enabled grafana auto migrates the old table panels to newer table panels
+      enableNewTablePanelSyntax: true
+alertmanager:
+  alertmanagerSpec:
+    # Work around till discord config is supported correctly:
+    # https://github.com/prometheus-operator/prometheus-operator/issues/7159
+    useExistingSecret: true
+    secrets:
+      - alertmanager-config
+    configSecret: alertmanager-config
+
+   #secrets:
+   #   - discord-webhook
+  #config:
+  #  receivers:
+  #    - name: "null" # used by route for "InfoInhibitor|Watchdog"
+  #    - name: 'discord-alerts'
+  #      discord_configs:
+  #        - webhook_url: https://changeme
+  #          send_resolved: true
+kubeProxy:
+  enabled: false
+prometheus:
+  ingress:
+    enabled: true
+    ingressClassName: "traefik"
+    hosts:
+      - prometheus.camsab.me
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
+    scrapeConfigSelectorNilUsesHelmValues: false
+    retention: 5d
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 25Gi
+kubeApiServer:
+  tlsConfig:
+    insecureSkipVerify: true
+kubeScheduler:
+  enabled: false
+kubeControllerManager: 
+   enabled: false
+crds:
+  enabled: true
+  upgradeJob:
+    enabled: true
+    forceConflicts: true
