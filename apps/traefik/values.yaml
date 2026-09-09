@@ -5,9 +5,10 @@ service:
   single: true
   type: LoadBalancer
   annotations: 
-    io.cilium/lb-ipam-ips: 192.168.0.226
-  labels: 
-    type: l2
+    io.cilium/lb-ipam-ips: 172.16.0.5
+  labels:
+    bgp-pool: "pool-1"
+    advertise: "bgp"
 # This is needed to Argo dosen't get stuck on Sync ingress forever
 # https://github.com/argoproj/argo-cd/issues/968#issuecomment-451082913
 providers:
