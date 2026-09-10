@@ -1,0 +1,83 @@
+autoDirectNodeRoutes: true
+bandwidthManager:
+  bbr: true
+  enabled: true
+bpf:
+  datapathMode: netkit
+  masquerade: true
+cgroup:
+  autoMount:
+    enabled: false
+  hostRoot: /sys/fs/cgroup
+enableIPv4BIGTCP: true
+endpointRoutes:
+  enabled: true
+gatewayAPI:
+  enabled: true
+hubble:
+  enabled: true
+  metrics:
+    dashboards:
+      annotations:
+        grafana_folder: Hubble
+      enabled: true
+      namespace: kube-prometheus-stack
+    enableOpenMetrics: true
+    enabled:
+    - dns
+    - drop
+    - tcp
+    - flow
+    - port-distribution
+    - icmp
+    - httpV2:exemplars=true;labelsContext=source_ip,source_namespace,source_workload,destination_ip,destination_namespace,destination_workload,traffic_direction
+    serviceMonitor:
+      enabled: true
+  relay:
+    enabled: true
+  tls:
+    auto:
+      enabled: true
+      method: helm
+  ui:
+    enabled: true
+ipam:
+  mode: kubernetes
+ipv4NativeRoutingCIDR: 10.244.0.0/16
+k8sServiceHost: 127.0.0.1
+k8sServicePort: 7445
+kubeProxyReplacement: true
+bgpControlPlane:
+  enabled: true
+l2announcements:
+  enabled: true
+loadBalancer:
+  mode: dsr
+operator:
+  prometheus:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+prometheus:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+routingMode: native
+securityContext:
+  capabilities:
+    ciliumAgent:
+    - CHOWN
+    - KILL
+    - NET_ADMIN
+    - NET_RAW
+    - IPC_LOCK
+    - SYS_ADMIN
+    - SYS_RESOURCE
+    - DAC_OVERRIDE
+    - FOWNER
+    - SETGID
+    - SETUID
+    cleanCiliumState:
+    - NET_ADMIN
+    - SYS_ADMIN
+    - SYS_RESOURCE

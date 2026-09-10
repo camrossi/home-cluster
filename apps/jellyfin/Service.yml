@@ -5,10 +5,12 @@ metadata:
   name: jellyfin
   namespace: jellyfin
   labels:
-    type: l2
+    bgp-pool: "pool-1"
+    advertise: "bgp"
 spec:
   selector:
     app: jellyfin
+  externalTrafficPolicy: Local
   type: LoadBalancer
   ports:
     - port: 8096
