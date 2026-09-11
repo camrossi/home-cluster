@@ -11,7 +11,7 @@ cgroup:
   hostRoot: /sys/fs/cgroup
 enableIPv4BIGTCP: true
 endpointRoutes:
-  enabled: true
+  enabled: false
 gatewayAPI:
   enabled: true
 hubble:
