@@ -23,6 +23,10 @@ spec:
             concurrentVolumeBackupRestorePerNodeLimit: 1
             fastReplicaRebuildEnabled: true
             fastVolumeRestoreEnabled: true
+            defaultBackupBlockSize: 16Mi
+          defaultBackupStore:
+            pollInterval: 0
+
           ingress:
             enabled: true
             host: longhorn.camsab.me
