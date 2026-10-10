@@ -15,3 +15,20 @@ spec:
   resources:
     requests:
       storage: 600Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: immich-media
+  labels:
+    recurring-job-group.longhorn.io/backup: enabled
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: longhorn-2-replicas
+  dataSource:
+    name: immich
+    kind: PersistentVolumeClaim
+  resources:
+    requests:
+      storage: 600Gi
