@@ -27,7 +27,7 @@ spec:
     - ReadWriteOnce
   storageClassName: longhorn-2-replicas
   dataSource:
-    name: immich
+    name: media
     kind: PersistentVolumeClaim
   resources:
     requests:
