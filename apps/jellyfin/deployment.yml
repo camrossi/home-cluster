@@ -23,7 +23,7 @@ spec:
         kubernetes.io/hostname: "rk1-4"
       containers:
       - name: jellyfin
-        image: jellyfin/jellyfin:10.11.9
+        image: jellyfin/jellyfin:12.2
         imagePullPolicy: Always
         securityContext:
           privileged: true
@@ -41,7 +41,7 @@ spec:
       volumes:
       - name: media
         persistentVolumeClaim:
-          claimName: media-nfs
+          claimName: nfs-media
       - name: config
         persistentVolumeClaim:
           claimName: config-v2

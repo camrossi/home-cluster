@@ -37,3 +37,19 @@ spec:
   resources:
     requests:
       storage: "600Gi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-media
+  namespace: jellyfin
+spec:
+  accessModes:
+   - ReadWriteMany
+  storageClassName: longhorn-rwx-1-replicas
+  dataSource:
+    name: media-nfs
+    kind: PersistentVolumeClaim
+  resources:
+    requests:
+      storage: "600Gi"
