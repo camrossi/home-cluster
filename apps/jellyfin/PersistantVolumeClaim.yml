@@ -30,6 +30,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: nfs-media
   namespace: jellyfin
+  labels:
+    recurring-job-group.longhorn.io/backup: enabled
 spec:
   accessModes:
    - ReadWriteMany
