@@ -32,7 +32,7 @@ spec:
           value: /dev/hidraw0
         - name: API_PASSWORD
           value: upsmon
-        image: instantlinux/nut-upsd:2.8.3-r4
+        image: instantlinux/nut-upsd:2.8.5-r1
         imagePullPolicy: IfNotPresent
         name: nut-upsd
         securityContext:

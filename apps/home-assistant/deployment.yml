@@ -25,7 +25,7 @@ spec:
         kubernetes.io/hostname: "rk1-4"
       containers:
         - name: homeassistant
-          image: homeassistant/home-assistant:2026.4
+          image: homeassistant/home-assistant:2026.11.0b2
           imagePullPolicy: Always
           env:
             - name: TZ
