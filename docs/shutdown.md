@@ -32,6 +32,7 @@ k scale statefulset --replicas 0 --all
 
 kcn gitea
 k scale deployment --replicas 0 --all
+k scale statefulset --replicas 0 --all
 
 kcn uptime-kuma
 k scale deployment --replicas 0 --all
@@ -76,10 +77,18 @@ k scale statefulset --replicas 0 --all
 kcn cert-manager
 k scale deployment --replicas 0 --all
 
+kcn marinara
+k scale deployment --replicas 0 --all
+
+
+
 k cordon rpi4-4 rpi4-3 rpi4-2 rpi4-1 rk1-4 rk1-1 rk1-2 rk1-3
 
 Shutdown workers:
 talosctl -n 192.168.0.10,192.168.0.7,192.168.0.9,192.168.0.6,192.168.0.8 shutdown
 
 Shutdown cp2 and cp3:
+talosctl -n 192.168.0.5,192.168.0.4 shutdown
+
+Shutdown cp1:
 talosctl -n 192.168.0.5,192.168.0.4 shutdown
